@@ -1,0 +1,9 @@
+@use "sass-mq/mq" with (
+	$breakpoints: (
+		"s": 320px,
+		"m": 740px,
+		"l": 1024px,
+		"xl": 1200px,
+	)
+);
+@forward "sass-mq/mq";

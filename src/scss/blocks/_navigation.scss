@@ -1,0 +1,28 @@
+// Navigation principale
+
+.navigation {
+	// Si js
+	// position: absolute;
+	// right: 0;
+
+	& ul {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: var(--space-xs);
+		padding: 0;
+	}
+
+	& a {
+		color: currentColor;
+		font-weight: 600;
+		text-decoration: none;
+		text-transform: uppercase;
+		padding-left: var(--space-2xs);
+		border-bottom: 1px solid;
+
+		&:hover {
+			color: var(--color-primary);
+		}
+	}
+}

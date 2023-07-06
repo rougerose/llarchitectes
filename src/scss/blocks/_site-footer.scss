@@ -1,0 +1,35 @@
+@use "../tools/mq" as mq;
+
+.site-footer {
+	// background-color: var(--color-primary);
+	background-color: hsl(13, 12%, 86%);
+	font-size: var(--step--3);
+	padding-left: var(--gutter);
+	padding-right: var(--gutter);
+	padding-top: var(--space-xl);
+	padding-bottom: var(--space-xl);
+	margin-top: var(--space-xl);
+	// position: fixed;
+	// bottom: 0;
+	// left: 0;
+	// width: 100%;
+	// z-index: 0;
+}
+
+.site-footer_container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-end;
+	gap: var(--space-l) 1rem;
+
+	@include mq.mq($until: 960px) {
+		justify-content: center;
+	}
+}
+
+.site-footer_brand {
+	width: 100%;
+	max-width: 500px;
+	// margin-right: 2.5rem; // largeur du bouton burger
+}

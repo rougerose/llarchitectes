@@ -1,0 +1,10 @@
+.icon {
+	height: var(--icon-size, 1em);
+	width: var(--icon-size, 1em);
+}
+
+.icon-arrow-se {
+	// --icon-size: 0.8em;
+	// margin-left: 0.25em;
+	transition: transform 0.3s ease, fill 0.5s ease;
+}

@@ -1,0 +1,26 @@
+// Grid
+
+@use "../tools/mq" as mq;
+
+.grid {
+	display: grid;
+	gap: var(--gutter);
+	grid-template-columns: repeat(
+		var(--grid-placement, auto-fill),
+		minmax(var(--grid-min-item-size, 16rem), 1fr)
+	);
+
+	&[data-layout="third"] {
+		--grid-placement: auto-fit;
+		--grid-min-item-size: clamp(16rem, 33%, 20rem);
+	}
+
+	&[data-layout="projets"] {
+		--grid-placement: auto-fit;
+		--grid-min-item-size: clamp(16rem, 33%, 27rem);
+	}
+
+	// @include mq.mq($until: 600px) {
+	// 	gap: var() var(--gutter);
+	// }
+}
