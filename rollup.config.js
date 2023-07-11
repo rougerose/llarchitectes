@@ -7,6 +7,7 @@ const output_plugins = [process.env.NODE_ENV === "production" && terser()];
 export default [
 	{
 		input: "src/js/burger-menu.js",
+		plugins: [resolve(), commonjs()],
 		output: [
 			{
 				file: "dist/js/burger-menu.js",

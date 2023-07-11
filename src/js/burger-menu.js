@@ -1,4 +1,5 @@
 import getFocusableElements from "./get-focusable-elements.js";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 class BurgerMenu extends HTMLElement {
 	constructor() {
@@ -26,7 +27,6 @@ class BurgerMenu extends HTMLElement {
 	}
 
 	get maxWidth() {
-		console.log(this.getAttribute("max-width"));
 		return parseInt(this.getAttribute("max-width") || 9999, 10);
 	}
 
@@ -71,7 +71,6 @@ class BurgerMenu extends HTMLElement {
 
 			this.trigger.addEventListener("click", (evt) => {
 				evt.preventDefault();
-
 				this.toggle();
 			});
 
@@ -113,11 +112,13 @@ class BurgerMenu extends HTMLElement {
 			case "closed":
 				this.trigger.setAttribute("aria-expanded", "false");
 				this.trigger.setAttribute("aria-label", "Open menu");
+				enableBodyScroll(this);
 				break;
 			case "open":
 			case "initial":
 				this.trigger.setAttribute("aria-expanded", "true");
 				this.trigger.setAttribute("aria-label", "Close menu");
+				disableBodyScroll(this);
 				break;
 		}
 	}

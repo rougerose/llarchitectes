@@ -43,7 +43,7 @@
 	width: 2.5rem;
 	height: 2.5rem; /* Nice big tap target */
 	position: relative;
-	z-index: 1;
+	z-index: 10;
 	// background: transparent;
 	border: none;
 	cursor: pointer;
@@ -59,7 +59,7 @@
 }
 
 .burger-menu[enabled="true"] .burger-menu__panel {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	padding: 5rem 1.5rem 2rem 1.5rem;
@@ -70,6 +70,7 @@
 	background: var(--color-primary);
 	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
+	z-index: 9;
 }
 
 .burger-menu[enabled="true"] .navigation {
