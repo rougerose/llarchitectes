@@ -9,7 +9,7 @@ export default [
 		input: "src/js/burger-menu.js",
 		output: [
 			{
-				file: "dist/js/clla.js",
+				file: "dist/js/burger-menu.js",
 				format: "es",
 				plugins: output_plugins,
 			},
