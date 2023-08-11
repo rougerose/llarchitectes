@@ -1,6 +1,7 @@
 import getFocusableElements from "./get-focusable-elements.js";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
+// Source https://piccalil.li/tutorial/build-a-fully-responsive-progressively-enhanced-burger-menu/
 class BurgerMenu extends HTMLElement {
 	constructor() {
 		super();
@@ -152,8 +153,8 @@ class BurgerMenu extends HTMLElement {
 	}
 }
 
-if ("customElements" in window) {
-	customElements.define("burger-menu", BurgerMenu);
-}
+// if ("customElements" in window) {
+// 	customElements.define("burger-menu", BurgerMenu);
+// }
 
 export default BurgerMenu;

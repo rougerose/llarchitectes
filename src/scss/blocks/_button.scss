@@ -1,0 +1,64 @@
+// ========================================
+// button : lien et élément bouton
+// ========================================
+
+@use "sass:color";
+@use "sass:map";
+@use "../abstract/clla-couleurs" as colors;
+$juniper-800: map.get(colors.$juniper, 800);
+
+.button {
+	background-color: transparent;
+	border: 2px solid transparent;
+	color: currentColor;
+	cursor: pointer;
+	line-height: 1.1;
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.5em 0.5em 0.35em;
+	min-width: 10ch;
+	// min-height: 44px;
+	transition: all 0.3s ease;
+
+	&:hover,
+	&:active {
+		color: var(--color-ink);
+		background-color: var(--color-primary);
+	}
+
+	// Variantes
+	// ========================================
+
+	// with-icon
+	&.with-icon {
+		--icon-size: 0.75em;
+		align-items: baseline;
+	}
+
+	&.with-icon-end {
+		& svg {
+			margin-left: 0.5em;
+		}
+	}
+
+	// related
+	&[data-variant="related"] {
+		background-color: color.scale(
+			map.get(colors.$juniper, 300),
+			$alpha: -40%
+		);
+		text-transform: uppercase;
+
+		&:hover,
+		&:active {
+			border-color: map.get(colors.$juniper, 300);
+			background-color: map.get(colors.$juniper, 300);
+			box-shadow: 0 2px 4px
+					color.scale(map.get(colors.$juniper, 800), $alpha: -80%),
+				0 3px 6px
+					color.scale(map.get(colors.$juniper, 800), $alpha: -75%);
+		}
+	}
+}

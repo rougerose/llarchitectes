@@ -1,0 +1,101 @@
+// ========================================
+// Article Actualité avec un encadrement
+// ========================================
+
+@use "../abstract/clla-variables" as var;
+
+.with-frame {
+	position: relative;
+}
+
+// Encadrement du header
+// ========================================
+
+.with-frame {
+	& .article_header {
+		display: grid;
+		grid-template-columns: fit-content(80%) auto;
+		grid-template-rows: #{var.$frame-space} auto auto;
+		padding-right: #{var.$frame-space};
+		padding-left: #{var.$frame-space};
+
+		& .article_date {
+			grid-row: 2;
+		}
+
+		& .article_titre {
+			grid-row: 3;
+			grid-column: 1;
+			padding-right: var(--space-s-m);
+		}
+
+		&::after {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 1px;
+			grid-column: 2;
+			grid-row: 1;
+			background-color: black;
+			margin-bottom: 0.5em;
+		}
+	}
+}
+
+// Encadrement du contenu (header excepté)
+// ========================================
+
+.frame {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	padding-right: #{var.$frame-space};
+
+	&[aria-hidden="true"] {
+		pointer-events: none;
+	}
+}
+
+.frame-container {
+	display: grid;
+	grid-template-columns: 40% auto;
+	grid-template-rows: 40% auto;
+	width: 100%;
+	height: 100%;
+
+	&::before,
+	&::after {
+		content: "";
+		display: block;
+		width: 100%;
+		height: 100%;
+		border: 1px solid;
+	}
+
+	&::before {
+		grid-row: 2 / 3;
+		border-right: none;
+		border-top: none;
+	}
+
+	&::after {
+		grid-row: 1 / span 2;
+		border-left: none;
+		border-top: none;
+	}
+}
+
+.with-frame {
+	& .article_desc {
+		padding-right: var(--space-s-m);
+		padding-left: #{var.$frame-space};
+	}
+
+	& .article_portfolio {
+		padding-left: #{var.$frame-space};
+		padding-bottom: #{var.$frame-space};
+		& img {
+			width: 100%;
+		}
+	}
+}

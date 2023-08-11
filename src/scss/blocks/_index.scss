@@ -1,74 +1,17 @@
+@use "article";
 @use "burger-menu";
+@use "button";
 @use "card";
 @use "content-block";
 @use "icon";
 @use "link-more";
 @use "navigation";
+@use "portfolio";
+@use "related";
 @use "site-header";
 @use "site-footer";
 
 .intro {
 	font-size: var(--step-2);
 	line-height: 1.1;
-}
-
-.framed {
-	margin-bottom: 6rem;
-	position: relative;
-}
-
-.framed-desc {
-	padding-top: 3rem;
-	padding-left: 3rem;
-	padding-right: 3rem;
-}
-
-.framed-images {
-	padding-bottom: 3rem;
-	padding-top: 3rem;
-	padding-left: 3rem;
-}
-
-.framed-img {
-	width: 100%;
-	object-fit: cover;
-}
-
-.frame {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	padding-right: 3rem;
-
-	&[aria-hidden="true"] {
-		pointer-events: none;
-	}
-}
-
-.frame-container {
-	display: grid;
-	grid-template-columns: 40% auto;
-	grid-template-rows: 40% auto;
-	width: 100%;
-	height: 100%;
-
-	&::before,
-	&::after {
-		content: "";
-		display: block;
-		width: 100%;
-		height: 100%;
-		border: 2px solid;
-	}
-
-	&::before {
-		grid-row: 2 / 3;
-		border-right: none;
-		border-top: none;
-	}
-
-	&::after {
-		grid-row: 1 / span 2;
-		border-left: none;
-	}
 }

@@ -28,5 +28,14 @@ inspirations :
   https://www.google.com/search?client=firefox-b-d&sxsrf=AB5stBhmVK4PCxGklcf5ZXM7hauJrHkegg:1691242144267&q=css+border+animation&tbm=isch&source=lnms&sa=X&ved=2ahUKEwiKx_P5z8WAAxXmVqQEHavEAn44ChDSlAl6BAgKEAE&biw=1460&bih=804&dpr=2#imgrc=4RGE7sABoNMELM
 
 - cadre ouvert :
+
   - technique 1 : https://codepen.io/daviddarnes/pen/oEEqdp?editors=1100
   - technique 2 (grid + zones nommées) : https://codepen.io/chriskirknielsen/pen/WMdzPQ
+
+- Albums et compositions :
+  - boucle à utiliser
+    ```
+    <BOUCLE_albums_article(albums_liens albums) {objet=article} {id_objet=#ID_ARTICLE} {vu=non} {statut=publie}>
+      <INCLURE{fond=#COMPOSITION|compositions_selectionner{album}}{env}>
+    </BOUCLE_albums_article>
+    ```

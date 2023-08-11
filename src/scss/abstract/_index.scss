@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "clla-couleurs" as color;
+@use "clla-couleurs" as colors;
 // utopia custom properties
 @use "utopia-type";
 @use "utopia-space";
@@ -24,9 +24,10 @@ $inset-space: var(--space-2xs-s);
 	--font-family-base: #{$font-family-sans};
 	--font-family-mono: #{$font-family-mono};
 	// Couleurs
-	--color-paper: #{map.get(color.$base, "white")};
-	--color-ink: #{map.get(color.$base, "black")};
-	--color-primary: #{color.$primaire};
+	--color-paper: #{map.get(colors.$base, "white")};
+	--color-ink: #{map.get(colors.$base, "black")};
+	--color-primary: #{colors.$primaire};
+	--color-secondary: #{colors.$secondaire};
 	// Principes de mise en page
 	// -- Containers
 	--wrapper-max-width: var(--grid-max-width);

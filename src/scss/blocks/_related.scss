@@ -1,0 +1,28 @@
+// ========================================
+// Related content
+// ========================================
+
+.related {
+	padding: var(--space-xl) 0;
+	background-color: var(--color-secondary);
+}
+
+.related_headline {
+	color: var(--color-ink);
+	font-size: var(--step-3);
+	text-transform: uppercase;
+	font-weight: 600;
+
+	&.with-offset-icon {
+		--icon-size: 0.75em;
+		display: flex;
+		gap: var(--space-2xs);
+		align-items: baseline;
+	}
+}
+
+.related_list {
+	--gutter: var(--space-l);
+	padding-left: 0;
+	margin-top: var(--space-l);
+}

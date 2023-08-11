@@ -1,0 +1,23 @@
+// ========================================
+// Interactions :
+// selection, focus, focus-visible
+// ========================================
+
+@use "sass:map";
+@use "../abstract/clla-couleurs" as colors;
+
+::selection {
+	background-color: map.get(colors.$base, "black");
+	color: map.get(colors.$base, "white");
+}
+
+*:focus-visible,
+[type="button"]:focus-visible,
+[type="reset"]:focus-visible,
+[type="submit"]:focus-visible,
+button:focus-visible,
+.button:focus-visible,
+iframe:focus-visible {
+	outline: 3px solid map.get(colors.$base, "black");
+	outline-offset: 3px;
+}

@@ -20,7 +20,7 @@
 .site-header_brand {
 	width: 100%;
 	max-width: 500px;
-	margin-right: 2.5rem; // largeur du bouton burger
+	// margin-right: 2.5rem; // largeur du bouton burger
 
 	@include mq.mq($from: 600px) {
 		margin-right: 0;

@@ -9,10 +9,8 @@
 	padding-left: var(--gutter);
 	padding-right: var(--gutter);
 	width: 100%;
-	// TEST
-	// margin: auto;
 
 	&[data-type="narrow"] {
-		max-width: 800px;
+		max-width: 1000px;
 	}
 }

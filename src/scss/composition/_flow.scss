@@ -1,3 +1,28 @@
+// ========================================
+// flow-space
+// ========================================
+
+// valeur 0
 .flow > * + * {
 	margin-top: var(--flow-space, 1rem);
 }
+
+// valeur -1
+// .flow-space-size--1 {
+// 	margin-top: var(--space-xs-s);
+// }
+
+// valeur -2
+// .flow-space-size--2 {
+// 	margin-top: var(--space-2xs-xs);
+// }
+
+// valeur +1
+// .flow-space-size-1 {
+// 	margin-top: var(--space-m-l);
+// }
+
+// valeur +2
+// .flow-space-size-2 {
+// 	margin-top: var(--space-l-xl);
+// }
