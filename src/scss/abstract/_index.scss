@@ -1,24 +1,37 @@
 @use "sass:map";
-// variables
-@use "clla-variables" as var;
 @use "clla-couleurs" as color;
 // utopia custom properties
 @use "utopia-type";
 @use "utopia-space";
+@use "utopia-grid";
+
+// ========================================
+// Variables SCSS
+// ========================================
+// -- Typo
+$font-family-mono: "PressuraMono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+	Consolas, "Liberation Mono", "Courier New", monospace;
+$font-family-sans: "Pressura", Helvetica, Roboto, Arial, ui-sans-serif,
+	system-ui, -apple-system, "Apple Color Emoji", "Segoe UI Emoji",
+	"Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+// -- Mise en page
+$flow-space: var(--space-s-m);
+// -- Marges d'encadrement d'un article Actualité
+$inset-space: var(--space-2xs-s);
 
 :root {
 	// Typo
-	--font-family-base: #{var.$font-family-sans};
-	--font-family-mono: #{var.$font-family-mono};
+	--font-family-base: #{$font-family-sans};
+	--font-family-mono: #{$font-family-mono};
 	// Couleurs
 	--color-paper: #{map.get(color.$base, "white")};
 	--color-ink: #{map.get(color.$base, "black")};
 	--color-primary: #{color.$primaire};
 	// Principes de mise en page
 	// -- Containers
-	--wrapper-max-width: #{var.$wrapper-max-width};
+	--wrapper-max-width: var(--grid-max-width);
 	// -- Gouttière
-	--gutter: #{var.$gutter};
+	--gutter: var(--grid-gutter);
 	// -- Flow space
-	--flow-space: #{var.$flow-space};
+	--flow-space: #{$flow-space};
 }
