@@ -1,35 +1,63 @@
+@use "sass:color";
+@use "sass:map";
+@use "../abstract/clla-couleurs" as colors;
 @use "../tools/mq" as mq;
 
 .site-footer {
-	// background-color: var(--color-primary);
-	background-color: hsl(13, 12%, 86%);
 	font-size: var(--step--3);
-	padding-left: var(--gutter);
-	padding-right: var(--gutter);
-	padding-top: var(--space-xl);
-	padding-bottom: var(--space-xl);
-	margin-top: var(--space-xl);
-	// position: fixed;
-	// bottom: 0;
-	// left: 0;
-	// width: 100%;
-	// z-index: 0;
+	padding: var(--space-2xl) var(--gutter);
 }
 
 .site-footer_container {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: flex-end;
 	gap: var(--space-l) 1rem;
+}
 
-	@include mq.mq($until: 960px) {
-		justify-content: center;
-	}
+.site-footer_inner {
+	--gutter: var(--space-xl) var(--space-m);
+	grid-template-columns: repeat(1, 1fr);
+	align-items: center;
 }
 
 .site-footer_brand {
 	width: 100%;
-	max-width: 500px;
-	// margin-right: 2.5rem; // largeur du bouton burger
+	max-width: var(--logo-max-width);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.site-footer_content {
+	--grid-placement: auto-fit;
+}
+
+.site-footer_col {
+	display: flex;
+	flex-direction: column;
+	padding-left: var(--space-s);
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 1px;
+		background-color: map.get(colors.$juniper, 700);
+	}
+}
+
+@include mq.mq($from: 1024px) {
+	.site-footer_inner {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.site-footer_brand {
+		margin-bottom: var(--space-m);
+	}
+
+	.site-footer_content {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }

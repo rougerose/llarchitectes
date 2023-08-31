@@ -4,13 +4,15 @@
 	// Si js
 	// position: absolute;
 	// right: 0;
+	margin-top: var(--space-s);
 
 	& ul {
 		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
+		flex-flow: var(--navigation-flow, row wrap);
+		align-items: var(--navigation-align, stretch);
 		gap: var(--space-xs);
 		padding: 0;
+		margin: 0;
 	}
 
 	& a {
@@ -18,11 +20,22 @@
 		font-weight: 600;
 		text-decoration: none;
 		text-transform: uppercase;
-		padding-left: var(--space-2xs);
-		border-bottom: 1px solid;
 
 		&:hover {
 			color: var(--color-primary);
+		}
+	}
+
+	&[data-variant="footer"] {
+		margin-top: 0;
+
+		& ul {
+			--navigation-flow: column wrap;
+			height: 100%;
+		}
+
+		& li {
+			flex: 1;
 		}
 	}
 }

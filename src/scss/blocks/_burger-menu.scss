@@ -1,3 +1,7 @@
+// ========================================
+// Burger menu
+// ========================================
+
 @use "sass:color";
 @use "sass:map";
 
@@ -80,10 +84,9 @@
 }
 
 .burger-menu[enabled="true"] .navigation ul {
-	// display: block;
+	--navigation-flow: column wrap;
+	--navigation-align: flex-start;
 	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
 }
 
 .burger-menu[enabled="true"] .navigation a {

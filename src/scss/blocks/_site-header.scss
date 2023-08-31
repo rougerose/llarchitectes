@@ -1,3 +1,7 @@
+// ========================================
+// site-header
+// ========================================
+
 @use "../tools/mq" as mq;
 
 .site-header {
@@ -11,7 +15,6 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	// align-items: center;
 	gap: 0 1rem;
 	// Si js
 	// position: relative;
@@ -19,8 +22,7 @@
 
 .site-header_brand {
 	width: 100%;
-	max-width: 500px;
-	// margin-right: 2.5rem; // largeur du bouton burger
+	max-width: var(--logo-max-width);
 
 	@include mq.mq($from: 600px) {
 		margin-right: 0;

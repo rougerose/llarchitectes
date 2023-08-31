@@ -1,0 +1,19 @@
+// ========================================
+// Partners
+// ========================================
+
+.partners {
+	--cluster-space: var(--space-xs);
+
+	& h3 {
+		font-size: inherit;
+		font-weight: 600;
+		text-transform: uppercase;
+		display: inline-block;
+		margin-bottom: var(--space-xs);
+	}
+
+	img {
+		width: 55px;
+	}
+}
