@@ -31,25 +31,36 @@ $juniper-800: map.get(colors.$juniper, 800);
 	// Variantes
 	// ========================================
 
-	// with-icon
+	// variante avec icone
 	&.with-icon {
 		--icon-size: 0.75em;
 		align-items: baseline;
 	}
 
+	// variante avec icone à droite du libellé
 	&.with-icon-end {
 		& svg {
 			margin-left: 0.5em;
 		}
 	}
 
-	// related
+	// variante transparente et bordure
+	&[data-variant="ghost"] {
+		border-color: var(--color-primary);
+		color: var(--color-primary);
+
+		&:hover,
+		&:active {
+			color: var(--color-paper);
+		}
+	}
+
+	// variante encadré "related" (contenus liés à un article)
 	&[data-variant="related"] {
 		background-color: color.scale(
 			map.get(colors.$juniper, 300),
 			$alpha: -40%
 		);
-		text-transform: uppercase;
 
 		&:hover,
 		&:active {
