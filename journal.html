@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boulevard Raspail | Cabinet Laurent Lainé Architectes</title>
+  <title>Journal de bord | Cabinet Laurent Lainé Architectes</title>
   <link rel="stylesheet" href="dist/css/lla_styles.css">
   <script src="dist/js/clla.js" defer></script>
 </head>
 <body>
 	<header class="site-header">
 		<div class="site-header_container">
-			<a href="." class="site-header_brand">
+			<a href="/" class="site-header_brand">
 				<img src="images/laurent_laine_architectes.svg" alt="">
 			</a>
 			<burger-menu max-width="980">
@@ -52,15 +52,15 @@
 			</article>
 		</div>
 		<aside class="related gap-top-2xl-3xl">
-			<div class="wrapper flow" data-type="narrow">
+			<div class="wrapper" data-type="narrow">
 				<h1 class="related_headline with-offset-icon">
 					<svg class="icon icon-offset" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true">
 						<use href="images/icon-defs.svg#icon-arrow-se"></use>
 					</svg>
 					<span>Dernières actualités</span>
 				</h1>
-				<div class="grid" data-layout="related">
-					<article class="card" data-type="post">
+				<ul class="grid related_list" role="list">
+					<li class="card" data-type="journal">
 						<div class="card_media">
 							<img class="card_img" src="images/journal/journal-castellane.jpg"  alt="">
 						</div>
@@ -68,7 +68,7 @@
 							<div class="card_text-inner">
 								<div class="card_header">
 									<p>5 juin 2023</p>
-									<h2 class="card_title"><a href="">Rue Castellane</a></h2>
+									<h2><a href="">Rue Castellane</a></h2>
 								</div>
 								<div class="card_desc">
 									<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
@@ -78,8 +78,8 @@
 								</div>
 							</div>
 						</div>
-					</article>
-					<article class="card" data-type="post">
+					</li>
+					<li class="card" data-type="journal">
 						<div class="card_media">
 							<img class="card_img" src="images/journal/journal-mazagran.jpg"  alt="">
 						</div>
@@ -87,7 +87,7 @@
 							<div class="card_text-inner">
 								<div class="card_header">
 									<p>20 mai 2023</p>
-									<h2 class="card_title"><a href="">Rue Mazagran</a></h2>
+									<h2><a href="">Rue Mazagran</a></h2>
 								</div>
 								<div class="card_desc">
 									<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
@@ -97,8 +97,8 @@
 								</div>
 							</div>
 						</div>
-					</article>
-					<article class="card" data-type="post">
+					</li>
+					<li class="card" data-type="journal">
 						<div class="card_media">
 							<img class="card_img" src="images/journal/journal-soufflot.jpg"  alt="">
 						</div>
@@ -106,7 +106,7 @@
 							<div class="card_text-inner">
 								<div class="card_header">
 									<p>6 mai 2023</p>
-									<h2 class="card_title"><a href="">Rue Soufflot</a></h2>
+									<h2><a href="">Rue Soufflot</a></h2>
 								</div>
 								<div class="card_desc">
 									<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
@@ -116,10 +116,10 @@
 								</div>
 							</div>
 						</div>
-					</article>
-				</div>
-				<div class="repel justify-content-end gap-top-l">
-					<a href="" class="button with-icon with-icon-end text-transform-upper" data-variant="related">
+					</li>
+				</ul>
+				<div class="cluster cluster-end gap-top-l">
+					<a href="" class="button with-icon with-icon-end" data-variant="related">
 						Toutes nos actualités
 						<svg class="icon" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true">
 							<use href="images/icon-defs.svg#icon-arrow-se"></use>
