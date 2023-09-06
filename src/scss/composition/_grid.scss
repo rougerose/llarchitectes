@@ -10,17 +10,26 @@
 		minmax(var(--grid-min-item-size, 16rem), 1fr)
 	);
 
-	&[data-layout="third"] {
+	// &[data-layout="third"] {
+	// 	--grid-placement: auto-fit;
+	// 	--grid-min-item-size: clamp(16rem, 33%, 20rem);
+	// }
+
+	&[data-layout="projects"] {
 		--grid-placement: auto-fit;
-		--grid-min-item-size: clamp(16rem, 33%, 20rem);
+		--grid-min-item-size: min(100%, 31ch);
+		gap: var(--space-l);
 	}
 
-	&[data-layout="projets"] {
-		--grid-placement: auto-fit;
-		--grid-min-item-size: clamp(16rem, 33%, 27rem);
+	&[data-layout="journal"],
+	&[data-layout="related"] {
+		--grid-min-item-size: min(220px, 100%);
+		gap: var(--space-l);
 	}
 
-	// @include mq.mq($until: 600px) {
-	// 	gap: var() var(--gutter);
+	// &[data-layout="related"] {
+	// 	// --grid-placement: auto-fill;
+	// 	--grid-min-item-size: min(220px, 100%);
+	// 	gap: var(--space-l);
 	// }
 }

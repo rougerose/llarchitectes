@@ -9,8 +9,4 @@
 	gap: var(--cluster-space, 1rem);
 	justify-content: var(--cluster-horizontal-align, flex-start);
 	align-items: var(--cluster-vertical-align, center);
-
-	&.cluster-end {
-		--cluster-horizontal-align: flex-end;
-	}
 }

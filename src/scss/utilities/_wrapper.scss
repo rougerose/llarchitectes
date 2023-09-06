@@ -11,6 +11,6 @@
 	width: 100%;
 
 	&[data-type="narrow"] {
-		max-width: 1000px;
+		max-width: var(--wrapper-narrow-max-width);
 	}
 }

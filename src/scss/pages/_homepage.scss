@@ -1,0 +1,27 @@
+// ========================================
+// homepage :
+// styles spécifiques à la page d'accueil
+// ========================================
+
+.homepage {
+	padding-bottom: var(--space-s-m);
+
+	& .homepage_intro {
+		font-size: var(--step-2);
+
+		& .button {
+			--flow-space: var(--space-m-l);
+			font-size: var(--step-1);
+		}
+	}
+
+	& .homepage_projects,
+	& .homepage_blog {
+		padding-top: var(--space-s-m);
+	}
+
+	& .heading {
+		font-size: var(--step-4);
+		text-transform: uppercase;
+	}
+}

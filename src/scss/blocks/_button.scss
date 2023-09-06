@@ -41,6 +41,13 @@ $juniper-800: map.get(colors.$juniper, 800);
 	&.with-icon-end {
 		& svg {
 			margin-left: 0.5em;
+			transition: transform 0.3s ease;
+		}
+
+		&:hover {
+			& svg {
+				transform: rotate(-45deg);
+			}
 		}
 	}
 

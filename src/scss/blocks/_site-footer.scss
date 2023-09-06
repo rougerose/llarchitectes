@@ -6,6 +6,8 @@
 .site-footer {
 	font-size: var(--step--3);
 	padding: var(--space-2xl) var(--gutter);
+	background-color: hsl(0, 0%, 100%);
+	border-top: 1px solid hsl(0, 0%, 90%);
 }
 
 .site-footer_container {
@@ -23,8 +25,6 @@
 .site-footer_brand {
 	width: 100%;
 	max-width: var(--logo-max-width);
-	margin-left: auto;
-	margin-right: auto;
 }
 
 .site-footer_content {

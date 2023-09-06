@@ -31,6 +31,7 @@ $inset-space: var(--space-2xs-s);
 	// Principes de mise en page
 	// -- Containers
 	--wrapper-max-width: var(--grid-max-width);
+	--wrapper-narrow-max-width: 63rem;
 	// -- Gouttière
 	--gutter: var(--grid-gutter);
 	// -- Flow space
