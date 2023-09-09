@@ -8,15 +8,33 @@
 
 $inset-width: 2px;
 
-.article_date {
-	font-size: var(--step--3);
+.article_surtitre {
+	font-size: var(--step--1);
 	font-weight: 700;
+	letter-spacing: 0.05em;
 	text-transform: uppercase;
 }
 
 .article_titre {
 	color: var(--color-primary);
-	margin-top: var(--space-3xs-2xs);
+	margin-top: var(--space-3xs);
+}
+
+.article_date {
+	margin-top: var(--space-xs);
+	font-size: var(--step--2);
+	font-weight: 400;
+	text-transform: uppercase;
+
+	& time {
+		margin-left: 0.25em;
+		margin-right: 0.25em;
+	}
+
+	&::before,
+	&::after {
+		content: "\2022";
+	}
 }
 
 .article_desc {

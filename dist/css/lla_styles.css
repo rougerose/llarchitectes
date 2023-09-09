@@ -397,15 +397,30 @@ a:hover {
   flex-grow: 1;
 }
 
-.article_date {
-  font-size: var(--step--3);
+.article_surtitre {
+  font-size: var(--step--1);
   font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .article_titre {
   color: var(--color-primary);
-  margin-top: var(--space-3xs-2xs);
+  margin-top: var(--space-3xs);
+}
+
+.article_date {
+  margin-top: var(--space-xs);
+  font-size: var(--step--2);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.article_date time {
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+}
+.article_date::before, .article_date::after {
+  content: "•";
 }
 
 .article_desc {
@@ -626,13 +641,13 @@ a:hover {
 .card a {
   text-decoration: none;
 }
-.card svg {
+.card .icon {
   transition: transform 0.3s ease;
 }
 .card:hover a {
   text-decoration: underline;
 }
-.card:hover svg {
+.card:hover .icon {
   transform: rotate(-45deg);
 }
 .card:hover img {
@@ -652,8 +667,8 @@ a:hover {
 
 .card_header p {
   font-size: var(--step--3);
+  font-weight: 300;
   text-transform: uppercase;
-  margin-bottom: var(--space-3xs);
 }
 
 .card_title {
@@ -664,12 +679,17 @@ a:hover {
 .card_desc {
   display: flex;
   flex-direction: column;
+  margin-top: var(--flow-space);
+  margin-bottom: var(--flow-space);
 }
 .card_desc p {
   font-size: var(--step--2);
 }
-.card_desc p:first-child {
-  margin-top: var(--flow-space);
+
+.card_date {
+  font-size: var(--step--3);
+  font-weight: 300;
+  text-transform: uppercase;
 }
 
 .card[data-type=project] {
@@ -719,10 +739,8 @@ a:hover {
   color: var(--color-primary);
   padding-left: 0;
   align-items: flex-end;
+  align-items: last baseline;
   transition: color 0.3s ease;
-}
-.card[data-type=project] .card_icon {
-  --icon-size: 1em;
 }
 .card[data-type=project]:hover::before {
   background-color: var(--color-primary);
@@ -745,8 +763,10 @@ a:hover {
   grid-template-columns: var(--space-xs) 1fr var(--space-xs);
   grid-template-rows: var(--space-xs) 1fr var(--space-xs);
 }
-.card[data-type=post] svg {
-  margin: var(--flow-space) calc(var(--flow-space) * -1) var(--flow-space) auto;
+.card[data-type=post] .icon {
+  --icon-size: 0.75em;
+  margin-right: calc(var(--flow-space) * -1);
+  margin-left: auto;
 }
 .card[data-type=post] .card_media {
   grid-column: 2/4;
@@ -777,23 +797,24 @@ a:hover {
   position: relative;
   margin-top: var(--space-2xs);
   margin-right: var(--space-2xs);
+  padding: var(--flow-space) var(--card-offset) var(--flow-space);
+  color: var(--color-paper);
 }
 .card[data-type=post] .card_text-inner::before {
   position: absolute;
   content: "";
-  width: 100%;
-  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   background-color: var(--color-primary);
   mix-blend-mode: multiply;
 }
-.card[data-type=post] .card_header, .card[data-type=post] .card_desc {
-  color: var(--color-paper);
+.card[data-type=post] .card_text-inner > div {
   position: relative;
-  padding-left: var(--card-offset);
-  padding-right: var(--card-offset);
 }
-.card[data-type=post] .card_header {
-  padding-top: var(--flow-space);
+.card[data-type=post] .card_title {
+  font-size: var(--step-1);
 }
 .card[data-type=post] a {
   color: var(--color-paper);
@@ -806,10 +827,18 @@ a:hover {
   --card-inset-color: var(--color-primary);
 }
 
-.content-block[data-type=narrow] .text-block {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1000px;
+.headline_title {
+  color: var(--color-primary);
+  font-size: var(--step-6);
+  max-width: 30ch;
+}
+
+.headline_desc {
+  margin-top: var(--space-m-l);
+  font-size: var(--step-2);
+}
+.headline_desc p, .headline_desc ul {
+  max-width: 70ch;
 }
 
 .icon {
@@ -1044,11 +1073,6 @@ a:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-.intro {
-  font-size: var(--step-2);
-  line-height: 1.1;
-}
-
 .full-bleed {
   width: 100vw;
   margin-left: 50%;
@@ -1123,7 +1147,12 @@ a:hover {
 .homepage .homepage_projects, .homepage .homepage_blog {
   padding-top: var(--space-s-m);
 }
-.homepage .heading {
+.homepage .headline_title {
+  color: var(--color-ink);
   font-size: var(--step-4);
   text-transform: uppercase;
+}
+
+.posts {
+  padding-top: 0;
 }

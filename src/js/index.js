@@ -12,7 +12,7 @@ if (cards.length > 0) {
 	cards.forEach((card) => {
 		let down,
 			up,
-			link = card.querySelector("h2 a");
+			link = card.querySelector(".card_title a");
 
 		card.style.cursor = "pointer";
 

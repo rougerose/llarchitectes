@@ -1,0 +1,21 @@
+// ========================================
+// .headline
+// ========================================
+
+// .headline {}
+
+.headline_title {
+	color: var(--color-primary);
+	font-size: var(--step-6);
+	max-width: 30ch;
+}
+
+.headline_desc {
+	margin-top: var(--space-m-l);
+	font-size: var(--step-2);
+
+	& p,
+	& ul {
+		max-width: 70ch;
+	}
+}

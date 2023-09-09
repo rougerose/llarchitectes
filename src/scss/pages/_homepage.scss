@@ -20,7 +20,8 @@
 		padding-top: var(--space-s-m);
 	}
 
-	& .heading {
+	& .headline_title {
+		color: var(--color-ink);
 		font-size: var(--step-4);
 		text-transform: uppercase;
 	}
