@@ -1,0 +1,27 @@
+// ========================================
+// FILTERS
+//
+// Liste des filtres thématiques sur les projets
+// ========================================
+
+@use "sass:color";
+@use "sass:map";
+@use "../abstract/clla-couleurs" as colors;
+
+$juniper-800: map.get(colors.$juniper, 700);
+
+// .filters {}
+
+.filters_list {
+	--cluster-space: 0.5rem 0.5rem;
+	padding: 0;
+	margin: var(--space-m-l) 0 0;
+}
+
+.filters_count {
+	margin-top: var(--space-l-xl);
+	color: var(--color-primary);
+	font-size: var(--step--1);
+	font-weight: 500;
+	text-transform: uppercase;
+}
