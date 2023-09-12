@@ -5,12 +5,32 @@
 // GT Pressura Mono
 // ========================================
 
+// Light
+@font-face {
+	font-family: "PressuraMono";
+	src: url("../fonts/GT-Pressura/GT-Pressura-Mono-Light-Trial.woff2")
+		format("woff2");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+// Regular
+@font-face {
+	font-family: "PressuraMono";
+	src: url("../fonts/GT-Pressura/GT-Pressura-Mono-Regular-Trial.woff2")
+		format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
 // Bold
 @font-face {
 	font-family: "PressuraMono";
 	src: url("../fonts/GT-Pressura/GT-Pressura-Mono-Bold-Trial.woff2")
 		format("woff2");
-	font-weight: 800;
+	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
 }
@@ -23,7 +43,7 @@
 	font-family: "Pressura";
 	src: url("../fonts/GT-Pressura/GT-Pressura-Light-Trial.woff2")
 		format("woff2");
-	font-weight: 400;
+	font-weight: 300;
 	font-style: normal;
 	font-display: swap;
 }
@@ -32,7 +52,7 @@
 	font-family: "Pressura";
 	src: url("../fonts/GT-Pressura/GT-Pressura-Light-Italic-Trial.woff2")
 		format("woff2");
-	font-weight: 400;
+	font-weight: 300;
 	font-style: italic;
 	font-display: swap;
 }
@@ -42,7 +62,7 @@
 	font-family: "Pressura";
 	src: url("../fonts/GT-Pressura/GT-Pressura-Text-Trial.woff2")
 		format("woff2");
-	font-weight: 500;
+	font-weight: 350;
 	font-style: normal;
 	font-display: swap;
 }
@@ -51,7 +71,7 @@
 	font-family: "Pressura";
 	src: url("../fonts/GT-Pressura/GT-Pressura-Text-Italic-Trial.woff2")
 		format("woff2");
-	font-weight: 500;
+	font-weight: 350;
 	font-style: italic;
 	font-display: swap;
 }
@@ -61,7 +81,7 @@
 	font-family: "Pressura";
 	src: url("../fonts/GT-Pressura/GT-Pressura-Regular-Trial.woff2")
 		format("woff2");
-	font-weight: 600;
+	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
@@ -70,7 +90,7 @@
 	font-family: "Pressura";
 	src: url("../fonts/GT-Pressura/GT-Pressura-Regular-Italic-Trial.woff2")
 		format("woff2");
-	font-weight: 600;
+	font-weight: 400;
 	font-style: italic;
 	font-display: swap;
 }
@@ -80,7 +100,7 @@
 	font-family: "Pressura";
 	src: url("../fonts/GT-Pressura/GT-Pressura-Medium-Trial.woff2")
 		format("woff2");
-	font-weight: 700;
+	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
 }
@@ -89,7 +109,7 @@
 	font-family: "Pressura";
 	src: url("../fonts/GT-Pressura/GT-Pressura-Medium-Italic-Trial.woff2")
 		format("woff2");
-	font-weight: 700;
+	font-weight: 500;
 	font-style: italic;
 	font-display: swap;
 }
@@ -99,7 +119,7 @@
 	font-family: "Pressura";
 	src: url("../fonts/GT-Pressura/GT-Pressura-Bold-Trial.woff2")
 		format("woff2");
-	font-weight: 800;
+	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
 }
@@ -108,7 +128,7 @@
 	font-family: "Pressura";
 	src: url("../fonts/GT-Pressura/GT-Pressura-Bold-Italic-Trial.woff2")
 		format("woff2");
-	font-weight: 800;
+	font-weight: 700;
 	font-style: italic;
 	font-display: swap;
 }
