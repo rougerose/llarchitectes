@@ -68,8 +68,9 @@
 }
 
 .card_date {
+	font-family: var(--font-family-mono);
 	font-size: var(--step--3);
-	font-weight: 300;
+	font-weight: 400;
 	text-transform: uppercase;
 }
 
@@ -106,6 +107,7 @@
 		justify-content: center;
 		z-index: 2;
 		content: "Voir le projet";
+		font-family: var(--font-family-mono);
 		color: transparent;
 		text-transform: uppercase;
 		transition: color 0.3s;
