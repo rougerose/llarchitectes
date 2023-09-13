@@ -39,7 +39,7 @@
 		width: 100%;
 		object-fit: cover;
 		aspect-ratio: var(--card-img-ratio, 4/3);
-		transition: transform 0.3s ease-in-out;
+		transition: transform 0.3s ease;
 	}
 }
 
@@ -79,6 +79,7 @@
 
 .card[data-type="project"] {
 	--card-offset: var(--space-s);
+	--card-color: var(--color-primary);
 	position: relative;
 
 	&::before,
@@ -94,11 +95,11 @@
 		content: "";
 		display: block;
 		background-color: transparent;
-		border: 2px solid var(--color-primary);
+		border: 2px solid var(--card-color);
 		top: var(--card-offset);
 		right: var(--card-offset);
 		z-index: 1;
-		transition: background-color 0.3s ease;
+		transition: background-color 0.3s ease, border-color 0.3s ease;
 	}
 
 	&::after {
@@ -129,7 +130,7 @@
 		margin-left: var(--card-offset);
 		margin-right: var(--card-offset);
 		padding: var(--card-offset);
-		color: var(--color-primary);
+		color: var(--card-color);
 		padding-left: 0;
 		align-items: flex-end;
 		align-items: last baseline;
@@ -139,6 +140,7 @@
 	&:hover {
 		&::before {
 			background-color: var(--color-primary);
+			border-color: var(--color-primary);
 		}
 
 		&::after {
@@ -152,6 +154,11 @@
 		& .card_content {
 			color: var(--color-paper);
 		}
+	}
+
+	// Variante dans conteneur "related"
+	[data-layout="related"] & {
+		--card-color: var(--color-tertiary);
 	}
 }
 

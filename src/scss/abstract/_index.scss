@@ -28,6 +28,7 @@ $inset-space: var(--space-2xs-s);
 	--color-ink: #{map.get(colors.$base, "black")};
 	--color-primary: #{colors.$primaire};
 	--color-secondary: #{colors.$secondaire};
+	--color-tertiary: #{colors.$tertiaire};
 	// Principes de mise en page
 	// -- Containers
 	--wrapper-max-width: var(--grid-max-width);

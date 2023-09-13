@@ -27,9 +27,8 @@
 		gap: var(--space-l);
 	}
 
-	// &[data-layout="related"] {
-	// 	// --grid-placement: auto-fill;
-	// 	--grid-min-item-size: min(220px, 100%);
-	// 	gap: var(--space-l);
-	// }
+	// Variante .breakout (projets)
+	&.breakout[data-layout="related"] {
+		--grid-min-item-size: min(100%, 31ch);
+	}
 }

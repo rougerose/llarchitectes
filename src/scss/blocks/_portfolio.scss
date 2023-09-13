@@ -4,7 +4,25 @@
 
 @use "../tools/mq" as mq;
 
+.portfolio {
+	margin-top: var(--space-l-xl);
+
+	& img {
+		width: 100%;
+	}
+
+	// Variante .breakout (projet) //
+	&.breakout {
+		--item-space: var(--space-2xl);
+		margin-top: var(--space-3xl);
+	}
+}
+
 .portfolio_item {
+	& + & {
+		margin-top: var(--item-space, var(--space-m-l));
+	}
+
 	&[data-composition] {
 		display: grid;
 		gap: var(--space-m-l);
@@ -42,6 +60,42 @@
 			}
 		}
 
+		&[data-composition="format-75/25"] {
+			grid-template-columns: repeat(6, 1fr);
+
+			& .portfolio_media:first-child {
+				grid-column: span 4;
+			}
+
+			& .portfolio_media {
+				grid-column: span 2;
+			}
+		}
+
+		&[data-composition="format-80/20"] {
+			grid-template-columns: repeat(8, 1fr);
+
+			& .portfolio_media:first-child {
+				grid-column: span 6;
+			}
+
+			& .portfolio_media {
+				grid-column: span 2;
+			}
+		}
+
+		&[data-composition="format-20/80"] {
+			grid-template-columns: repeat(8, 1fr);
+
+			& .portfolio_media:first-child {
+				grid-column: span 2;
+			}
+
+			& .portfolio_media {
+				grid-column: span 6;
+			}
+		}
+
 		// Format 1/3 - 1/3 - 1/3
 		// Nombre de medias : indifférent
 		// Remarque : les styles déjà définis plus haut
@@ -52,6 +106,12 @@
 		// 		grid-column: auto;
 		// 	}
 		// }
+
+		&[data-composition="format-33-center"] {
+			& .portfolio_media {
+				grid-column: 2/3;
+			}
+		}
 
 		// Format 2/3 - 1/3
 		// Nombre de medias : 2

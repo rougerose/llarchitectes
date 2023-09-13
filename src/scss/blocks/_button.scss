@@ -34,13 +34,13 @@ $juniper-300: map.get(colors.$juniper, 300);
 	// Variantes
 	// ========================================
 
-	// variante avec icone
+	// Variante avec icone
 	&.with-icon {
 		--icon-size: 0.75em;
 		align-items: baseline;
 	}
 
-	// variante avec icone à droite du libellé
+	// Variante avec icone à droite du libellé
 	&.with-icon-end {
 		& svg {
 			margin-left: 0.5em;
@@ -54,7 +54,7 @@ $juniper-300: map.get(colors.$juniper, 300);
 		}
 	}
 
-	// variante transparente et bordure
+	// Variante "Framed" transparente et bordure
 	&[data-variant="framed"] {
 		border-color: var(--color-primary);
 		color: var(--color-primary);
@@ -65,27 +65,33 @@ $juniper-300: map.get(colors.$juniper, 300);
 		}
 	}
 
-	// variante transparente et bordure sur le hover
-	&[data-variant="filter"] {
+	// Variantes "filtre" et "tag" transparente et bordure sur le hover
+	&[data-variant="filter"],
+	&[data-variant="tag"] {
 		border-color: color.scale($juniper-500, $alpha: -80%);
 		border-radius: 4px;
-		font-family: var(--font-family-mono);
-		font-size: var(--step--1);
+		font-size: var(--step--2);
 
 		&:hover,
 		&:active {
 			border-color: $juniper-500;
-			background-color: transparent;
+			background-color: var(--color-paper);
+			box-shadow: 0 2px 4px color.scale($juniper-800, $alpha: -80%),
+				0 3px 6px color.scale($juniper-800, $alpha: -75%);
+		}
+
+		&:active {
+			box-shadow: 0 0px 4px color.scale($juniper-800, $alpha: -80%),
+				0 0px 6px color.scale($juniper-800, $alpha: -75%);
 		}
 	}
 
-	// variante encadré "related" (contenus liés à un article)
+	// Variante encadré "related" (contenus liés à un article)
 	&[data-variant="related"] {
 		background-color: color.scale(
 			map.get(colors.$juniper, 300),
 			$alpha: -40%
 		);
-		font-family: var(--font-family-mono);
 		text-transform: uppercase;
 
 		&:hover,
@@ -94,6 +100,11 @@ $juniper-300: map.get(colors.$juniper, 300);
 			background-color: $juniper-300;
 			box-shadow: 0 2px 4px color.scale($juniper-800, $alpha: -80%),
 				0 3px 6px color.scale($juniper-800, $alpha: -75%);
+		}
+
+		&:active {
+			box-shadow: 0 0px 4px color.scale($juniper-800, $alpha: -80%),
+				0 0px 6px color.scale($juniper-800, $alpha: -75%);
 		}
 	}
 }
