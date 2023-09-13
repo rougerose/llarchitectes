@@ -743,7 +743,7 @@ a:hover {
 .card_date {
   font-family: var(--font-family-mono);
   font-size: var(--step--3);
-  font-weight: 400;
+  font-weight: 300;
   text-transform: uppercase;
 }
 
