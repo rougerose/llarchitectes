@@ -27,7 +27,7 @@
 }
 
 .article_prose {
-	--breakout-max-width: 63rem;
+	--breakout-max-width: 75rem;
 
 	& img {
 		width: 100%;
@@ -36,18 +36,25 @@
 
 .article_desc {
 	margin-top: var(--space-l-xl);
+	// font-size: var(--step-1);
 }
 
 .article_meta {
+	margin-top: var(--space-l);
+
 	& dt {
 		text-transform: uppercase;
 		font-family: var(--font-family-mono);
-		font-size: var(--step--4);
+		font-size: var(--step--3);
 	}
 
 	& dd + dt {
 		margin-top: var(--space-xs-s);
 	}
+}
+
+.article_tags {
+	margin-top: var(--space-l);
 }
 
 // .article_portfolio {}

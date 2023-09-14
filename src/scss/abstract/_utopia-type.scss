@@ -14,42 +14,45 @@
 // 	--step-7: clamp(2.57rem, calc(2.31rem + 1.19vw), 3.42rem);
 // }
 
-// /* @link https://utopia.fyi/type/calculator/?c=338,18,1.067,1240,20,1.125,7,4,&s=0.75|0.5|0.25,1.5|2|3|4|6,2xs-s|xs-l&g=xs,l,xl,12 */
+/* @link https://utopia.fyi/type/calculator?c=338,18,1.067,1240,20,1.125,8,4,&s=0.75|0.5|0.25,1.5|2|3|4|6,2xs-s|xs-l&g=xs,l,xl,12 */
 
 :root {
-	// /* Step -4: 13.89px → 12.49px */
+	/* Step -4: 13.89px → 12.49px */
 	--step--4: clamp(0.78rem, calc(0.9rem + -0.16vw), 0.87rem);
 
-	// /* Step -3: 14.82px → 14.05px */
+	/* Step -3: 14.82px → 14.05px */
 	--step--3: clamp(0.88rem, calc(0.94rem + -0.09vw), 0.93rem);
 
-	// /* Step -2: 15.81px → 15.80px */
+	/* Step -2: 15.81px → 15.80px */
 	--step--2: clamp(0.99rem, calc(0.99rem + 0vw), 0.99rem);
 
-	// /* Step -1: 16.87px → 17.78px */
+	/* Step -1: 16.87px → 17.78px */
 	--step--1: clamp(1.05rem, calc(1.03rem + 0.1vw), 1.11rem);
 
-	// /* Step 0: 18.00px → 20.00px */
+	/* Step 0: 18.00px → 20.00px */
 	--step-0: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
 
-	// /* Step 1: 19.21px → 22.50px */
+	/* Step 1: 19.21px → 22.50px */
 	--step-1: clamp(1.2rem, calc(1.12rem + 0.36vw), 1.41rem);
 
-	// /* Step 2: 20.49px → 25.31px */
+	/* Step 2: 20.49px → 25.31px */
 	--step-2: clamp(1.28rem, calc(1.17rem + 0.53vw), 1.58rem);
 
-	// /* Step 3: 21.87px → 28.48px */
+	/* Step 3: 21.87px → 28.48px */
 	--step-3: clamp(1.37rem, calc(1.21rem + 0.73vw), 1.78rem);
 
-	// /* Step 4: 23.33px → 32.04px */
+	/* Step 4: 23.33px → 32.04px */
 	--step-4: clamp(1.46rem, calc(1.25rem + 0.97vw), 2rem);
 
-	// /* Step 5: 24.89px → 36.04px */
+	/* Step 5: 24.89px → 36.04px */
 	--step-5: clamp(1.56rem, calc(1.29rem + 1.24vw), 2.25rem);
 
-	// /* Step 6: 26.56px → 40.55px */
+	/* Step 6: 26.56px → 40.55px */
 	--step-6: clamp(1.66rem, calc(1.33rem + 1.55vw), 2.53rem);
 
-	// /* Step 7: 28.34px → 45.61px */
+	/* Step 7: 28.34px → 45.61px */
 	--step-7: clamp(1.77rem, calc(1.37rem + 1.91vw), 2.85rem);
+
+	/* Step 8: 30.24px → 51.32px */
+	--step-8: clamp(1.89rem, calc(1.4rem + 2.34vw), 3.21rem);
 }

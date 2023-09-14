@@ -15,9 +15,10 @@ $font-family-sans: "Pressura", Helvetica, Roboto, Arial, ui-sans-serif,
 	system-ui, -apple-system, "Apple Color Emoji", "Segoe UI Emoji",
 	"Segoe UI Symbol", "Noto Color Emoji", sans-serif;
 // -- Mise en page
-$flow-space: var(--space-s-m);
-// -- Marges d'encadrement d'un article Actualité
+$flow-space: var(--space-s);
+// -- Variables des bordures (largeur et marges) d'un article Actualité
 $inset-space: var(--space-2xs-s);
+$inset-width: 2px;
 
 :root {
 	// Typo
