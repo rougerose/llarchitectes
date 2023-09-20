@@ -5,7 +5,6 @@
 	// position: absolute;
 	// right: 0;
 	margin-top: var(--space-s);
-	// font-family: var(--font-family-mono);
 	font-weight: 700;
 
 	& ul {
@@ -17,13 +16,39 @@
 		margin: 0;
 	}
 
+	& li {
+		&.current {
+			& a::after {
+				width: 100%;
+			}
+		}
+	}
+
 	& a {
+		padding: 0.45em 0 0.35em;
+		position: relative;
 		color: currentColor;
 		text-decoration: none;
 		text-transform: uppercase;
 
+		&::after {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 0;
+			height: 2px;
+			background-color: var(--color-primary);
+			content: "";
+			transition: opacity 0.3s, width 0.3s;
+		}
+
 		&:hover {
 			color: var(--color-primary);
+
+			&::after {
+				opacity: 1;
+				width: 100%;
+			}
 		}
 	}
 
