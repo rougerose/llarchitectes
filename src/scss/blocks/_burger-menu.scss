@@ -1,3 +1,7 @@
+// ========================================
+// Burger menu
+// ========================================
+
 @use "sass:color";
 @use "sass:map";
 
@@ -13,15 +17,15 @@
 	&::before,
 	&::after {
 		display: block;
-		width: 24px;
+		width: 20px;
 		height: 3px;
 		background: var(--color-ink);
 		border: 1px solid var(--color-ink);
 		position: absolute;
 		border-radius: 3px;
 		left: 50%;
-		margin-left: -12px;
-		transition: transform 350ms ease-in-out;
+		margin-left: -10px;
+		transition: transform 0.35s ease-in-out;
 	}
 
 	&::before,
@@ -40,75 +44,67 @@
 
 .burger-menu[enabled="true"] .burger-menu__trigger {
 	display: block;
-	width: 2.5rem;
-	height: 2.5rem; /* Nice big tap target */
+	width: 2rem;
+	height: 2rem;
 	position: relative;
 	z-index: 10;
-	// background: transparent;
 	border: none;
 	cursor: pointer;
-	// Adaptations
-	position: fixed;
+	// Adaptations pour le site
+	position: absolute;
 	right: var(--gutter);
 	top: var(--space-s);
 	background-color: var(--color-paper);
 	border-radius: 50%;
-	box-shadow: 0px 5px 5px -3px color.adjust(#000, $alpha: -0.9),
-		0px 8px 8px 1px color.adjust(#000, $alpha: -0.8),
-		0px 3px 8px 2px color.adjust(#000, $alpha: -0.8);
+	box-shadow: 0px 5px 5px 0px color.adjust(#000, $alpha: -0.9),
+		0px 3px 6px 2px color.adjust(#000, $alpha: -0.8);
 }
 
 .burger-menu[enabled="true"] .burger-menu__panel {
 	position: fixed;
-	top: 0;
+	top: var(--space-3xl);
+	right: 0;
+	bottom: 0;
 	left: 0;
-	padding: 5rem 1.5rem 2rem 1.5rem;
-	width: 100%;
-	height: 100%;
+	// marges extérieures et intérieures
+	// pour décaler le menu principal sous le logo (de hauteur variable)
+	margin-top: var(--space-xl-2xl);
+	padding: var(--space-xl-2xl) var(--gutter) 0;
 	visibility: hidden;
 	opacity: 0;
-	background: var(--color-primary);
+	background-color: var(--color-paper);
 	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
 	z-index: 9;
 }
 
-.burger-menu[enabled="true"] .navigation {
-	max-width: 20rem;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 .burger-menu[enabled="true"] .navigation ul {
-	// display: block;
+	--navigation-flow: column wrap;
+	--navigation-align: flex-start;
 	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-}
+	gap: var(--space-s);
 
-.burger-menu[enabled="true"] .navigation a {
-	color: var(--color-paper);
-	padding-left: 0;
-	border-bottom-color: transparent;
-	transition: border 0.3s ease;
-
-	&:hover {
-		border-bottom-color: var(--color-paper);
+	// Sur mobile et orientation paysage,
+	// règle simplifiée ici par un max-height à 448px,
+	// le menu principal est affiché en horizontal.
+	@media (max-height: 28rem) {
+		--navigation-flow: row wrap;
 	}
 }
 
-// .burger-menu[enabled="true"] .navigation ul > * + * {
-// 	margin-top: 2rem;
-// }
-
 .burger-menu[enabled="true"] .navigation li {
 	font-size: var(--step-3);
+	padding: 0;
+}
+
+.burger-menu[enabled="true"] .navigation a {
+	color: var(--color-ink);
 }
 
 .burger-menu[enabled="true"][status="open"] .burger-menu__panel {
 	visibility: visible;
 	opacity: 1;
-	transition: opacity 400ms ease;
+	transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
 .burger-menu[enabled="true"][status="closed"] .burger-menu__panel > * {

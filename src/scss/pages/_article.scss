@@ -1,0 +1,103 @@
+// ========================================
+// ARTICLE
+// styles d'une page d'Article
+// ========================================
+
+@use "../abstract" as var;
+
+// .article {}
+
+.article_surtitre {
+	font-size: var(--step--1);
+	font-weight: 500;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+.article_titre {
+	color: var(--color-primary);
+}
+
+.article_date {
+	margin-top: var(--space-s);
+	font-family: var(--font-family-mono);
+	font-size: var(--step--2);
+	font-weight: 300;
+	text-transform: uppercase;
+}
+
+.article_prose {
+	--breakout-max-width: 75rem;
+
+	& img {
+		width: 100%;
+	}
+}
+
+.article_desc {
+	margin-top: var(--space-l-xl);
+	// font-size: var(--step-1);
+}
+
+.article_meta {
+	margin-top: var(--space-l);
+
+	& dt {
+		text-transform: uppercase;
+		font-family: var(--font-family-mono);
+		font-size: var(--step--3);
+	}
+
+	& dd + dt {
+		margin-top: var(--space-xs-s);
+	}
+}
+
+.article_tags {
+	margin-top: var(--space-l);
+}
+
+// .article_portfolio {}
+
+// Variante inset (article Actualités)
+// ========================================
+
+.article[data-type="inset"] {
+	width: 100%;
+	display: grid;
+	grid-template-columns: #{var.$inset-space} 80% auto #{var.$inset-space};
+	grid-template-rows: 1fr auto;
+
+	&::before,
+	&::after {
+		display: block;
+		content: "";
+		border: var.$inset-width solid var(--color-primary);
+	}
+
+	&::before {
+		grid-column: 1 / 3;
+		grid-row: 2 / -1;
+		border-top: none;
+		border-right: none;
+	}
+
+	&::after {
+		grid-column: 3 / 4;
+		grid-row: 1 / -1;
+		border-left: none;
+	}
+
+	.article_prose {
+		grid-column: 2 / 3;
+		grid-row: 1;
+		padding-top: #{var.$inset-space};
+		margin-bottom: #{var.$inset-space};
+	}
+
+	.article_portfolio {
+		grid-column: 2 / -1;
+		grid-row: 2;
+		padding-bottom: #{var.$inset-space};
+	}
+}

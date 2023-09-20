@@ -1,0 +1,14 @@
+// ========================================
+// INDICATOR
+//
+// ========================================
+
+.indicator {
+	margin-left: 0.25em;
+	font-size: 0.7em;
+	color: var(--color-primary);
+
+	& span {
+		vertical-align: super;
+	}
+}

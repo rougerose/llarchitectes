@@ -1,0 +1,110 @@
+// ========================================
+// button : lien et élément bouton
+// ========================================
+
+@use "sass:color";
+@use "sass:map";
+@use "../abstract/clla-couleurs" as colors;
+
+$juniper-800: map.get(colors.$juniper, 800);
+$juniper-500: map.get(colors.$juniper, 500);
+$juniper-300: map.get(colors.$juniper, 300);
+
+.button {
+	background-color: transparent;
+	border: 2px solid transparent;
+	color: currentColor;
+	cursor: pointer;
+	font-family: var(--font-family-mono);
+	line-height: 1.1;
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.45em 0.25em 0.35em;
+	min-width: 10ch;
+	transition: all 0.3s ease;
+
+	&:hover,
+	&:active {
+		color: var(--color-ink);
+		background-color: var(--color-primary);
+	}
+
+	// Variantes
+	// ========================================
+
+	// Variante avec icone
+	&.with-icon {
+		--icon-size: 0.75em;
+		align-items: baseline;
+	}
+
+	// Variante avec icone à droite du libellé
+	&.with-icon-end {
+		& svg {
+			margin-left: 0.5em;
+			transition: transform 0.3s ease;
+		}
+
+		&:hover {
+			& svg {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+
+	// Variante "Framed" transparente et bordure
+	&[data-variant="framed"] {
+		border-color: var(--color-primary);
+		color: var(--color-primary);
+
+		&:hover,
+		&:active {
+			color: var(--color-paper);
+		}
+	}
+
+	// Variantes "filtre" et "tag" transparente et bordure sur le hover
+	&[data-variant="filter"],
+	&[data-variant="tag"] {
+		border-color: color.scale($juniper-500, $alpha: -80%);
+		border-radius: 4px;
+		font-size: var(--step--1);
+
+		&:hover,
+		&:active {
+			border-color: $juniper-500;
+			background-color: var(--color-paper);
+			box-shadow: 0 2px 4px color.scale($juniper-800, $alpha: -80%),
+				0 3px 6px color.scale($juniper-800, $alpha: -75%);
+		}
+
+		&:active {
+			box-shadow: 0 0px 4px color.scale($juniper-800, $alpha: -80%),
+				0 0px 6px color.scale($juniper-800, $alpha: -75%);
+		}
+	}
+
+	// Variante encadré "related" (contenus liés à un article)
+	&[data-variant="related"] {
+		background-color: color.scale(
+			map.get(colors.$juniper, 300),
+			$alpha: -40%
+		);
+		text-transform: uppercase;
+
+		&:hover,
+		&:active {
+			border-color: $juniper-300;
+			background-color: $juniper-300;
+			box-shadow: 0 2px 4px color.scale($juniper-800, $alpha: -80%),
+				0 3px 6px color.scale($juniper-800, $alpha: -75%);
+		}
+
+		&:active {
+			box-shadow: 0 0px 4px color.scale($juniper-800, $alpha: -80%),
+				0 0px 6px color.scale($juniper-800, $alpha: -75%);
+		}
+	}
+}

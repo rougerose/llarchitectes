@@ -1,0 +1,12 @@
+// ========================================
+// cluster
+// https://every-layout.dev/layouts/cluster/
+// ========================================
+
+.cluster {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--cluster-space, 1rem);
+	justify-content: var(--cluster-horizontal-align, flex-start);
+	align-items: var(--cluster-vertical-align, center);
+}
