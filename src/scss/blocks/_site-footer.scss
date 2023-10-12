@@ -1,6 +1,3 @@
-@use "sass:color";
-@use "sass:map";
-@use "../abstract/clla-couleurs" as colors;
 @use "../tools/mq" as mq;
 
 .site-footer {
@@ -44,7 +41,7 @@
 		top: 0;
 		height: 100%;
 		width: 1px;
-		background-color: map.get(colors.$juniper, 700);
+		background-color: var(--color-tertiary);
 	}
 }
 
