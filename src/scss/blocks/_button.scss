@@ -6,9 +6,9 @@
 @use "sass:map";
 @use "../abstract/clla-couleurs" as colors;
 
-$juniper-800: map.get(colors.$juniper, 800);
-$juniper-500: map.get(colors.$juniper, 500);
-$juniper-300: map.get(colors.$juniper, 300);
+$secondary-800: map.get(colors.$storm-gray, 800);
+$secondary-500: map.get(colors.$storm-gray, 500);
+// $secondary-300: map.get(colors.$storm-gray, 300);
 
 .button {
 	background-color: transparent;
@@ -68,43 +68,42 @@ $juniper-300: map.get(colors.$juniper, 300);
 	// Variantes "filtre" et "tag" transparente et bordure sur le hover
 	&[data-variant="filter"],
 	&[data-variant="tag"] {
-		border-color: color.scale($juniper-500, $alpha: -80%);
+		border-color: color.scale($secondary-500, $alpha: -80%);
 		border-radius: 4px;
 		font-size: var(--step--1);
 
 		&:hover,
 		&:active {
-			border-color: $juniper-500;
+			border-color: $secondary-500;
 			background-color: var(--color-paper);
-			box-shadow: 0 2px 4px color.scale($juniper-800, $alpha: -80%),
-				0 3px 6px color.scale($juniper-800, $alpha: -75%);
+			box-shadow: 0 2px 4px color.scale($secondary-800, $alpha: -80%),
+				0 3px 6px color.scale($secondary-800, $alpha: -75%);
 		}
 
 		&:active {
-			box-shadow: 0 0px 4px color.scale($juniper-800, $alpha: -80%),
-				0 0px 6px color.scale($juniper-800, $alpha: -75%);
+			box-shadow: 0 0px 4px color.scale($secondary-800, $alpha: -80%),
+				0 0px 6px color.scale($secondary-800, $alpha: -75%);
 		}
 	}
 
 	// Variante encadré "related" (contenus liés à un article)
 	&[data-variant="related"] {
-		background-color: color.scale(
-			map.get(colors.$juniper, 300),
-			$alpha: -40%
-		);
+		// background-color: map.get(colors.$storm-gray, 100);
+		border-color: var(--color-tertiary);
+		color: var(--color-tertiary);
 		text-transform: uppercase;
 
 		&:hover,
 		&:active {
-			border-color: $juniper-300;
-			background-color: $juniper-300;
-			box-shadow: 0 2px 4px color.scale($juniper-800, $alpha: -80%),
-				0 3px 6px color.scale($juniper-800, $alpha: -75%);
+			background-color: var(--color-tertiary);
+			color: var(--color-paper);
+			box-shadow: 0 2px 4px color.scale($secondary-800, $alpha: -80%),
+				0 3px 6px color.scale($secondary-800, $alpha: -75%);
 		}
 
 		&:active {
-			box-shadow: 0 0px 4px color.scale($juniper-800, $alpha: -80%),
-				0 0px 6px color.scale($juniper-800, $alpha: -75%);
+			box-shadow: 0 0px 4px color.scale($secondary-800, $alpha: -80%),
+				0 0px 6px color.scale($secondary-800, $alpha: -75%);
 		}
 	}
 }

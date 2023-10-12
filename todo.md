@@ -3,3 +3,4 @@
 - Compositions des portfolios : débugger les variantes à l'étape de développement Spip en fonction du nombre d'images par groupe (2, 3 ou davantage)
 - revoir le menu version mobile : design + ajout du logo principal
 - retour haut de page
+- erreur de compilation (version prod) si deux fichiers js séparés. A corriger.

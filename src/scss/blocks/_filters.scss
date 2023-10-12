@@ -4,12 +4,6 @@
 // Liste des filtres thématiques sur les projets
 // ========================================
 
-@use "sass:color";
-@use "sass:map";
-@use "../abstract/clla-couleurs" as colors;
-
-$juniper-800: map.get(colors.$juniper, 700);
-
 // .filters {}
 
 .filters_list {
