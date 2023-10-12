@@ -6,6 +6,7 @@
   <title>Projets : Rue Mazagran | Cabinet Laurent Lainé Architectes</title>
   <link rel="stylesheet" href="dist/css/lla_styles.css">
   <script src="dist/js/clla.js" defer></script>
+  <script src="dist/js/clla_carousel.js" defer></script>
 </head>
 <body>
 	<header class="site-header">
@@ -32,7 +33,6 @@
 					<header class="article_header">
 						<p class="article_surtitre">Paris / 09</p>
 						<h1 class="article_titre">Rue Mazagran</h1>
-						<p class="article_date"><time datetime="">13 juin 2023</time></p>
 					</header>
 					<div class="article_desc flow">
 						<p>Ravalement de la façade sur rue, très ornementée, en pierre de taille.</p>
@@ -49,7 +49,50 @@
 						</div>
 					</div>
 				</div>
-				<div class="article_portfolio portfolio breakout flow">
+				<div class="article_portfolio portfolio breakout" data-variant="slideshow">
+					<section class="splide" aria-label="Portfolio du projet">
+						<div class="splide__track">
+							<ul class="splide__list">
+								<li class="splide__slide">
+									<figure>
+										<img src="images/projets/mazagran/facade-avant-853x1280.jpg" alt="">
+									</figure>
+								</li>
+								<li class="splide__slide">
+									<figure>
+										<img src="images/projets/mazagran/_MG_0240-1920x1280.jpg" alt="">
+									</figure>
+								</li>
+								<li class="splide__slide">
+									<figure>
+										<img src="images/projets/mazagran/_MG_0228-853x1280.jpg" alt="">
+									</figure>
+								</li>
+								<li class="splide__slide">
+									<figure>
+										<img src="images/projets/mazagran/_MG_0245-1920x1280.jpg" alt="">
+									</figure>
+								</li>
+								<li class="splide__slide">
+									<figure>
+										<img src="images/projets/mazagran/_MG_0229-853x1280.jpg" alt="">
+									</figure>
+								</li>
+							</ul>
+						</div>
+					</section>
+				</div>
+				<!-- <section class="article_portfolio portfolio breakout flow" aria-label="Portfolio du projet">
+					<div class="splide__track">
+						<ul class="splide__list">
+							<li class="splide__slide"><img src="images/projets/mazagran/facade-avant-853x1280.jpg" alt=""></li>
+							<li class="splide__slide"><img src="images/projets/mazagran/_MG_0240-1920x1280.jpg"  alt=""></li>
+							<li class="splide__slide"><img src="images/projets/mazagran/_MG_0228-853x1280.jpg" alt=""></li>
+							<li class="splide__slide"><img src="images/projets/mazagran/_MG_0245-1920x1280.jpg" alt=""></li>
+						</ul>
+					</div>
+				</section> -->
+				<!-- <div class="article_portfolio portfolio breakout flow">
 					<div class="portfolio_item" data-composition="format-20/80">
 						<figure class="portfolio_media">
 							<img src="images/projets/mazagran-facade-avant.jpg" alt="">
@@ -77,12 +120,12 @@
 							<img src="images/projets/mazagran-02.jpg" alt="">
 						</figure>
 					</div>
-				</div>
+				</div> -->
 			</article>
 		</div>
 		<aside class="related">
 			<div class="wrapper">
-				<h1 class="related_headline with-offset-icon breakout">
+				<h1 class="related_headline with-offset-icon xbreakout">
 					<svg class="icon icon-offset" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true">
 						<use href="images/icon-defs.svg#icon-arrow-se"></use>
 					</svg>
