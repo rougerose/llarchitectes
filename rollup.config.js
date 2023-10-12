@@ -16,4 +16,15 @@ export default [
 			},
 		],
 	},
+	{
+		input: "src/js/carousel.js",
+		plugins: [resolve()],
+		output: [
+			{
+				file: "dist/js/clla_carousel.js",
+				format: "es",
+				plugins: output_plugins,
+			},
+		],
+	},
 ];
