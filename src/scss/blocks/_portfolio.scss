@@ -68,10 +68,14 @@
 			max-width: 100%;
 			width: 100%;
 			// Alignement sur la colonne de texte principale
-			padding-left: calc((100vw - var(--wrapper-narrow-max-width)) / 2);
+			// padding-left: calc((100vw - var(--wrapper-narrow-max-width)) / 2);
 
 			& figure {
 				height: 100%;
+				// Alignement sur la colonne de texte principale
+				padding-left: calc(
+					(100vw - var(--wrapper-narrow-max-width)) / 2
+				);
 			}
 
 			& img {
