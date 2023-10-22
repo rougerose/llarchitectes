@@ -5,9 +5,10 @@ import terser from "@rollup/plugin-terser";
 const srcDir = "src/js/";
 const destDir = "dist/js/";
 const terserOptions = {
-	compress: { passes: 6, join_vars: false, sequences: false },
+	compress: { passes: 3 },
 	module: true,
-	mangle: false,
+	mangle: true,
+	nameCache: {},
 };
 const outputPlugins = () => [
 	process.env.NODE_ENV === "production" && terser(terserOptions),
@@ -20,50 +21,13 @@ function build(src, dist, name) {
 		output: {
 			file: destDir + dist,
 			format: "es",
-			name,
+			// name,
 			plugins: outputPlugins(),
 		},
 	};
 }
 
-export default [build("index.js", "llarchitectes.js", "LLA")];
-
-// export default [
-// 	{
-// 		input: {
-// 			main: "src/js/index.js",
-// 			// carousel: "src/js/carousel.js",
-// 		},
-// 		plugins: [resolve(), commonjs()],
-// 		output: [
-// 			{
-// 				entryFileNames: "clla_[name].js",
-// 				format: "es",
-// 				plugins: output_plugins,
-// 				dir: "dist/js",
-// 			},
-// 		],
-// 	},
-// 	// {
-// 	// 	input: "src/js/index.js",
-// 	// 	plugins: [resolve(), commonjs()],
-// 	// 	output: [
-// 	// 		{
-// 	// 			file: "dist/js/clla.js",
-// 	// 			format: "es",
-// 	// 			plugins: output_plugins,
-// 	// 		},
-// 	// 	],
-// 	// },
-// 	// {
-// 	// 	input: "src/js/carousel.js",
-// 	// 	plugins: [resolve()],
-// 	// 	output: [
-// 	// 		{
-// 	// 			file: "dist/js/clla_carousel.js",
-// 	// 			format: "es",
-// 	// 			plugins: output_plugins,
-// 	// 		},
-// 	// 	],
-// 	// },
-// ];
+export default [
+	build("index.js", "llarchitectes.js", "LLA"),
+	build("carousel.js", "llarchitectes_carousel.js", ""),
+];

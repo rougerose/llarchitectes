@@ -1,1 +1,430 @@
-let hasPassiveEvents=!1;if("undefined"!=typeof window){const passiveTestOptions={get passive(){hasPassiveEvents=!0}};window.addEventListener("testPassive",null,passiveTestOptions);window.removeEventListener("testPassive",null,passiveTestOptions)}const isIosDevice="undefined"!=typeof window&&window.navigator&&window.navigator.platform&&(/iP(ad|hone|od)/.test(window.navigator.platform)||"MacIntel"===window.navigator.platform&&window.navigator.maxTouchPoints>1);let locks=[];let locksIndex=new Map;let documentListenerAdded=!1;let initialClientY=-1;let previousBodyOverflowSetting;let htmlStyle;let bodyStyle;let previousBodyPaddingRight;const allowTouchMove=el=>locks.some((lock=>!(!lock.options.allowTouchMove||!lock.options.allowTouchMove(el))));const preventDefault=rawEvent=>{const e=rawEvent||window.event;if(allowTouchMove(e.target))return!0;if(e.touches.length>1)return!0;e.preventDefault&&e.preventDefault();return!1};class BurgerMenu extends HTMLElement{constructor(){super();const self=this;this.state=new Proxy({status:"open",enabled:!1},{set(state,key,value){const oldValue=state[key];state[key]=value;oldValue!==value&&self.processStateChange();return state}})}get maxWidth(){return parseInt(this.getAttribute("max-width")||9999,10)}connectedCallback(){this.initialMarkup=this.innerHTML;this.render();new ResizeObserver((observedItems=>{const{contentRect:contentRect}=observedItems[0];this.state.enabled=contentRect.width<=this.maxWidth})).observe(this.parentNode)}render(){this.innerHTML=`\n      <div class="burger-menu" data-element="burger-root">\n        <button class="burger-menu__trigger" data-element="burger-menu-trigger" type="button" aria-label="Ouvrir le menu">\n          <span class="burger-menu__bar" aria-hidden="true"></span>\n        </button>\n        <div class="burger-menu__panel" data-element="burger-menu-panel">\n          ${this.initialMarkup}\n        </div>\n      </div>\n    `;this.postRender()}postRender(){this.trigger=this.querySelector('[data-element="burger-menu-trigger"]');this.panel=this.querySelector('[data-element="burger-menu-panel"]');this.root=this.querySelector('[data-element="burger-root"]');this.focusableElements=(parent=>{if(!parent){console.warn("You need to pass a parent HTMLElement");return[]}return parent.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled]), details:not([disabled]), summary:not(:disabled)')})(this);if(this.trigger&&this.panel){this.toggle();this.trigger.addEventListener("click",(evt=>{evt.preventDefault();this.toggle()}));document.addEventListener("focusin",(()=>{this.contains(document.activeElement)||this.toggle("closed")}))}else this.innerHTML=this.initialMarkup}toggle(forcedStatus){if(forcedStatus){if(this.state.status===forcedStatus)return;this.state.status=forcedStatus}else this.state.status="closed"===this.state.status?"open":"closed"}processStateChange(){this.root.setAttribute("status",this.state.status);this.root.setAttribute("enabled",this.state.enabled?"true":"false");this.manageFocus();switch(this.state.status){case"closed":this.trigger.setAttribute("aria-expanded","false");this.trigger.setAttribute("aria-label","Open menu");(targetElement=>{if(targetElement){locksIndex.set(targetElement,(null==locksIndex?void 0:locksIndex.get(targetElement))?(null==locksIndex?void 0:locksIndex.get(targetElement))-1:0);if(0===(null==locksIndex?void 0:locksIndex.get(targetElement))){locks=locks.filter((lock=>lock.targetElement!==targetElement));null==locksIndex||locksIndex.delete(targetElement)}if(isIosDevice){targetElement.ontouchstart=null;targetElement.ontouchmove=null;if(documentListenerAdded&&0===locks.length){document.removeEventListener("touchmove",preventDefault,hasPassiveEvents?{passive:!1}:void 0);documentListenerAdded=!1}}0===locks.length&&(isIosDevice?(()=>{if(void 0!==bodyStyle){const y=-parseInt(document.body.style.top,10);const x=-parseInt(document.body.style.left,10);const $html=document.documentElement;const $body=document.body;$html.style.height=(null==htmlStyle?void 0:htmlStyle.height)||"";$html.style.overflow=(null==htmlStyle?void 0:htmlStyle.overflow)||"";$body.style.position=bodyStyle.position||"";$body.style.top=bodyStyle.top||"";$body.style.left=bodyStyle.left||"";$body.style.width=bodyStyle.width||"";$body.style.height=bodyStyle.height||"";$body.style.overflow=bodyStyle.overflow||"";window.scrollTo(x,y);bodyStyle=void 0}})():(()=>{if(void 0!==previousBodyPaddingRight){document.body.style.paddingRight=previousBodyPaddingRight;previousBodyPaddingRight=void 0}if(void 0!==previousBodyOverflowSetting){document.body.style.overflow=previousBodyOverflowSetting;previousBodyOverflowSetting=void 0}})())}else console.error("enableBodyScroll unsuccessful - targetElement must be provided when calling enableBodyScroll on IOS devices.")})(this);break;case"open":case"initial":this.trigger.setAttribute("aria-expanded","true");this.trigger.setAttribute("aria-label","Close menu");((targetElement,options)=>{if(!targetElement){console.error("disableBodyScroll unsuccessful - targetElement must be provided when calling disableBodyScroll on IOS devices.");return}locksIndex.set(targetElement,(null==locksIndex?void 0:locksIndex.get(targetElement))?(null==locksIndex?void 0:locksIndex.get(targetElement))+1:1);if(locks.some((lock2=>lock2.targetElement===targetElement)))return;const lock={targetElement:targetElement,options:{}};locks=[...locks,lock];isIosDevice?window.requestAnimationFrame((()=>{const $html=document.documentElement;const $body=document.body;if(void 0===bodyStyle){htmlStyle={...$html.style};bodyStyle={...$body.style};const{scrollY:scrollY,scrollX:scrollX,innerHeight:innerHeight}=window;$html.style.height="100%";$html.style.overflow="hidden";$body.style.position="fixed";$body.style.top=-scrollY+"px";$body.style.left=-scrollX+"px";$body.style.width="100%";$body.style.height="auto";$body.style.overflow="hidden";setTimeout((()=>window.requestAnimationFrame((()=>{const bottomBarHeight=innerHeight-window.innerHeight;bottomBarHeight&&scrollY>=innerHeight&&($body.style.top=-(scrollY+bottomBarHeight)+"px")}))),300)}})):(options=>{if(void 0===previousBodyPaddingRight){const reserveScrollBarGap=!1;const scrollBarGap=window.innerWidth-document.documentElement.clientWidth;if(reserveScrollBarGap&&scrollBarGap>0){const computedBodyPaddingRight=parseInt(window.getComputedStyle(document.body).getPropertyValue("padding-right"),10);previousBodyPaddingRight=document.body.style.paddingRight;document.body.style.paddingRight=`${computedBodyPaddingRight+scrollBarGap}px`}}if(void 0===previousBodyOverflowSetting){previousBodyOverflowSetting=document.body.style.overflow;document.body.style.overflow="hidden"}})();if(isIosDevice){targetElement.ontouchstart=event=>{1===event.targetTouches.length&&(initialClientY=event.targetTouches[0].clientY)};targetElement.ontouchmove=event=>{1===event.targetTouches.length&&((event,targetElement)=>{const clientY=event.targetTouches[0].clientY-initialClientY;if(allowTouchMove(event.target))return!1;if(targetElement&&0===targetElement.scrollTop&&clientY>0)return preventDefault(event);if((targetElement=>!!targetElement&&targetElement.scrollHeight-targetElement.scrollTop<=targetElement.clientHeight)(targetElement)&&clientY<0)return preventDefault(event);event.stopPropagation()})(event,targetElement)};if(!documentListenerAdded){document.addEventListener("touchmove",preventDefault,hasPassiveEvents?{passive:!1}:void 0);documentListenerAdded=!0}}})(this)}}manageFocus(){if(this.state.enabled)switch(this.state.status){case"open":this.focusableElements.forEach((element=>element.removeAttribute("tabindex")));break;case"closed":[...this.focusableElements].filter((element=>"burger-menu-trigger"!==element.getAttribute("data-element"))).forEach((element=>element.setAttribute("tabindex","-1")))}else this.focusableElements.forEach((element=>element.removeAttribute("tabindex")))}}"customElements"in window&&customElements.define("burger-menu",BurgerMenu);const cards=document.querySelectorAll(".card");cards.length>0&&cards.forEach((card=>{let down,up,link=card.querySelector(".card_title a");card.style.cursor="pointer";card.onmousedown=()=>down=+new Date;card.onmouseup=()=>{up=+new Date;up-down<200&&link.click()}}));
+/**
+ * Returns back a NodeList of focusable elements
+ * that exist within the passed parnt HTMLElement
+ *
+ * @param {HTMLElement} parent HTML element
+ * @returns {NodeList} The focusable elements that we can find
+ */
+var getFocusableElements = (parent) => {
+	if (!parent) {
+		console.warn("You need to pass a parent HTMLElement");
+		return [];
+	}
+
+	return parent.querySelectorAll(
+		'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled]), details:not([disabled]), summary:not(:disabled)'
+	);
+};
+
+/**
+ * name: body-scroll-lock-upgrade
+ * version: v1.0.4
+ * author: Rick.li
+ */
+let hasPassiveEvents = false;
+if (typeof window !== "undefined") {
+  const passiveTestOptions = {
+    get passive() {
+      hasPassiveEvents = true;
+      return void 0;
+    }
+  };
+  window.addEventListener("testPassive", null, passiveTestOptions);
+  window.removeEventListener("testPassive", null, passiveTestOptions);
+}
+const isIosDevice = typeof window !== "undefined" && window.navigator && window.navigator.platform && (/iP(ad|hone|od)/.test(window.navigator.platform) || window.navigator.platform === "MacIntel" && window.navigator.maxTouchPoints > 1);
+let locks = [];
+let locksIndex = /* @__PURE__ */ new Map();
+let documentListenerAdded = false;
+let initialClientY = -1;
+let previousBodyOverflowSetting;
+let htmlStyle;
+let bodyStyle;
+let previousBodyPaddingRight;
+const allowTouchMove = (el) => locks.some((lock) => {
+  if (lock.options.allowTouchMove && lock.options.allowTouchMove(el)) {
+    return true;
+  }
+  return false;
+});
+const preventDefault = (rawEvent) => {
+  const e = rawEvent || window.event;
+  if (allowTouchMove(e.target)) {
+    return true;
+  }
+  if (e.touches.length > 1)
+    return true;
+  if (e.preventDefault)
+    e.preventDefault();
+  return false;
+};
+const setOverflowHidden = (options) => {
+  if (previousBodyPaddingRight === void 0) {
+    const reserveScrollBarGap = !!options && options.reserveScrollBarGap === true;
+    const scrollBarGap = window.innerWidth - document.documentElement.clientWidth;
+    if (reserveScrollBarGap && scrollBarGap > 0) {
+      const computedBodyPaddingRight = parseInt(
+        window.getComputedStyle(document.body).getPropertyValue("padding-right"),
+        10
+      );
+      previousBodyPaddingRight = document.body.style.paddingRight;
+      document.body.style.paddingRight = `${computedBodyPaddingRight + scrollBarGap}px`;
+    }
+  }
+  if (previousBodyOverflowSetting === void 0) {
+    previousBodyOverflowSetting = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+  }
+};
+const restoreOverflowSetting = () => {
+  if (previousBodyPaddingRight !== void 0) {
+    document.body.style.paddingRight = previousBodyPaddingRight;
+    previousBodyPaddingRight = void 0;
+  }
+  if (previousBodyOverflowSetting !== void 0) {
+    document.body.style.overflow = previousBodyOverflowSetting;
+    previousBodyOverflowSetting = void 0;
+  }
+};
+const setPositionFixed = () => window.requestAnimationFrame(() => {
+  const $html = document.documentElement;
+  const $body = document.body;
+  if (bodyStyle === void 0) {
+    htmlStyle = { ...$html.style };
+    bodyStyle = { ...$body.style };
+    const { scrollY, scrollX, innerHeight } = window;
+    $html.style.height = "100%";
+    $html.style.overflow = "hidden";
+    $body.style.position = "fixed";
+    $body.style.top = `${-scrollY}px`;
+    $body.style.left = `${-scrollX}px`;
+    $body.style.width = "100%";
+    $body.style.height = "auto";
+    $body.style.overflow = "hidden";
+    setTimeout(
+      () => window.requestAnimationFrame(() => {
+        const bottomBarHeight = innerHeight - window.innerHeight;
+        if (bottomBarHeight && scrollY >= innerHeight) {
+          $body.style.top = -(scrollY + bottomBarHeight) + "px";
+        }
+      }),
+      300
+    );
+  }
+});
+const restorePositionSetting = () => {
+  if (bodyStyle !== void 0) {
+    const y = -parseInt(document.body.style.top, 10);
+    const x = -parseInt(document.body.style.left, 10);
+    const $html = document.documentElement;
+    const $body = document.body;
+    $html.style.height = (htmlStyle == null ? void 0 : htmlStyle.height) || "";
+    $html.style.overflow = (htmlStyle == null ? void 0 : htmlStyle.overflow) || "";
+    $body.style.position = bodyStyle.position || "";
+    $body.style.top = bodyStyle.top || "";
+    $body.style.left = bodyStyle.left || "";
+    $body.style.width = bodyStyle.width || "";
+    $body.style.height = bodyStyle.height || "";
+    $body.style.overflow = bodyStyle.overflow || "";
+    window.scrollTo(x, y);
+    bodyStyle = void 0;
+  }
+};
+const isTargetElementTotallyScrolled = (targetElement) => targetElement ? targetElement.scrollHeight - targetElement.scrollTop <= targetElement.clientHeight : false;
+const handleScroll = (event, targetElement) => {
+  const clientY = event.targetTouches[0].clientY - initialClientY;
+  if (allowTouchMove(event.target)) {
+    return false;
+  }
+  if (targetElement && targetElement.scrollTop === 0 && clientY > 0) {
+    return preventDefault(event);
+  }
+  if (isTargetElementTotallyScrolled(targetElement) && clientY < 0) {
+    return preventDefault(event);
+  }
+  event.stopPropagation();
+  return true;
+};
+const disableBodyScroll = (targetElement, options) => {
+  if (!targetElement) {
+    console.error(
+      "disableBodyScroll unsuccessful - targetElement must be provided when calling disableBodyScroll on IOS devices."
+    );
+    return;
+  }
+  locksIndex.set(
+    targetElement,
+    (locksIndex == null ? void 0 : locksIndex.get(targetElement)) ? (locksIndex == null ? void 0 : locksIndex.get(targetElement)) + 1 : 1
+  );
+  if (locks.some((lock2) => lock2.targetElement === targetElement)) {
+    return;
+  }
+  const lock = {
+    targetElement,
+    options: options || {}
+  };
+  locks = [...locks, lock];
+  if (isIosDevice) {
+    setPositionFixed();
+  } else {
+    setOverflowHidden(options);
+  }
+  if (isIosDevice) {
+    targetElement.ontouchstart = (event) => {
+      if (event.targetTouches.length === 1) {
+        initialClientY = event.targetTouches[0].clientY;
+      }
+    };
+    targetElement.ontouchmove = (event) => {
+      if (event.targetTouches.length === 1) {
+        handleScroll(event, targetElement);
+      }
+    };
+    if (!documentListenerAdded) {
+      document.addEventListener(
+        "touchmove",
+        preventDefault,
+        hasPassiveEvents ? { passive: false } : void 0
+      );
+      documentListenerAdded = true;
+    }
+  }
+};
+const enableBodyScroll = (targetElement) => {
+  if (!targetElement) {
+    console.error(
+      "enableBodyScroll unsuccessful - targetElement must be provided when calling enableBodyScroll on IOS devices."
+    );
+    return;
+  }
+  locksIndex.set(
+    targetElement,
+    (locksIndex == null ? void 0 : locksIndex.get(targetElement)) ? (locksIndex == null ? void 0 : locksIndex.get(targetElement)) - 1 : 0
+  );
+  if ((locksIndex == null ? void 0 : locksIndex.get(targetElement)) === 0) {
+    locks = locks.filter((lock) => lock.targetElement !== targetElement);
+    locksIndex == null ? void 0 : locksIndex.delete(targetElement);
+  }
+  if (isIosDevice) {
+    targetElement.ontouchstart = null;
+    targetElement.ontouchmove = null;
+    if (documentListenerAdded && locks.length === 0) {
+      document.removeEventListener(
+        "touchmove",
+        preventDefault,
+        hasPassiveEvents ? { passive: false } : void 0
+      );
+      documentListenerAdded = false;
+    }
+  }
+  if (locks.length === 0) {
+    if (isIosDevice) {
+      restorePositionSetting();
+    } else {
+      restoreOverflowSetting();
+    }
+  }
+};
+
+// Source https://piccalil.li/tutorial/build-a-fully-responsive-progressively-enhanced-burger-menu/
+class BurgerMenu extends HTMLElement {
+	constructor() {
+		super();
+
+		const self = this;
+
+		this.state = new Proxy(
+			{
+				status: "open",
+				enabled: false,
+			},
+			{
+				set(state, key, value) {
+					const oldValue = state[key];
+
+					state[key] = value;
+					if (oldValue !== value) {
+						self.processStateChange();
+					}
+					return state;
+				},
+			}
+		);
+	}
+
+	get maxWidth() {
+		return parseInt(this.getAttribute("max-width") || 9999, 10);
+	}
+
+	connectedCallback() {
+		this.initialMarkup = this.innerHTML;
+		this.render();
+
+		const observer = new ResizeObserver((observedItems) => {
+			const { contentRect } = observedItems[0];
+			this.state.enabled = contentRect.width <= this.maxWidth;
+		});
+
+		// We want to watch the parent like a hawk
+		observer.observe(this.parentNode);
+	}
+
+	render() {
+		this.innerHTML = `
+      <div class="burger-menu" data-element="burger-root">
+        <button class="burger-menu__trigger" data-element="burger-menu-trigger" type="button" aria-label="Ouvrir le menu">
+          <span class="burger-menu__bar" aria-hidden="true"></span>
+        </button>
+        <div class="burger-menu__panel" data-element="burger-menu-panel">
+          ${this.initialMarkup}
+        </div>
+      </div>
+    `;
+
+		this.postRender();
+	}
+
+	postRender() {
+		this.trigger = this.querySelector(
+			'[data-element="burger-menu-trigger"]'
+		);
+		this.panel = this.querySelector('[data-element="burger-menu-panel"]');
+		this.root = this.querySelector('[data-element="burger-root"]');
+		this.focusableElements = getFocusableElements(this);
+
+		if (this.trigger && this.panel) {
+			this.toggle();
+
+			this.trigger.addEventListener("click", (evt) => {
+				evt.preventDefault();
+				this.toggle();
+			});
+
+			document.addEventListener("focusin", () => {
+				if (!this.contains(document.activeElement)) {
+					this.toggle("closed");
+				}
+			});
+
+			return;
+		}
+
+		this.innerHTML = this.initialMarkup;
+	}
+
+	toggle(forcedStatus) {
+		if (forcedStatus) {
+			if (this.state.status === forcedStatus) {
+				return;
+			}
+
+			this.state.status = forcedStatus;
+		} else {
+			this.state.status =
+				this.state.status === "closed" ? "open" : "closed";
+		}
+	}
+
+	processStateChange() {
+		this.root.setAttribute("status", this.state.status);
+		this.root.setAttribute(
+			"enabled",
+			this.state.enabled ? "true" : "false"
+		);
+
+		this.manageFocus();
+
+		switch (this.state.status) {
+			case "closed":
+				this.trigger.setAttribute("aria-expanded", "false");
+				this.trigger.setAttribute("aria-label", "Open menu");
+				enableBodyScroll(this);
+				break;
+			case "open":
+			case "initial":
+				this.trigger.setAttribute("aria-expanded", "true");
+				this.trigger.setAttribute("aria-label", "Close menu");
+				disableBodyScroll(this);
+				break;
+		}
+	}
+
+	manageFocus() {
+		if (!this.state.enabled) {
+			this.focusableElements.forEach((element) =>
+				element.removeAttribute("tabindex")
+			);
+			return;
+		}
+
+		switch (this.state.status) {
+			case "open":
+				this.focusableElements.forEach((element) =>
+					element.removeAttribute("tabindex")
+				);
+				break;
+			case "closed":
+				[...this.focusableElements]
+					.filter(
+						(element) =>
+							element.getAttribute("data-element") !==
+							"burger-menu-trigger"
+					)
+					.forEach((element) =>
+						element.setAttribute("tabindex", "-1")
+					);
+				break;
+		}
+	}
+}
+
+// import Splide from "@splidejs/splide";
+// import { SlideNumber } from "./carousel-slide-number";
+
+// let carousels = document.querySelectorAll(".splide");
+
+// if (carousels) {
+// 	carousels.forEach((carousel) => {
+// 		let splide = new Splide(carousel, {
+// 			arrowPath:
+// 				"m31.9 13.4-1.41 1.41 4.21 4.21h-33.1v2h33.1l-4.21 4.21 1.41 1.41 5.21-5.21 1.42-1.41-1.42-1.41z",
+// 			classes: {
+// 				arrows: "splide__arrows portfolio_navigation",
+// 			},
+// 			i18n: {
+// 				prev: "Image précédente",
+// 				next: "Image suivante",
+// 			},
+// 			pagination: false,
+// 			drag: true,
+// 			autoWidth: true,
+// 		});
+// 		splide.mount({ SlideNumber });
+// 	});
+// }
+
+// BurgerMenu
+if ("customElements" in window) {
+	customElements.define("burger-menu", BurgerMenu);
+}
+
+// Cards : lien sur l'ensemble de l'élément
+// Source : https://inclusive-components.design/cards/#callstoaction
+const cards = document.querySelectorAll(".card");
+if (cards.length > 0) {
+	cards.forEach((card) => {
+		let down,
+			up,
+			link = card.querySelector(".card_title a");
+
+		card.style.cursor = "pointer";
+
+		card.onmousedown = () => (down = +new Date());
+		card.onmouseup = () => {
+			up = +new Date();
+			if (up - down < 200) {
+				link.click();
+			}
+		};
+	});
+}

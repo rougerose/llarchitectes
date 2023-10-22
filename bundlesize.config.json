@@ -3,6 +3,10 @@
         {
             "path": "./dist/js/llarchitectes.js",
             "maxSize": "3 kB"
+        },
+        {
+            "path": "./dist/js/carousel.js",
+            "maxSize": "13 kB"
         }
     ]
 }
