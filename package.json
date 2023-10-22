@@ -1,41 +1,45 @@
 {
-    "name": "lla",
-    "version": "0.0.1",
-    "description": "",
-    "main": "index.js",
-    "type": "module",
+    "name": "llarchitectes",
+    "version": "1.0.0",
+    "description": "Site internet de l'agence Laurent Lainé Architectes",
+    "private": true,
+    "main": "rollup.config.js",
+    "config": {
+        "devHost": "http://localhost:8888/llarchitectes.dev"
+    },
     "scripts": {
-        "autoprefixer": "postcss -r dist/css/lla_styles.css",
-        "build": "run-s clean copy scss js autoprefixer",
-        "clean": "rimraf dist/{css/*,js/*}",
-        "copy": "recursive-copy 'src/copy' 'dist'",
-        "scss": "sass --no-source-map --load-path=node_modules src/scss/index.scss dist/css/lla_styles.css",
-        "js": "rollup -c",
-        "serve": "browser-sync start -p 'http://localhost:8888/clla.maquette/' -f \"dist/css/*.css, dist/js/*.js, **/*.html, !node_modules/**/*.html\"",
-        "watch:css": "chokidar './src/scss/**/*.scss' -c 'npm run build'",
-        "watch:js": "chokidar './src/js/**/*.js' -c 'npm run build'",
-        "watch": "run-p serve watch:*",
-        "dev": "run-s build watch",
-        "prod": "NODE_ENV=production npm run build"
+        "build": "run-s clean && run-p build:* && run-s autoprefixer",
+        "build:scss": "sass --no-source-map --load-path=node_modules src/scss/index.scss dist/css/llarchitectes.css",
+        "build:js": "rollup -c --bundleConfigAsCjs",
+        "autoprefixer": "postcss -r dist/css/llarchitectes.css",
+        "clean": "rimraf -g 'dist/{css/*,js/*}'",
+        "server": "browser-sync start -p $npm_package_config_devHost -f \"dist/css/*.css, dist/js/*.js, **/*.html, !node_modules/\"",
+        "watch": "run-p server watch:*",
+        "watch:css": "chokidar './src/scss/**/*.scss' -c 'npm run build:scss && npm run autoprefixer'",
+        "watch:js": "chokidar './src/js/**/*.js' -c 'npm run build:js'",
+        "test": "bundlesize",
+        "validate": "NODE_ENV=production run-s build test",
+        "publish": "NODE_ENV=production run-s build"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/rougerose/lla.git"
+        "url": "git+https://github.com/rougerose/llarchitectes.git"
     },
     "author": "christophe le drean",
-    "license": "ISC",
+    "license": "SEE LICENSE IN README.md",
     "bugs": {
-        "url": "https://github.com/rougerose/lla/issues"
+        "url": "https://github.com/rougerose/llarchitectes/issues"
     },
-    "homepage": "https://github.com/rougerose/lla#readme",
+    "homepage": "https://github.com/rougerose/llarchitectes#readme",
     "devDependencies": {
-        "@rollup/plugin-commonjs": "^25.0.5",
-        "@rollup/plugin-node-resolve": "^15.2.2",
+        "@rollup/plugin-commonjs": "^25.0.7",
+        "@rollup/plugin-node-resolve": "^15.2.3",
         "@rollup/plugin-terser": "^0.4.4",
         "@splidejs/splide": "^4.1.4",
         "autoprefixer": "^10.4.16",
-        "body-scroll-lock": "^4.0.0-beta.0",
+        "body-scroll-lock-upgrade": "^1.0.4",
         "browser-sync": "^2.29.3",
+        "bundlesize": "^0.18.1",
         "chokidar-cli": "^3.0.0",
         "modern-css-reset": "^1.4.0",
         "npm-run-all2": "^6.1.1",
@@ -44,8 +48,8 @@
         "postcss-csso": "^6.0.1",
         "recursive-fs": "^2.1.0",
         "rimraf": "^5.0.5",
-        "rollup": "^4.0.2",
-        "sass": "^1.63.6",
+        "rollup": "^4.1.4",
+        "sass": "^1.69.4",
         "sass-mq": "^6.0.0"
     }
 }
