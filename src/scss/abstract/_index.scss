@@ -1,43 +1,12 @@
-@use "sass:map";
-@use "clla-couleurs" as colors;
-// utopia custom properties
-@use "utopia-type";
-@use "utopia-space";
-@use "utopia-grid";
+@forward "couleurs";
+// Utiliser un tableau fusionné, plutôt que les tableaux individuels utopia-*
+@forward "utopia";
+@forward "host";
 
 // ========================================
 // Variables SCSS
 // ========================================
-// -- Typo
-$font-family-mono: "PressuraMono", ui-monospace, SFMono-Regular, Menlo, Monaco,
-	Consolas, "Liberation Mono", "Courier New", monospace;
-$font-family-sans: "Pressura", Helvetica, Roboto, Arial, ui-sans-serif,
-	system-ui, -apple-system, "Apple Color Emoji", "Segoe UI Emoji",
-	"Segoe UI Symbol", "Noto Color Emoji", sans-serif;
-// -- Mise en page
-$flow-space: var(--space-s);
+
 // -- Variables des bordures (largeur et marges) d'un article Actualité
 $inset-space: var(--space-2xs-s);
 $inset-width: 2px;
-
-:root {
-	// Typo
-	--font-family-base: #{$font-family-sans};
-	--font-family-mono: #{$font-family-mono};
-	// Couleurs
-	--color-paper: #{map.get(colors.$base, "white")};
-	--color-ink: #{map.get(colors.$base, "black")};
-	--color-primary: #{colors.$primaire};
-	--color-secondary: #{colors.$secondaire};
-	--color-tertiary: #{colors.$tertiaire};
-	// Principes de mise en page
-	// -- Containers
-	--wrapper-max-width: var(--grid-max-width);
-	--wrapper-narrow-max-width: 63rem;
-	// -- Gouttière
-	--gutter: var(--grid-gutter);
-	// -- Flow space
-	--flow-space: #{$flow-space};
-	// -- Largeur max du logo du Cabinet
-	--logo-max-width: 576px;
-}

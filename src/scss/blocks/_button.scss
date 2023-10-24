@@ -4,11 +4,10 @@
 
 @use "sass:color";
 @use "sass:map";
-@use "../abstract/clla-couleurs" as colors;
+@use "../abstract" as abstract;
 
-$secondary-800: map.get(colors.$storm-gray, 800);
-$secondary-500: map.get(colors.$storm-gray, 500);
-// $secondary-300: map.get(colors.$storm-gray, 300);
+$secondary-800: map.get(abstract.$storm-gray, 800);
+$secondary-500: map.get(abstract.$storm-gray, 500);
 
 .button {
 	background-color: transparent;

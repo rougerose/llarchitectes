@@ -2,7 +2,7 @@
 // Fontes
 // ========================================
 
-@use "../abstract/host" as var;
+@use "../abstract" as abstract;
 
 // GT Pressura Mono
 // ========================================
@@ -10,9 +10,9 @@
 // Light
 @font-face {
 	font-family: "PressuraMono";
-	src: url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Mono-Light.woff2")
+	src: url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Mono-Light.woff2")
 			format("woff2"),
-		url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Mono-Light.woff")
+		url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Mono-Light.woff")
 			format("woff");
 	font-weight: 300;
 	font-style: normal;
@@ -22,9 +22,9 @@
 // Regular
 @font-face {
 	font-family: "PressuraMono";
-	src: url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Mono-Regular.woff2")
+	src: url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Mono-Regular.woff2")
 			format("woff2"),
-		url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Mono-Regular.woff")
+		url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Mono-Regular.woff")
 			format("woff");
 	font-weight: 400;
 	font-style: normal;
@@ -34,9 +34,9 @@
 // Bold
 @font-face {
 	font-family: "PressuraMono";
-	src: url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Mono-Bold.woff2")
+	src: url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Mono-Bold.woff2")
 			format("woff2"),
-		url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Mono-Bold.woff")
+		url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Mono-Bold.woff")
 			format("woff");
 	font-weight: 700;
 	font-style: normal;
@@ -49,9 +49,9 @@
 // Light
 @font-face {
 	font-family: "Pressura";
-	src: url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Light.woff2")
+	src: url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Light.woff2")
 			format("woff2"),
-		url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Light.woff")
+		url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Light.woff")
 			format("woff");
 	font-weight: 300;
 	font-style: normal;
@@ -60,9 +60,9 @@
 
 @font-face {
 	font-family: "Pressura";
-	src: url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Light-Italic.woff2")
+	src: url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Light-Italic.woff2")
 			format("woff2"),
-		url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Light-Italic.woff")
+		url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Light-Italic.woff")
 			format("woff");
 	font-weight: 300;
 	font-style: italic;
@@ -72,9 +72,9 @@
 // Text
 @font-face {
 	font-family: "Pressura";
-	src: url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Text.woff2")
+	src: url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Text.woff2")
 			format("woff2"),
-		url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Text.woff")
+		url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Text.woff")
 			format("woff");
 	font-weight: 350;
 	font-style: normal;
@@ -83,9 +83,9 @@
 
 @font-face {
 	font-family: "Pressura";
-	src: url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Text-Italic.woff2")
+	src: url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Text-Italic.woff2")
 			format("woff2"),
-		url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Text-Italic.woff")
+		url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Text-Italic.woff")
 			format("woff");
 	font-weight: 350;
 	font-style: italic;
@@ -95,9 +95,9 @@
 // Regular
 @font-face {
 	font-family: "Pressura";
-	src: url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Regular.woff2")
+	src: url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Regular.woff2")
 			format("woff2"),
-		url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Regular.woff")
+		url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Regular.woff")
 			format("woff");
 	font-weight: 400;
 	font-style: normal;
@@ -106,9 +106,9 @@
 
 @font-face {
 	font-family: "Pressura";
-	src: url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Regular-Italic.woff2")
+	src: url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Regular-Italic.woff2")
 			format("woff2"),
-		url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Regular-Italic.woff")
+		url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Regular-Italic.woff")
 			format("woff");
 	font-weight: 400;
 	font-style: italic;
@@ -118,9 +118,9 @@
 // Medium
 @font-face {
 	font-family: "Pressura";
-	src: url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Medium.woff2")
+	src: url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Medium.woff2")
 			format("woff2"),
-		url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Medium.woff")
+		url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Medium.woff")
 			format("woff");
 	font-weight: 500;
 	font-style: normal;
@@ -129,9 +129,9 @@
 
 @font-face {
 	font-family: "Pressura";
-	src: url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Medium-Italic.woff2")
+	src: url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Medium-Italic.woff2")
 			format("woff2"),
-		url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Medium-Italic.woff")
+		url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Medium-Italic.woff")
 			format("woff");
 	font-weight: 500;
 	font-style: italic;
@@ -141,9 +141,9 @@
 // Bold
 @font-face {
 	font-family: "Pressura";
-	src: url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Bold.woff2")
+	src: url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Bold.woff2")
 			format("woff2"),
-		url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Bold.woff")
+		url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Bold.woff")
 			format("woff");
 	font-weight: 700;
 	font-style: normal;
@@ -152,9 +152,9 @@
 
 @font-face {
 	font-family: "Pressura";
-	src: url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Bold-Italic.woff2")
+	src: url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Bold-Italic.woff2")
 			format("woff2"),
-		url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Bold-Italic.woff")
+		url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Bold-Italic.woff")
 			format("woff");
 	font-weight: 700;
 	font-style: italic;
@@ -164,9 +164,9 @@
 // Black
 @font-face {
 	font-family: "Pressura";
-	src: url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Black.woff2")
+	src: url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Black.woff2")
 			format("woff2"),
-		url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Black.woff")
+		url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Black.woff")
 			format("woff");
 	font-weight: 900;
 	font-style: normal;
@@ -175,9 +175,9 @@
 
 @font-face {
 	font-family: "Pressura";
-	src: url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Black-Italic.woff2")
+	src: url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Black-Italic.woff2")
 			format("woff2"),
-		url("#{var.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Black-Italic.woff")
+		url("#{abstract.$host}/squelettes/webfonts/GT-Pressura/GT-Pressura-Standard-Black-Italic.woff")
 			format("woff");
 	font-weight: 900;
 	font-style: italic;

@@ -1,0 +1,11 @@
+// ========================================
+// Utopia type, space and grid
+// ========================================
+
+@use "sass:map";
+@use "utopia-type" as t;
+@use "utopia-space" as s;
+@use "utopia-grid" as g;
+
+// Fusionner les 3 tableaux en un seul.
+$utopia: map.merge(map.merge(t.$type, s.$space), g.$grid);
