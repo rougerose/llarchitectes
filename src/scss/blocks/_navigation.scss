@@ -4,19 +4,30 @@
 	// Si js
 	// position: absolute;
 	// right: 0;
-	margin-top: var(--space-s);
+	font-family: var(--font-family-mono);
+	font-size: var(--step--2);
 	font-weight: 700;
+	// letter-spacing: 0.03em;
 
 	& ul {
 		display: flex;
 		flex-flow: var(--navigation-flow, row wrap);
 		align-items: var(--navigation-align, stretch);
-		gap: var(--space-xs);
+		gap: 0 var(--space-xs);
 		padding: 0;
 		margin: 0;
+		list-style: none;
 	}
 
 	& li {
+		padding: 0.45em 0 0.35em;
+
+		&::before {
+			content: "/";
+			font-weight: 300;
+			margin-right: -0.35em;
+		}
+
 		&.current {
 			& a::after {
 				width: 100%;
@@ -25,7 +36,6 @@
 	}
 
 	& a {
-		padding: 0.45em 0 0.35em;
 		position: relative;
 		color: currentColor;
 		text-decoration: none;
@@ -34,7 +44,7 @@
 		&::after {
 			position: absolute;
 			left: 0;
-			bottom: 0;
+			bottom: -0.35em;
 			width: 0;
 			height: 2px;
 			background-color: var(--color-primary);
@@ -52,7 +62,11 @@
 		}
 	}
 
-	&[data-variant="footer"] {
+	&[data-navigation-variant="header"] {
+		margin-top: var(--space-s);
+	}
+
+	&[data-navigation-variant="footer"] {
 		margin-top: 0;
 
 		& ul {

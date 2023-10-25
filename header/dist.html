@@ -3,13 +3,8 @@
 		[<img src="(#CHEMIN{images/laurent_laine_architectes.svg})" alt="#NOM_SITE_SPIP">]
 	</a>
 	<burger-menu max-width="980">
-		<nav class="navigation">
-			<ul role="list">
-				<li><a href="./agence.html">L'agence</a></li>
-				<li><a href="./projets.html">Projets</a></li>
-				<li><a href="./journal.html">Journal de bord</a></li>
-				<li><a href="#">Nous contacter</a></li>
-			</ul>
+		<nav class="navigation" data-navigation-variant="header" aria-label="principale">
+			<INCLURE{fond=inclure/menu, env, identifiant=navigation}/>
 		</nav>
 	</burger-menu>
 </div>
