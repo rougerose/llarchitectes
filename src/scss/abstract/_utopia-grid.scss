@@ -1,17 +1,14 @@
 // Paramètres utilisés
 //
-// Les variables grid-gutter et grid-max-width sont définies dans clla-variables.
-// Puis elles sont appliquées dans utilities/wrapper.scss et composition/grid.scss.
+// Les variables sont appliquées dans utilities/wrapper.scss et composition/grid.scss.
 //
-// /* @link https://utopia.fyi/grid/calculator?c=338,18,1.067,1240,20,1.125,7,3,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=xs,l,xl,12 */
+
+// /* @link https://utopia.fyi/grid/calculator?c=326,18,1.2,1240,20,1.25,6,4,&s=0.75|0.5|0.25,1.5|2|3|4|6,2xs-s|xs-l&g=xs,l,xl,12 */
 
 // :root {
-// 	--grid-max-width: 77.5rem;
-// 	--grid-gutter: var(
-// 		--space-xs-l,
-// 		clamp(0.88rem, calc(0.27rem + 2.88vw), 2.5rem)
-// 	);
-// 	// --grid-columns: 12;
+//   --grid-max-width: 77.50rem;
+//   --grid-gutter: var(--space-xs-l, clamp(0.875rem, 0.2954rem + 2.8446vw, 2.5rem));
+//   --grid-columns: 12;
 // }
 
 // .u-container {
@@ -26,6 +23,7 @@
 // }
 
 $grid: (
-	"--grid-max-width": "77.5rem",
-	"--grid-gutter": "var(--space-xs-l)",
+	"--grid-max-width": "77.50rem",
+	"--grid-gutter":
+		"var(--space-xs-l, clamp(0.875rem, 0.2954rem + 2.8446vw, 2.5rem))",
 );
