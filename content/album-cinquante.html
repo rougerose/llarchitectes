@@ -1,25 +1,18 @@
 [(#REM)
 	Règles de formatage de l'image :
 	================================
-	min-width 1032px : 	434w @1x / 868w @2x
-	min-width 576px : 	886w @2x
-	min-width 401px : 	1040w @2x
-	<=401px : 			670w @2x
-
-	Note : pour réduire le nombre de traitements, la largeur 868px est laissée de côté au profit de 886px.
+	min-width 576px:	443w @1x ; 886w @2x
+	<=575px:			1040w @2x;
 ]
 <B_album_50>
 	<div class="portfolio_item" data-composition="format-50">
 		<BOUCLE_album_50(DOCUMENTS){id_album}{media=image}{par rang_lien, num titre, date, id_document}>
 			[(#SET{1040, #FICHIER|image_reduire{1040,0}|extraire_attribut{src}})]
-			[(#SET{886, #FICHIER|image_reduire{886,0}|extraire_attribut{src}})]
-			[(#SET{670, #FICHIER|image_reduire{670,0}|extraire_attribut{src}})]
-			[(#SET{434, #FICHIER|image_reduire{434,0}|extraire_attribut{src}})]
+			[(#SET{886, #GET{1040}|image_reduire{886,0}|extraire_attribut{src}})]
+			[(#SET{443, #GET{886}|image_reduire{443,0}|extraire_attribut{src}})]
 			<figure class="portfolio_media">
-				<source media="(min-width:1032px)" srcset="[(#GET{434}) 1x,][(#GET{886}) 2x]"/>
-				<source media="(min-width:576px)" srcset="[(#GET{886}) 2x]"/>
-				<source media="(min-width:401px)" srcset="[(#GET{1040}) 2x]"/>
-				[<img src="(#GET{670})" width="[(#GET{670}|largeur)]" height="[(#GET{670}|hauteur)]" alt="">]
+				<img src="[(#GET{443})]" width="[(#GET{443}|largeur)]" height="[(#GET{443}|hauteur)]" srcset="[(#GET{443}) 443w,][(#GET{886}) 886w,][(#GET{1040}) 1040w]" sizes="(min-width:576px) 443px, 100vw" alt="[(#ALT|sinon{#DESCRIPTIF}|sinon{#TITRE}|attribut_html)][ (#CREDITS|attribut_html)]" loading="lazy">
+				<INCLURE{fond=modeles/document_legende, id_document, env}/>
 			</figure>
 		</BOUCLE_album_50>
 	</div>

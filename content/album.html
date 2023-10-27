@@ -1,35 +1,22 @@
 [(#REM)
 	Règles de formatage de l'image :
 	================================
-	min-width 1024px : 	908w @1x / 1816w @2x
-	min-width 768px : 	1848w @2x
-	min-width 401px : 	1042w @2x
-	<=401px : 			666w @2x
+	min-width 1024px :	908w @1x ; 1816w @2x
+	min-width 375px : 	666w @2x
 
-	Note : pour réduire le nombre de traitements, la largeur 1816px est laissée de côté au profit de 1848px.
+	Note : ajout d'une taille intermédiaire à 1200px.
 ]
 <B_album_full>
 	<div class="portfolio_item" data-composition="format-100">
 		<BOUCLE_album_full(DOCUMENTS){id_album}{media=image}{par rang_lien, num titre, date, id_document}>
-			[(#SET{1848, #FICHIER|image_reduire{1848,0}|extraire_attribut{src}})]
-			[(#SET{1042, #GET{1848}|image_reduire{1042,0}|extraire_attribut{src}})]
-			[(#SET{908, #GET{1042}|image_reduire{908,0}|extraire_attribut{src}})]
+			[(#SET{1816, #FICHIER|image_reduire{1816,0}|extraire_attribut{src}})]
+			[(#SET{1200, #GET{1816}|image_reduire{1200,0}|extraire_attribut{src}})]
+			[(#SET{908, #GET{1816}|image_reduire{908,0}|extraire_attribut{src}})]
 			[(#SET{666, #GET{908}|image_reduire{666,0}|extraire_attribut{src}})]
 			<figure class="portfolio_media">
-				<source media="(min-width:1024px)" srcset="[(#GET{908}) 1x,][(#GET{1848}) 2x]"/>
-				<source media="(min-width:768px)" srcset="[(#GET{1848}) 2x]"/>
-				<source media="(min-width:401px)" srcset="[(#GET{1042}) 2x]"/>
-				[<img src="(#GET{666})" width="[(#GET{666}|largeur)]" height="[(#GET{666}|hauteur)]" alt="">]
+				<img src="[(#GET{908})]" width="[(#GET{908}|largeur)]" height="[(#GET{908}|hauteur)]" srcset="[(#GET{666}) 666w,][(#GET{908}) 908w,][(#GET{1200}) 1200w,][(#GET{1816}) 1816w]" sizes="(min-width:1024px) 908px, 100vw" alt="[(#ALT|sinon{#DESCRIPTIF}|sinon{#TITRE}|attribut_html)][ (#CREDITS|attribut_html)]" loading="lazy">
+				<INCLURE{fond=modeles/document_legende, id_document, env}/>
 			</figure>
 		</BOUCLE_album_full>
 	</div>
 </B_album_full>
-	<!-- <div class="portfolio_item" data-composition="format-100">
-		<figure class="portfolio_media">
-			<img src="images/journal/journal-boulitte.jpg" alt="">
-			<figcaption class="portfolio_caption">
-				<h2 class="portfolio_caption-heading">Vue de la façade</h2>
-				<p class="portfolio_caption-credits">Photo : Prénom Nom</p>
-			</figcaption>
-		</figure>
-	</div> -->
