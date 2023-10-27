@@ -7,11 +7,14 @@
 <B_album_50>
 	<div class="portfolio_item" data-composition="format-50">
 		<BOUCLE_album_50(DOCUMENTS){id_album}{media=image}{par rang_lien, num titre, date, id_document}>
+			[(#SET{1816, #FICHIER|image_reduire{1816,0}|extraire_attribut{src}})]
 			[(#SET{1040, #FICHIER|image_reduire{1040,0}|extraire_attribut{src}})]
 			[(#SET{886, #GET{1040}|image_reduire{886,0}|extraire_attribut{src}})]
 			[(#SET{443, #GET{886}|image_reduire{443,0}|extraire_attribut{src}})]
 			<figure class="portfolio_media">
-				<img src="[(#GET{443})]" width="[(#GET{443}|largeur)]" height="[(#GET{443}|hauteur)]" srcset="[(#GET{443}) 443w,][(#GET{886}) 886w,][(#GET{1040}) 1040w]" sizes="(min-width:576px) 443px, 100vw" alt="[(#ALT|sinon{#DESCRIPTIF}|sinon{#TITRE}|attribut_html)][ (#CREDITS|attribut_html)]" loading="lazy">
+				<a href="#GET{1816}" class="mediabox" type="#MIME_TYPE">
+					<img src="[(#GET{443})]" width="[(#GET{443}|largeur)]" height="[(#GET{443}|hauteur)]" srcset="[(#GET{443}) 443w,][(#GET{886}) 886w,][(#GET{1040}) 1040w]" sizes="(min-width:576px) 443px, 100vw" alt="[(#ALT|sinon{#DESCRIPTIF}|sinon{#TITRE}|attribut_html)][ (#CREDITS|attribut_html)]" loading="lazy">
+				</a>
 				<INCLURE{fond=modeles/document_legende, id_document, env}/>
 			</figure>
 		</BOUCLE_album_50>

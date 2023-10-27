@@ -14,7 +14,9 @@
 			[(#SET{908, #GET{1816}|image_reduire{908,0}|extraire_attribut{src}})]
 			[(#SET{666, #GET{908}|image_reduire{666,0}|extraire_attribut{src}})]
 			<figure class="portfolio_media">
-				<img src="[(#GET{908})]" width="[(#GET{908}|largeur)]" height="[(#GET{908}|hauteur)]" srcset="[(#GET{666}) 666w,][(#GET{908}) 908w,][(#GET{1200}) 1200w,][(#GET{1816}) 1816w]" sizes="(min-width:1024px) 908px, 100vw" alt="[(#ALT|sinon{#DESCRIPTIF}|sinon{#TITRE}|attribut_html)][ (#CREDITS|attribut_html)]" loading="lazy">
+				<a href="#GET{1816}" class="mediabox" type="#MIME_TYPE">
+					<img src="[(#GET{908})]" width="[(#GET{908}|largeur)]" height="[(#GET{908}|hauteur)]" srcset="[(#GET{666}) 666w,][(#GET{908}) 908w,][(#GET{1200}) 1200w,][(#GET{1816}) 1816w]" sizes="(min-width:1024px) 908px, 100vw" alt="[(#ALT|sinon{#DESCRIPTIF}|sinon{#TITRE}|attribut_html)][ (#CREDITS|attribut_html)]" loading="lazy">
+				</a>
 				<INCLURE{fond=modeles/document_legende, id_document, env}/>
 			</figure>
 		</BOUCLE_album_full>
