@@ -2,11 +2,3 @@
 // Utiliser un tableau fusionné, plutôt que les tableaux individuels utopia-*
 @forward "utopia";
 @forward "host";
-
-// ========================================
-// Variables SCSS
-// ========================================
-
-// -- Variables des bordures (largeur et marges) d'un article Actualité
-$inset-space: var(--space-2xs-s);
-$inset-width: 2px;

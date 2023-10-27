@@ -3,7 +3,8 @@
 // styles d'une page d'Article
 // ========================================
 
-@use "../abstract" as var;
+$inset-space: var(--space-2xs-s);
+$inset-width: 2px;
 
 // .article {}
 
@@ -21,12 +22,12 @@
 .article_date {
 	margin-top: var(--space-s);
 	font-family: var(--font-family-mono);
-	font-size: var(--step--2);
+	font-size: var(--step--1);
 	font-weight: 300;
 	text-transform: uppercase;
 }
 
-.article_prose {
+.article_content {
 	--breakout-max-width: 75rem;
 
 	& img {
@@ -34,7 +35,7 @@
 	}
 }
 
-.article_desc {
+.article_texte {
 	margin-top: var(--space-l-xl);
 	// font-size: var(--step-1);
 }
@@ -65,14 +66,14 @@
 .article[data-type="inset"] {
 	width: 100%;
 	display: grid;
-	grid-template-columns: #{var.$inset-space} 80% auto #{var.$inset-space};
+	grid-template-columns: #{$inset-space} 80% auto #{$inset-space};
 	grid-template-rows: 1fr auto;
 
 	&::before,
 	&::after {
 		display: block;
 		content: "";
-		border: var.$inset-width solid var(--color-primary);
+		border: $inset-width solid var(--color-primary);
 	}
 
 	&::before {
@@ -88,16 +89,16 @@
 		border-left: none;
 	}
 
-	.article_prose {
+	.article_content {
 		grid-column: 2 / 3;
 		grid-row: 1;
-		padding-top: #{var.$inset-space};
-		margin-bottom: #{var.$inset-space};
+		padding-top: #{$inset-space};
+		margin-bottom: #{$inset-space};
 	}
 
-	.article_portfolio {
+	.article_extra {
 		grid-column: 2 / -1;
 		grid-row: 2;
-		padding-bottom: #{var.$inset-space};
+		padding-bottom: #{$inset-space};
 	}
 }
