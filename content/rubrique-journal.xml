@@ -1,0 +1,6 @@
+<composition>
+  <nom>Journal de bord : rubrique</nom>
+  <description>Composition pour la rubrique Journal de bord</description>
+  <icon>images/objet-liste-contenus.png</icon>
+  <branche type="article" composition="journal" />
+</composition>

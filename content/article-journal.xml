@@ -1,0 +1,5 @@
+<composition>
+    <nom>Journal de bord : article</nom>
+    <description>Composition pour un article du Journal de bord</description>
+    <icon>img/objet-liste-contenus.png</icon>
+</composition>
