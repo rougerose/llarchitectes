@@ -255,7 +255,11 @@
 	}
 }
 
-// .portfolio_media {}
+.portfolio_media {
+	& img {
+		width: 100%;
+	}
+}
 
 .portfolio_caption {
 	margin-top: var(--space-2xs);

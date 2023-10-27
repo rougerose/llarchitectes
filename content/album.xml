@@ -1,0 +1,5 @@
+<composition>
+    <nom>Album pleine largeur</nom>
+    <description>Composition par défaut pour un album affiché pleine largeur</description>
+    <icon>img/objet-liste-contenus.png</icon>
+</composition>
