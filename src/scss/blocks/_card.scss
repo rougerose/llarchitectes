@@ -60,11 +60,15 @@
 	display: flex;
 	flex-direction: column;
 	margin-top: var(--flow-space);
-	margin-bottom: var(--flow-space);
+	// margin-bottom: var(--flow-space);
 
 	& p {
 		font-size: var(--step--2);
 	}
+}
+
+.card_meta {
+	margin-top: var(--flow-space);
 }
 
 .card_date {
@@ -166,7 +170,7 @@
 // Variante Journal de bord
 // ========================================
 
-.card[data-type="post"] {
+.card[data-card-type="journal"] {
 	--card-inset-color: var(--color-tertiary);
 	--card-offset: var(--space-s);
 	--card-img-ratio: 3/4;

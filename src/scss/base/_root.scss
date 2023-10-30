@@ -18,11 +18,11 @@
 	}
 	// -- Containers
 	--wrapper-max-width: var(--grid-max-width);
-	--wrapper-narrow-max-width: 63rem;
+	--wrapper-narrow-max-width: #{abstract.$wrapper-narrow-max-width};
 	// -- Gouttière
 	--gutter: var(--grid-gutter);
 	// -- Flow space
 	--flow-space: var(--space-s);
 	// -- Largeur max du logo principal
-	--logo-max-width: 576px;
+	--logo-max-width: #{abstract.$logo-max-width};
 }

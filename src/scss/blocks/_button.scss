@@ -8,6 +8,7 @@
 
 $secondary-800: map.get(abstract.$storm-gray, 800);
 $secondary-500: map.get(abstract.$storm-gray, 500);
+$primary-800: map.get(abstract.$pomegranate, 800);
 
 .button {
 	background-color: transparent;
@@ -87,22 +88,22 @@ $secondary-500: map.get(abstract.$storm-gray, 500);
 
 	// Variante encadré "related" (contenus liés à un article)
 	&[data-variant="related"] {
-		// background-color: map.get(colors.$storm-gray, 100);
-		border-color: var(--color-tertiary);
-		color: var(--color-tertiary);
+		border-color: var(--color-secondary-contrast);
+		color: var(--color-secondary-contrast);
 		text-transform: uppercase;
 
 		&:hover,
 		&:active {
-			background-color: var(--color-tertiary);
+			background-color: var(--color-primary);
+			border-color: var(--color-primary);
 			color: var(--color-paper);
-			box-shadow: 0 2px 4px color.scale($secondary-800, $alpha: -80%),
-				0 3px 6px color.scale($secondary-800, $alpha: -75%);
+			box-shadow: 0 2px 4px color.scale($primary-800, $alpha: -80%),
+				0 3px 6px color.scale($primary-800, $alpha: -75%);
 		}
 
 		&:active {
-			box-shadow: 0 0px 4px color.scale($secondary-800, $alpha: -80%),
-				0 0px 6px color.scale($secondary-800, $alpha: -75%);
+			box-shadow: 0 0px 4px color.scale($primary-800, $alpha: -80%),
+				0 0px 6px color.scale($primary-800, $alpha: -75%);
 		}
 	}
 }

@@ -1,7 +1,5 @@
 // Grid
 
-// @use "../tools/mq" as mq;
-
 .grid {
 	display: grid;
 	gap: var(--gutter);
@@ -10,25 +8,20 @@
 		minmax(var(--grid-min-item-size, 16rem), 1fr)
 	);
 
-	// &[data-layout="third"] {
-	// 	--grid-placement: auto-fit;
-	// 	--grid-min-item-size: clamp(16rem, 33%, 20rem);
-	// }
-
-	&[data-layout="projects"] {
+	&[data-grid-layout="projects"] {
 		--grid-placement: auto-fit;
 		--grid-min-item-size: min(100%, 31ch);
 		gap: var(--space-l);
 	}
 
-	&[data-layout="journal"],
-	&[data-layout="related"] {
+	&[data-grid-layout="journal"],
+	&[data-grid-layout="related"] {
 		--grid-min-item-size: min(220px, 100%);
 		gap: var(--space-l);
 	}
 
 	// Variante .breakout (projets)
-	&.breakout[data-layout="related"] {
+	&.breakout[data-grid-layout="related"] {
 		--grid-min-item-size: min(100%, 31ch);
 	}
 }

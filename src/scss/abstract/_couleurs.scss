@@ -39,6 +39,20 @@ $storm-gray: (
 	950: hsl(0, 0%, 0%),
 );
 
+$cloud: (
+	50: hsl(30, 10%, 96%),
+	100: hsl(20, 7%, 92%),
+	200: hsl(24, 6%, 84%),
+	300: hsl(22, 7%, 76%),
+	400: hsl(20, 7%, 65%),
+	500: hsl(23, 7%, 54%),
+	600: hsl(21, 6%, 43%),
+	700: hsl(22, 7%, 32%),
+	800: hsl(26, 7%, 21%),
+	900: hsl(20, 6%, 10%),
+	950: hsl(0, 4%, 5%),
+);
+
 // couleur tertiaire
 $cloud-burst: (
 	50: hsl(227, 39%, 75%),
@@ -58,6 +72,7 @@ $colors: (
 	"ink": map.get($base, "black"),
 	"paper": map.get($base, "white"),
 	"primary": map.get($pomegranate, 500),
-	"secondary": map.get($storm-gray, 300),
+	"secondary": map.get($cloud, 300),
+	"secondary-contrast": map.get($cloud, 900),
 	"tertiary": map.get($cloud-burst, 700),
 );
