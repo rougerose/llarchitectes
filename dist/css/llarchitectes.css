@@ -867,7 +867,10 @@ h6 {
   font-weight: 300;
   margin-right: -0.35em;
 }
-.navigation li.current a::after {
+.navigation li.active a {
+  color: var(--color-primary);
+}
+.navigation li.active a::after {
   width: 100%;
 }
 .navigation a {

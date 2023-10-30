@@ -27,9 +27,13 @@
 			margin-right: -0.35em;
 		}
 
-		&.current {
-			& a::after {
-				width: 100%;
+		&.active {
+			& a {
+				color: var(--color-primary);
+
+				&::after {
+					width: 100%;
+				}
 			}
 		}
 	}
@@ -43,7 +47,7 @@
 		&::after {
 			position: absolute;
 			left: 0;
-			bottom: -0.35em;
+			bottom: -0.25em;
 			width: 0;
 			height: 2px;
 			background-color: var(--color-primary);
@@ -75,7 +79,7 @@
 
 		& li {
 			flex: 1;
-			padding: 0;
+			padding: 0 0 0.45em;
 		}
 	}
 }
