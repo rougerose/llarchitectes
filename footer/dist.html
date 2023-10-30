@@ -1,1 +1,22 @@
-<!--  -->
+<div class="site-footer_inner grid">
+	<a href="#URL_SITE_SPIP" class="site-footer_brand">
+		[<img src="(#CHEMIN{images/laurent_laine_architectes.svg})" alt="#NOM_SITE_SPIP">]
+	</a>
+	<div class="site-footer_content grid">
+		<nav class="navigation site-footer_col" data-navigation-variant="footer">
+			<INCLURE{fond=inclure/menu, env, identifiant=navigation}/>
+		</nav>
+		<B_partenaires>
+			<div class="partners site-footer_col">
+				<h3>Nos partenaires</h3>
+				<div class="cluster">
+					<BOUCLE_partenaires(ORGANISATIONS){par num nom}>
+						<a href="#URL_SITE" title="[(#NOM|attribut_html)]">
+							[(#LOGO_ORGANISATION|image_passe_partout{56,56}|inserer_attribut{alt, #NOM|attribut_html})]
+						</a>
+					</BOUCLE_partenaires>
+				</div>
+			</div>
+		</B_partenaires>
+	</div>
+</div>

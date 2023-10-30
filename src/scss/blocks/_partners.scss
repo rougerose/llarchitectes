@@ -3,7 +3,8 @@
 // ========================================
 
 .partners {
-	--cluster-space: var(--space-xs);
+	--cluster-space: 0.5rem var(--space-xs);
+	// padding-bottom: var(--space-xs);
 
 	& h3 {
 		font-size: inherit;
@@ -13,7 +14,7 @@
 		margin-bottom: var(--space-xs);
 	}
 
-	img {
-		width: 55px;
+	& .cluster {
+		padding-bottom: var(--space-m);
 	}
 }
