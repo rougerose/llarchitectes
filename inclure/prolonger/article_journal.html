@@ -10,7 +10,7 @@
 				</h1>
 				<div class="grid" data-grid-layout="related">
 					<BOUCLE_articles_actu(ARTICLES){id_rubrique}{!par date}{exclus}{0,3}{doublons}>
-						<INCLURE{fond=inclure/resumes/card_journal, id_article}/>
+						<INCLURE{fond=inclure/resumes/card_journal, contexte=article_prolonger, id_article}/>
 					</BOUCLE_articles_actu>
 				</div>
 				<BOUCLE_articles_actu_suite(ARTICLES){id_rubrique}{!par date}{exclus}{0,1}{doublons}>

@@ -1,6 +1,12 @@
 <BOUCLE_card_journal(ARTICLES){id_article}>
-	<article class="card" data-card-type="journal">
-		<INCLURE{fond=inclure/images/logo_article_card, id_article}/>
+	[(#REM) Variante du logo selon le contexte : rubrique Journal ou article Prolonger. Par défaut, contexte rubrique Journal. ]
+	[(#SET{contexte, #ENV{contexte, rubrique_journal}})]
+	[(#GET{contexte}|=={rubrique_journal}|?{
+		[(#SET{variante_logo, logo_article_card_rubrique})],
+		[(#SET{variante_logo, logo_article_card_prolonger})]
+	})]
+	<article class="card #GET{contexte}" data-card-type="journal">
+		<INCLURE{fond=inclure/images/#GET{variante_logo}, id_article}/>
 		<div class="card_text">
 			<div class="card_text-inner">
 				<div class="card_header">
