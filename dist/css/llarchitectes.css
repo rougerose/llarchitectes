@@ -401,6 +401,54 @@ h6 {
   max-width: var(--wrapper-narrow-max-width);
 }
 
+.breadcrumb {
+  color: hsl(22, 7%, 32%);
+  font-family: var(--font-family-mono);
+  font-size: var(--step--3);
+  font-weight: 300;
+  line-height: 1.7;
+  margin-bottom: var(--space-m);
+}
+.breadcrumb a {
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+.breadcrumb a[aria-current=page] {
+  color: var(--color-ink);
+}
+.breadcrumb a[aria-current=page]:hover {
+  color: var(--color-primary);
+}
+
+.breadcrumb_list {
+  --gutter: 0 0.6em;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--gutter);
+}
+.breadcrumb_list li {
+  display: flex;
+  align-items: baseline;
+  -moz-column-gap: 0.6em;
+       column-gap: 0.6em;
+}
+.breadcrumb_list .icon-arrow-right {
+  width: 0.6em;
+  height: 0.6em;
+  color: hsl(20, 7%, 65%);
+}
+.breadcrumb_list .icon-star {
+  width: 0.8em;
+  height: 0.8em;
+  align-self: center;
+  color: hsl(20, 7%, 65%);
+}
+
 .burger-menu__trigger {
   display: none;
 }
@@ -546,14 +594,14 @@ h6 {
 .button.with-icon-end svg {
   margin-left: 0.5em;
 }
-.button.with-icon-end.with-hover .button.with-icon-end:hover svg {
+.button.with-icon-end.with-hover:hover svg {
   transform: rotate(-45deg);
 }
 .button.with-icon-start svg {
   margin-right: 0.5em;
   transform: rotate(90deg);
 }
-.button.with-icon-start.with-hover .button.with-icon-start:hover svg {
+.button.with-icon-start.with-hover:hover svg {
   transform: rotate(135deg);
 }
 .button[data-variant=framed] {
