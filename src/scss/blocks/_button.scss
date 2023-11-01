@@ -38,18 +38,35 @@ $primary-800: map.get(abstract.$pomegranate, 800);
 	&.with-icon {
 		--icon-size: 0.75em;
 		align-items: baseline;
+
+		& svg {
+			transition: transform 0.3s ease;
+		}
 	}
 
 	// Variante avec icone à droite du libellé
 	&.with-icon-end {
 		& svg {
 			margin-left: 0.5em;
-			transition: transform 0.3s ease;
 		}
 
-		&:hover {
+		&.with-hover &:hover {
 			& svg {
 				transform: rotate(-45deg);
+			}
+		}
+	}
+
+	// Variante avec icone à gauche
+	&.with-icon-start {
+		& svg {
+			margin-right: 0.5em;
+			transform: rotate(90deg);
+		}
+
+		&.with-hover &:hover {
+			& svg {
+				transform: rotate(135deg);
 			}
 		}
 	}
@@ -104,6 +121,19 @@ $primary-800: map.get(abstract.$pomegranate, 800);
 		&:active {
 			box-shadow: 0 0px 4px color.scale($primary-800, $alpha: -80%),
 				0 0px 6px color.scale($primary-800, $alpha: -75%);
+		}
+	}
+
+	// Variante pagination
+	&[data-variant="pagination"] {
+		border: 1px solid var(--color-ink);
+		color: var(--color-ink);
+
+		&:hover,
+		&:active {
+			background-color: transparent;
+			border-color: var(--color-primary);
+			color: var(--color-primary);
 		}
 	}
 }

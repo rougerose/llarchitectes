@@ -540,12 +540,21 @@ h6 {
   --icon-size: 0.75em;
   align-items: baseline;
 }
-.button.with-icon-end svg {
-  margin-left: 0.5em;
+.button.with-icon svg {
   transition: transform 0.3s ease;
 }
-.button.with-icon-end:hover svg {
+.button.with-icon-end svg {
+  margin-left: 0.5em;
+}
+.button.with-icon-end.with-hover .button.with-icon-end:hover svg {
   transform: rotate(-45deg);
+}
+.button.with-icon-start svg {
+  margin-right: 0.5em;
+  transform: rotate(90deg);
+}
+.button.with-icon-start.with-hover .button.with-icon-start:hover svg {
+  transform: rotate(135deg);
 }
 .button[data-variant=framed] {
   border-color: var(--color-primary);
@@ -580,6 +589,15 @@ h6 {
 }
 .button[data-variant=related]:active {
   box-shadow: 0 0px 4px rgba(75, 21, 6, 0.2), 0 0px 6px rgba(75, 21, 6, 0.25);
+}
+.button[data-variant=pagination] {
+  border: 1px solid var(--color-ink);
+  color: var(--color-ink);
+}
+.button[data-variant=pagination]:hover, .button[data-variant=pagination]:active {
+  background-color: transparent;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .card {
@@ -882,7 +900,7 @@ h6 {
 .navigation a::after {
   position: absolute;
   left: 0;
-  bottom: -0.35em;
+  bottom: -0.25em;
   width: 0;
   height: 2px;
   background-color: var(--color-primary);
@@ -908,7 +926,68 @@ h6 {
 }
 .navigation[data-navigation-variant=footer] li {
   flex: 1;
+  padding: 0 0 0.45em;
+}
+
+.pagination {
+  display: grid;
+  align-items: center;
+  grid-gap: var(--space-xs);
+  grid-template-columns: 1fr minmax(0, max-content) 1fr;
+  margin-top: var(--space-2xl);
+  font-size: var(--step--1);
+  font-family: var(--font-family-mono);
+}
+
+.pagination_list {
+  display: flex;
+  justify-content: center;
   padding: 0;
+}
+
+.pagination_item > a,
+.pagination_item > span {
+  padding: 0.25em 0.45em 0.2em;
+  margin-right: 0.25em;
+  color: var(--color-ink);
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: border 0.3s;
+}
+.pagination_item > a {
+  text-decoration: none;
+}
+.pagination_item > a:hover {
+  border-color: var(--color-primary);
+}
+.pagination_item > .on {
+  background-color: var(--color-primary);
+  color: var(--color-paper);
+}
+
+.pagination_prev-next {
+  text-transform: uppercase;
+  font-size: var(--step--2);
+}
+.pagination_prev-next:last-child {
+  text-align: right;
+}
+.pagination_prev-next a.button {
+  min-width: unset;
+}
+.pagination_prev-next a[rel*=prev] span {
+  margin-left: 0.2em;
+}
+.pagination_prev-next a[rel*=next] span {
+  margin-right: 0.2em;
+}
+.pagination_prev-next span {
+  display: none;
+}
+@media (min-width: 40em) {
+  .pagination_prev-next span {
+    display: inline;
+  }
 }
 
 .partners {
@@ -1156,6 +1235,7 @@ h6 {
 
 .site-footer_content {
   --grid-placement: auto-fit;
+  --gutter: var(--space-m);
 }
 
 .site-footer_col {

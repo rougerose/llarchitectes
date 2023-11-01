@@ -1,0 +1,79 @@
+// ========================================
+// Pagination
+// ========================================
+
+@use "../tools/mq";
+
+.pagination {
+	display: grid;
+	align-items: center;
+	grid-gap: var(--space-xs);
+	grid-template-columns: 1fr minmax(0, max-content) 1fr;
+	margin-top: var(--space-2xl);
+	font-size: var(--step--1);
+	font-family: var(--font-family-mono);
+}
+
+.pagination_list {
+	display: flex;
+	justify-content: center;
+	padding: 0;
+}
+
+.pagination_item {
+	> a,
+	> span {
+		padding: 0.25em 0.45em 0.2em;
+		margin-right: 0.25em;
+		color: var(--color-ink);
+		text-decoration: none;
+		border: 1px solid transparent;
+		transition: border 0.3s;
+	}
+
+	> a {
+		text-decoration: none;
+
+		&:hover {
+			border-color: var(--color-primary);
+		}
+	}
+
+	> .on {
+		background-color: var(--color-primary);
+		color: var(--color-paper);
+	}
+}
+
+.pagination_prev-next {
+	text-transform: uppercase;
+	font-size: var(--step--2);
+
+	&:last-child {
+		text-align: right;
+	}
+
+	& a.button {
+		min-width: unset;
+	}
+
+	& a[rel*="prev"] {
+		& span {
+			margin-left: 0.2em;
+		}
+	}
+
+	& a[rel*="next"] {
+		& span {
+			margin-right: 0.2em;
+		}
+	}
+
+	& span {
+		display: none;
+
+		@include mq.mq($from: 640px) {
+			display: inline;
+		}
+	}
+}
