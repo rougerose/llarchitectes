@@ -1,3 +1,17 @@
 <BOUCLE_rubrique_journal(RUBRIQUES){id_rubrique}>
-	<h1>#TITRE</h1>
+	<div class="rubrique">
+		<header class="headline region prose">
+			<div class="wrapper" data-wrapper-type="narrow">
+				<h1 class="headline_title">#TITRE</h1>
+				[<div class="headline_desc flow">
+					(#TEXTE)
+				</div>]
+			</div>
+		</header>
+		<div class="journal region">
+			<div class="wrapper">
+				<INCLURE{fond=inclure/listes/articles_journal, id_rubrique, pagination=#ENV{pagination, 10},ajax, env}/>
+			</div>
+		</div>
+	</div>
 </BOUCLE_rubrique_journal>
