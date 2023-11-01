@@ -50,7 +50,7 @@ $primary-800: map.get(abstract.$pomegranate, 800);
 			margin-left: 0.5em;
 		}
 
-		&.with-hover &:hover {
+		&.with-hover:hover {
 			& svg {
 				transform: rotate(-45deg);
 			}
@@ -64,7 +64,7 @@ $primary-800: map.get(abstract.$pomegranate, 800);
 			transform: rotate(90deg);
 		}
 
-		&.with-hover &:hover {
+		&.with-hover:hover {
 			& svg {
 				transform: rotate(135deg);
 			}
