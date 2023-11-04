@@ -8,144 +8,185 @@
 	margin-top: var(--space-l-xl);
 
 	// Variante .breakout (projet) //
-	&.breakout {
-		--item-space: var(--space-2xl);
-		margin-top: var(--space-2xl-3xl);
-	}
+	// &.breakout {
+	// 	--item-space: var(--space-2xl);
+	// 	margin-top: var(--space-2xl-3xl);
+	// }
 
 	// Variante slideshow (carousel)
-	&[data-variant="slideshow"] {
-		& .splide {
-			max-width: 100%;
-			height: calc(100vh - var(--gutter) * 2);
+	// &[data-variant="slideshow"] {
+	// 	& .splide {
+	// 		max-width: 100%;
+	// 		height: calc(100vh - var(--gutter) * 2);
 
-			&.is-initialized {
-				& .splide__slide img {
-					opacity: 0;
-				}
+	// 		&.is-initialized {
+	// 			& .splide__slide img {
+	// 				opacity: 0;
+	// 			}
 
-				& .splide__slide.is-active img {
-					opacity: 1;
-				}
-			}
-		}
+	// 			& .splide__slide.is-active img {
+	// 				opacity: 1;
+	// 			}
+	// 		}
+	// 	}
 
-		& .splide__track {
-			height: calc(100% - var(--space-2xl));
-		}
+	// 	& .splide__track {
+	// 		height: calc(100% - var(--space-2xl));
+	// 	}
 
-		// Navigation
-		& .splide__arrows {
-			position: absolute;
-			bottom: calc(var(--space-2xs) * -1);
-			right: 0;
-		}
+	// 	// Navigation
+	// 	& .splide__arrows {
+	// 		position: absolute;
+	// 		bottom: calc(var(--space-2xs) * -1);
+	// 		right: 0;
+	// 	}
 
-		& .splide__arrow {
-			background: none;
-			position: initial;
-			transform: none;
-			display: inline-flex;
-			opacity: 1;
-			width: auto;
-			height: auto;
+	// 	& .splide__arrow {
+	// 		background: none;
+	// 		position: initial;
+	// 		transform: none;
+	// 		display: inline-flex;
+	// 		opacity: 1;
+	// 		width: auto;
+	// 		height: auto;
 
-			& svg {
-				width: var(--space-l-xl);
-				height: auto;
-			}
+	// 		& svg {
+	// 			width: var(--space-l-xl);
+	// 			height: auto;
+	// 		}
 
-			&:disabled svg {
-				opacity: 0.3;
-			}
-		}
+	// 		&:disabled svg {
+	// 			opacity: 0.3;
+	// 		}
+	// 	}
 
-		& .splide__arrow--prev {
-			margin-right: var(--space-s);
-		}
+	// 	& .splide__arrow--prev {
+	// 		margin-right: var(--space-s);
+	// 	}
 
-		& .splide__slide {
-			max-width: 100%;
-			width: 100%;
-			// Alignement sur la colonne de texte principale
-			padding-left: calc((100vw - var(--wrapper-narrow-max-width)) / 2);
+	// 	& .splide__slide {
+	// 		max-width: 100%;
+	// 		width: 100%;
+	// 		// Alignement sur la colonne de texte principale
+	// 		padding-left: calc((100vw - var(--wrapper-narrow-max-width)) / 2);
 
-			& figure {
-				height: 100%;
-			}
+	// 		& figure {
+	// 			height: 100%;
+	// 		}
 
-			& img {
-				width: 100%;
-				height: 100%;
-				object-fit: contain;
-				object-position: left center;
-				transition: opacity 0.25s ease-in;
-			}
-		}
+	// 		& img {
+	// 			width: 100%;
+	// 			height: 100%;
+	// 			object-fit: contain;
+	// 			object-position: left center;
+	// 			transition: opacity 0.25s ease-in;
+	// 		}
+	// 	}
 
-		& .splide__number {
-			position: absolute;
-			bottom: 0;
-			left: max(calc((100vw - var(--wrapper-narrow-max-width)) / 2), 0vw);
-			display: flex;
-			font-family: var(--font-family-mono);
+	// 	& .splide__number {
+	// 		position: absolute;
+	// 		bottom: 0;
+	// 		left: max(calc((100vw - var(--wrapper-narrow-max-width)) / 2), 0vw);
+	// 		display: flex;
+	// 		font-family: var(--font-family-mono);
 
-			& .number__index {
-				align-self: flex-start;
-				color: var(--color-primary);
-			}
+	// 		& .number__index {
+	// 			align-self: flex-start;
+	// 			color: var(--color-primary);
+	// 		}
 
-			& .number__length {
-				align-self: flex-end;
-			}
+	// 		& .number__length {
+	// 			align-self: flex-end;
+	// 		}
 
-			& .number__separator {
-				font-size: var(--step-4);
-				font-weight: 300;
-			}
-		}
+	// 		& .number__separator {
+	// 			font-size: var(--step-4);
+	// 			font-weight: 300;
+	// 		}
+	// 	}
+	// }
+}
+
+.portfolio_album {
+	display: grid;
+
+	& figure {
+		position: relative;
+		z-index: -1;
+	}
+
+	& figcaption {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		padding: 0.5em 0.75em 0 0.2em;
+		background-color: var(--color-paper);
+		font-size: var(--step--2);
 	}
 }
 
-.portfolio_item {
-	& + & {
-		margin-top: var(--item-space, var(--space-m-l));
-	}
+// Variante Cent (100%, pleine largeur)
+// ========================================
+.portfolio_album[data-composition="cent"] {
+	gap: var(--space-m-l);
+}
 
-	&[data-composition] {
-		display: grid;
-		gap: var(--space-m-l);
-		grid-template-columns: repeat(3, 1fr);
+// Variante Cinquante-cinquante (50% / 50%)
+// ========================================
+.portfolio_album[data-composition="cinquante-cinquante"] {
+	gap: var(--space-m-l);
 
-		// Disposition par défaut, chaque image sur une colonne (plein format)
-		& .portfolio_media {
-			grid-column: 1 / -1;
-		}
-	}
-
-	// Pour une largeur >= 576px, l'éditeur peut choisir des compositions Spip
-	// associées aux albums et disposer les images selon des formats différents.
 	@include mq.mq($from: 576px) {
-		&[data-composition] {
-			& .portfolio_media {
-				grid-column: auto;
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+// Variante Projet
+// ========================================
+.portfolio_album[data-composition="projet"] {
+	gap: var(--space-s);
+
+	& figure {
+		aspect-ratio: 4/3;
+	}
+
+	& figure > a {
+		display: block;
+	}
+
+	& figure > a,
+	& img {
+		width: 100%;
+		height: 100%;
+	}
+
+	& img {
+		object-fit: cover;
+	}
+
+	@include mq.mq($from: 500px) {
+		&[data-composition="projet"] {
+			grid-template-columns: repeat(2, 1fr);
+
+			& figure:first-child,
+			& figure:nth-child(5n + 1) {
+				grid-column: span 2;
 			}
 		}
+	}
 
-		// Format 100%
-		&[data-composition="format-100"] {
-			& .portfolio_media {
-				grid-column: 1 / -1;
+	@include mq.mq($from: 760px) {
+		&[data-composition="projet"] {
+			grid-template-columns: repeat(4, 1fr);
+
+			& figure {
+				aspect-ratio: 1/1;
 			}
-		}
 
-		// Format 1/2 - 1/2
-		// Nombre de medias : indifférent
-		&[data-composition="format-50"] {
-			grid-template-columns: repeat(6, 1fr);
-
-			& .portfolio_media {
-				grid-column: span 3;
+			& figure:first-child,
+			& figure:nth-child(5n + 1) {
+				grid-column: span 2;
+				grid-row: span 2;
 			}
 		}
 	}
@@ -157,12 +198,10 @@
 	}
 }
 
-.portfolio_caption {
-	margin-top: var(--space-2xs);
-}
+// .portfolio_caption {}
 
 .portfolio_caption-heading {
-	font-size: var(--step--1);
+	font-size: inherit;
 	font-weight: 500;
 	color: var(--color-primary);
 }

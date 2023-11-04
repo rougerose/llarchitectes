@@ -1,0 +1,17 @@
+<BOUCLE_figure_projet_variante_2(DOCUMENTS){id_document}>
+	[(#SET{1, #FICHIER|image_reduire{922,0}|extraire_attribut{src}})]
+	[(#SET{2, #GET{1}|image_reduire{686,0}|extraire_attribut{src}})]
+	[(#SET{3, #FICHIER|image_recadre{1:1,-,center}|image_reduire{550,550}|extraire_attribut{src}})]
+	[(#SET{4, #GET{3}|image_reduire{326,326}|extraire_attribut{src}})]
+	[(#SET{5, #GET{4}|image_reduire{275,275}|extraire_attribut{src}})]
+	<img src="#GET{3}"
+		width="[(#GET{3}|largeur)]"
+		height="[(#GET{3}|hauteur)]"
+		srcset="[(#GET{5}) 275w,][
+			(#GET{4}) 326w,][
+			(#GET{3}) 550w,][
+			(#GET{2}) 686w,][
+			(#GET{1}) 922w,]"
+		sizes="(min-width:1240px) 275px, (min-width:760px) 25vw, (min-width:500px) 50vw, 100vw"
+		alt="[(#ALT|sinon{#DESCRIPTIF}|sinon{#TITRE}|attribut_html)][ (#CREDITS|attribut_html)]" loading="lazy">
+</BOUCLE_figure_projet_variante_2>

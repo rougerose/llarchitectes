@@ -2,6 +2,7 @@
 	Légende pour les documents
 	==========================
 	Modèle surchargé pour les besoins du plugin.
+
 ]<BOUCLE_legendaire(DOCUMENTS){id_document=#ENV{id,#ENV{id_document}}}{tout}>
 	[(#TITRE|sinon{#DESCRIPTIF}|sinon{#CREDITS}|oui)
 		<figcaption class="portfolio_caption">

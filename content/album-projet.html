@@ -1,0 +1,37 @@
+[(#REM)
+	Règles de formatage de l'image :
+	================================
+	-> Variante 1 : les images en position 1, 6, 11, 16, etc. sont affichées sur 2 colonnes.
+
+	min-width 1240px:	570 x 570 -> 570 x1		1140 x2		ratio 1/1
+	min-width 960px:	438 x 438 -> 438 x1		876 x2		ratio 1/1
+	min-width 760px:	344 x 344 -> 			688 x2		ratio 1/1
+	max-width 759px:	706 x 528 -> 			1412 x2		ratio 4/3
+						344 x 258 -> 			688 x2		ratio 4/3
+
+	-> Variante 2 : toutes les autres images.
+	min-width 1240px: 	275 x 275 -> 275 x1		550 x2	 	ratio 1/1
+	min-width 760px:	163 x 163 -> 			326 x2		ratio 1/1
+	min-width 500px:	343 x 257 ->			686 x2		ratio 4/3
+	<=499				461 x 346 ->			922 x2		ratio 4/3
+
+]
+<B_album_projet>
+	<div class="portfolio_album" data-composition="projet">
+		<BOUCLE_album_projet(DOCUMENTS){id_album}{media=image}{par rang_lien, num titre, date, id_document}>
+			[(#COMPTEUR_BOUCLE|=={1}|?{
+				[(#SET{variante, 1})],
+				[(#COMPTEUR_BOUCLE|modulo{5}|=={0}?{
+					[(#SET{variante, 1})],
+					[(#SET{variante, 2})]
+				})]
+			})]
+			<figure class="portfolio_media">
+				<a href="#URL_DOCUMENT" class="mediabox" type="#MIME_TYPE">
+					<INCLURE{fond=inclure/images/figure_article_projet_variante_#GET{variante}, id_document}/>
+				</a>
+				<INCLURE{fond=modeles/document_legende, id_document, env}/>
+			</figure>
+		</BOUCLE_album_projet>
+	</div>
+</B_album_projet>
