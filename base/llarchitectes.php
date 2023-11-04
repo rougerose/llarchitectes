@@ -13,7 +13,7 @@ function llarchitectes_declarer_champs_extras($champs = array()) {
             // Le nom du champ dans la base de données
             'nom' => 'date_projet',
             // Le label affiché dans l'espace privé du site
-            'label' => _T('llarchitectes:date_projet_label'),
+            'label' => _T('llarchitectes:date_projet_label_prive'),
             // L'explication affichée dans l'espace privé du site
             // 'explication' => _T('prefixe:chaine_de_langue_date_diffusion_explication'),
             // Le type d'info attendue

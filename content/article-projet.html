@@ -1,0 +1,57 @@
+<BOUCLE_article_projet(ARTICLES){id_article}>
+	<div class="region">
+		<div class="wrapper" data-wrapper-type="narrow">
+			<INCLURE{fond=breadcrumb/article, id_article}/>
+		</div>
+		<article class="article">
+			<div class="wrapper" data-wrapper-type="narrow">
+				<div class="article_prose prose">
+					<header class="article_header">
+						<BOUCLE_mot_localisation(MOTS){id_article}{id_groupe=2}{0,1}>
+							[<p class="article_surtitre">(#TITRE)</p>]
+						</BOUCLE_mot_localisation>
+						<h1 class="article_titre">#TITRE</h1>
+					</header>
+					<div class="article_texte flow">
+						[(#TEXTE)]
+
+						[(#REM) Vérifier la présence de données pour afficher la liste des métas ]
+						#SET{metas, non}
+						<BOUCLE_meta(MOTS){id_article}{id_groupe_racine=4}{id_groupe!=1}{0,1}>
+							#SET{metas, oui}
+						</BOUCLE_meta>
+						[(#DATE_PROJET|annee|>{0}|oui) #SET{metas, oui} ]
+						<BOUCLE_metas(CONDITION){si #GET{metas}|=={oui}}>
+							<dl class="article_meta">
+								<BOUCLE_mots_meta(MOTS){id_article}{id_groupe_racine=4}{id_groupe!=1}{par type}>
+									[<dt>(#TYPE|unique)</dt>]
+									<dd>#TITRE</dd>
+								</BOUCLE_mots_meta>
+								[<dt><:llarchitectes:date_projet_label_public:></dt>
+								<dd>(#DATE_PROJET|annee)</dd>]
+							</dl>
+						</BOUCLE_metas>
+						<B_mots_categories>
+							<div class="cluster article_tags">
+								<BOUCLE_mots_categories(MOTS){id_article}{id_groupe=1}{par num titre}>
+									<a href="" class="button" data-variant="tag">#TITRE</a>
+								</BOUCLE_mots_categories>
+							</div>
+						</B_mots_categories>
+					</div>
+				</div>
+			</div>
+			<div class="wrapper">
+				<div class="article_extra">
+					<B_albums_article>
+						<div class="article_portfolio portfolio flow">
+							<BOUCLE_albums_article(ALBUMS){id_article}{vu=non}>
+								<INCLURE{fond=#COMPOSITION|compositions_selectionner{album, projet}, id_album, id_article}/>
+							</BOUCLE_albums_article>
+						</div>
+					</B_albums_article>
+				</div>
+			</div>
+		</article>
+	</div>
+</BOUCLE_article_projet>
