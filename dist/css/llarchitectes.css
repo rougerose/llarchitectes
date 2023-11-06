@@ -353,7 +353,7 @@ h6 {
   gap: var(--gutter);
   grid-template-columns: repeat(var(--grid-placement, auto-fill), minmax(var(--grid-min-item-size, 16rem), 1fr));
 }
-.grid[data-grid-layout=projects] {
+.grid[data-grid-layout=projets] {
   --grid-placement: auto-fit;
   --grid-min-item-size: min(100%, 31ch);
   gap: var(--space-l);
@@ -711,19 +711,20 @@ h6 {
   text-transform: uppercase;
 }
 
-.card[data-type=project] {
+.card[data-type=projet] {
   --card-offset: var(--space-s);
   --card-color: var(--color-primary);
   position: relative;
 }
-.card[data-type=project]::before, .card[data-type=project]::after {
+.card[data-type=projet]::before, .card[data-type=projet]::after {
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
+  pointer-events: none;
 }
-.card[data-type=project]::before {
+.card[data-type=projet]::before {
   content: "";
   display: block;
   background-color: transparent;
@@ -733,7 +734,7 @@ h6 {
   z-index: 1;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
-.card[data-type=project]::after {
+.card[data-type=projet]::after {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -744,15 +745,15 @@ h6 {
   text-transform: uppercase;
   transition: color 0.3s;
 }
-.card[data-type=project] .card_media, .card[data-type=project] .card_content {
+.card[data-type=projet] .card_media, .card[data-type=projet] .card_content {
   position: relative;
   z-index: 2;
 }
-.card[data-type=project] .card_media {
+.card[data-type=projet] .card_media {
   margin-left: var(--card-offset);
   mix-blend-mode: multiply;
 }
-.card[data-type=project] .card_content {
+.card[data-type=projet] .card_content {
   --sidebar-width: auto;
   margin-top: auto;
   margin-left: var(--card-offset);
@@ -764,20 +765,20 @@ h6 {
   align-items: last baseline;
   transition: color 0.3s ease;
 }
-.card[data-type=project]:hover::before {
+.card[data-type=projet]:hover::before {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
 }
-.card[data-type=project]:hover::after {
+.card[data-type=projet]:hover::after {
   color: var(--color-paper);
 }
-.card[data-type=project]:hover a {
+.card[data-type=projet]:hover a {
   color: var(--color-paper);
 }
-.card[data-type=project]:hover .card_content {
+.card[data-type=projet]:hover .card_content {
   color: var(--color-paper);
 }
-[data-layout=related] .card[data-type=project] {
+[data-layout=related] .card[data-type=projet] {
   --card-color: var(--color-tertiary);
 }
 

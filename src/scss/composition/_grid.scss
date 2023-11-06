@@ -8,7 +8,7 @@
 		minmax(var(--grid-min-item-size, 16rem), 1fr)
 	);
 
-	&[data-grid-layout="projects"] {
+	&[data-grid-layout="projets"] {
 		--grid-placement: auto-fit;
 		--grid-min-item-size: min(100%, 31ch);
 		gap: var(--space-l);

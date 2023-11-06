@@ -60,7 +60,6 @@
 	display: flex;
 	flex-direction: column;
 	margin-top: var(--flow-space);
-	// margin-bottom: var(--flow-space);
 
 	& p {
 		font-size: var(--step--2);
@@ -81,7 +80,7 @@
 // Variante projets
 // ========================================
 
-.card[data-type="project"] {
+.card[data-type="projet"] {
 	--card-offset: var(--space-s);
 	--card-color: var(--color-primary);
 	position: relative;
@@ -93,6 +92,7 @@
 		top: 0;
 		right: 0;
 		bottom: 0;
+		pointer-events: none;
 	}
 
 	&::before {
