@@ -7,4 +7,5 @@
 
 # Articles
 
-- [ ] concevoir la mise en page et styles sur la base du modèle d'article adapté à Spip.
+- [ ] article d'exemple des raccourcis Spip
+- [ ] Projets : réduire le nombre de variantes d'images à produire.
