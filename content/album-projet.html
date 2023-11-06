@@ -19,15 +19,15 @@
 <B_album_projet>
 	<div class="portfolio_album" data-composition="projet">
 		<BOUCLE_album_projet(DOCUMENTS){id_album}{media=image}{par rang_lien, num titre, date, id_document}>
-			[(#COMPTEUR_BOUCLE|=={1}|?{
+			[(#COMPTEUR_BOUCLE|moins{1}|=={0}|?{
 				[(#SET{variante, 1})],
-				[(#COMPTEUR_BOUCLE|modulo{5}|=={0}?{
+				[(#COMPTEUR_BOUCLE|moins{1}|modulo{5}|=={0}?{
 					[(#SET{variante, 1})],
 					[(#SET{variante, 2})]
 				})]
 			})]
-			<figure class="portfolio_media">
-				<a href="#URL_DOCUMENT" class="mediabox" type="#MIME_TYPE">
+			<figure class="portfolio_media #GET{variante}">
+				<a href="#URL_DOCUMENT" class="portfolio_img-link" type="#MIME_TYPE" data-pswp-width="[(#FICHIER|largeur)]" data-pswp-height="[(#FICHIER|hauteur)]">
 					<INCLURE{fond=inclure/images/figure_article_projet_variante_#GET{variante}, id_document}/>
 				</a>
 				<INCLURE{fond=modeles/document_legende, id_document, env}/>

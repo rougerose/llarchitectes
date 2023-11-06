@@ -5,8 +5,12 @@
             "maxSize": "3 kB"
         },
         {
-            "path": "./dist/js/carousel.js",
-            "maxSize": "13 kB"
+            "path": "./dist/js/llarchitectes_photoswipe.js",
+            "maxSize": "20 kB"
+        },
+        {
+            "path": "./dist/css/llarchitectes.css",
+            "maxSize": "10 kB"
         }
     ]
 }

@@ -74,6 +74,7 @@ $inset-width: 2px;
 		display: block;
 		content: "";
 		border: $inset-width solid var(--color-primary);
+		position: relative;
 	}
 
 	&::before {
