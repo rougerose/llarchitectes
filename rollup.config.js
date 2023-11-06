@@ -29,5 +29,5 @@ function build(src, dist, name) {
 
 export default [
 	build("index.js", "llarchitectes.js", "LLA"),
-	build("carousel.js", "llarchitectes_carousel.js", ""),
+	//build("carousel.js", "llarchitectes_carousel.js", ""),
 ];
