@@ -1,0 +1,9 @@
+<B_articles_projets>
+	#ANCRE_PAGINATION
+	<div class="grid" data-grid-layout="projets">
+		<BOUCLE_articles_projets(ARTICLES){id_rubrique}{!par date_projet}{par num titre}{pagination #ENV{pagination, 12} _articles}>
+			<INCLURE{fond=inclure/resumes/card_projet, id_article}/>
+		</BOUCLE_articles_projets>
+	</div>
+	[<nav class="pagination" role="navigation">(#PAGINATION{llarchitectes,  afficher_lien_precedent=1, afficher_lien_suivant=1, nombre_liens_max=6})</nav>]
+</B_articles_projets>

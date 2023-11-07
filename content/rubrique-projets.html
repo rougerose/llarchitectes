@@ -1,0 +1,19 @@
+<BOUCLE_rubrique_projets(RUBRIQUES){id_rubrique}>
+	<div class="rubrique projects">
+		<div class="wrapper region" data-wrapper-type="narrow">
+			<INCLURE{fond=breadcrumb/rubrique, id_rubrique}/>
+			<header class="headline prose">
+				<h1 class="headline_title">#TITRE</h1>
+				[<div class="headline_desc flow">
+					(#TEXTE)
+				</div>]
+				<INCLURE{fond=inclure/listes/filtres_projets, id_rubrique, mots, env}/>
+			</header>
+		</div>
+		<div class="projects_list region">
+			<div class="wrapper">
+				<INCLURE{fond=inclure/listes/articles_projets, id_rubrique, pagination=#ENV{pagination, 10}, ajax, env}/>
+			</div>
+		</div>
+	</div>
+</BOUCLE_rubrique_projets>
