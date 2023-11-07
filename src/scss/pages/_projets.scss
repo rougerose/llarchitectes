@@ -3,12 +3,22 @@
 // styles de la rubrique Projets
 // ========================================
 
-.projets {
-	& .headline {
-		padding-bottom: 0;
+// .projets {}
+
+.projets_header {
+	&.region {
+		padding-bottom: var(--space-m);
 	}
 }
 
-.projets_liste {
-	padding-top: var(--space-m-l);
+.projets_body {
+	&.region {
+		padding-top: 0;
+	}
 }
+
+.projets_filters {
+	padding-bottom: var(--space-xl);
+}
+
+// .projets_cards {}

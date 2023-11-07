@@ -1419,12 +1419,16 @@ h6 {
   padding-top: 0;
 }
 
-.projets .headline {
-  padding-bottom: 0;
+.projets_header.region {
+  padding-bottom: var(--space-m);
 }
 
-.projets_liste {
-  padding-top: var(--space-m-l);
+.projets_body.region {
+  padding-top: 0;
+}
+
+.projets_filters {
+  padding-bottom: var(--space-xl);
 }
 
 .spip-admin-float {
