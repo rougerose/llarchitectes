@@ -34,16 +34,6 @@
 	flex-direction: column;
 	padding-left: var(--space-s);
 	position: relative;
-
-	// &::before {
-	// 	content: "";
-	// 	position: absolute;
-	// 	left: 0;
-	// 	top: 0;
-	// 	height: 100%;
-	// 	width: 1px;
-	// 	background-color: var(--color-tertiary);
-	// }
 }
 
 @include mq.mq($from: 1024px) {

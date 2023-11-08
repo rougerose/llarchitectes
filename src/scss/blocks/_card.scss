@@ -162,16 +162,16 @@
 	}
 
 	// Variante dans conteneur "related"
-	[data-layout="related"] & {
-		--card-color: var(--color-tertiary);
-	}
+	// [data-layout="related"] & {
+	// 	--card-color: var(--color-ink);
+	// }
 }
 
 // Variante Journal de bord
 // ========================================
 
 .card[data-card-type="journal"] {
-	--card-inset-color: var(--color-tertiary);
+	--card-inset-color: var(--color-ink);
 	--card-offset: var(--space-s);
 	--card-img-ratio: 3/4;
 	display: grid;

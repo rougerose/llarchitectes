@@ -2,16 +2,10 @@
 // Breadcrumb
 // ========================================
 
-@use "sass:color";
-@use "sass:map";
-@use "../abstract" as abstract;
-
-$color-mute: map.get(abstract.$cloud, 700);
-$color-mute-light: map.get(abstract.$cloud, 400);
 $column-gap: 0.6em;
 
 .breadcrumb {
-	color: $color-mute;
+	color: var(--color-mute);
 	font-family: var(--font-family-mono);
 	font-size: var(--step--3);
 	font-weight: 300;
@@ -53,13 +47,13 @@ $column-gap: 0.6em;
 	& .icon-arrow-right {
 		width: 0.6em;
 		height: 0.6em;
-		color: $color-mute-light;
+		color: var(--color-mute-light);
 	}
 
 	& .icon-star {
 		width: 0.8em;
 		height: 0.8em;
 		align-self: center;
-		color: $color-mute-light;
+		color: var(--color-mute-light);
 	}
 }
