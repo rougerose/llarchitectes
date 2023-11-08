@@ -1,0 +1,12 @@
+<BOUCLE_projets_header(RUBRIQUES){id_rubrique}>
+	<BOUCLE_projets(CONDITION){si #ID_RUBRIQUE|=={1}}{si #ENV{mots}|is_array}>
+		#SET{filtres, ' :'}
+		<BOUCLE_mot(MOTS){id_mot IN #ENV{mots}}>[(#SET{filtres, #GET{filtres}|concat{' '}|concat{#TITRE}|concat{', '}})] </BOUCLE_mot>
+	</BOUCLE_projets>
+	<header class="headline prose">
+		<h1 class="headline_title">#TITRE[ (#GET{filtres}|trim{', '})]</h1>
+		[<div class="headline_desc flow">
+			(#TEXTE)
+		</div>]
+	</header>
+</BOUCLE_projets_header>

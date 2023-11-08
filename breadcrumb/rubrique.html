@@ -1,10 +1,21 @@
 <BOUCLE_breadcrumb_rubrique(RUBRIQUES){id_rubrique}>
-  <nav class="breadcrumb" aria-label="Vous êtes dans :">
-    <ul class="breadcrumb_list" role="list">
-      <li>[<svg class="icon icon-star" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true"><use href="(#CHEMIN{images/icon-defs.svg}|ancre_url{icon-star})"></use></svg>] <a href="#URL_SITE_SPIP">#NOM_SITE_SPIP</a></li>
-      <BOUCLE_breadcrumb(HIERARCHIE){id_rubrique}{tout}>
-        <li>[<svg class="icon icon-arrow-right" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true"><use href="(#CHEMIN{images/icon-defs.svg}|ancre_url{icon-arrow-right})"></use></svg>] <a href="#URL_RUBRIQUE"[ (#ID_RUBRIQUE|=={#ENV{id_rubrique}}|oui)aria-current="page"]>#TITRE</a> [<svg class="icon icon-star" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true"><use href="(#CHEMIN{images/icon-defs.svg}|ancre_url{icon-star})"></use></svg>]</li>
-      </BOUCLE_breadcrumb>
-    </ul>
-  </nav>
+	<BOUCLE_projets(CONDITION){si #ID_RUBRIQUE|=={1}}{si #ENV{mots}|is_array}>
+		#SET{filtres, ' :'}
+		[(#SET{url, #URL_RUBRIQUE|parametre_url{mots\[\], #ENV{mots}}})]
+		<BOUCLE_mot(MOTS){id_mot IN #ENV{mots}}>[(#SET{filtres, #GET{filtres}|concat{' '}|concat{#TITRE}|concat{', '}})] </BOUCLE_mot>
+	</BOUCLE_projets>
+		[(#SET{url, #URL_RUBRIQUE})]
+	<//B_projets>
+	<nav class="breadcrumb" aria-label="Vous êtes dans :">
+		<ul class="breadcrumb_list" role="list">
+		<li>[<svg class="icon icon-star" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true"><use href="(#CHEMIN{images/icon-defs.svg}|ancre_url{icon-star})"></use></svg>] <a href="#URL_SITE_SPIP">#NOM_SITE_SPIP</a></li>
+		<BOUCLE_breadcrumb(HIERARCHIE){id_rubrique}{tout}>
+			<li>
+				[<svg class="icon icon-arrow-right" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true"><use href="(#CHEMIN{images/icon-defs.svg}|ancre_url{icon-arrow-right})"></use></svg>][
+					(#ID_RUBRIQUE|=={#ENV{id_rubrique}}|non)<a href="#URL_RUBRIQUE">#TITRE</a>][
+					(#ID_RUBRIQUE|=={#ENV{id_rubrique}}|oui)<a href="#GET{url}" aria-current="page">#TITRE[ (#GET{filtres}|trim{', '})]</a> [<svg class="icon icon-star" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true"><use href="(#CHEMIN{images/icon-defs.svg}|ancre_url{icon-star})"></use></svg>]]
+			</li>
+		</BOUCLE_breadcrumb>
+		</ul>
+	</nav>
 </BOUCLE_breadcrumb_rubrique>

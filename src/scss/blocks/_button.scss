@@ -136,4 +136,20 @@ $primary-800: map.get(abstract.$pomegranate, 800);
 			color: var(--color-primary);
 		}
 	}
+
+	// Variante ghost
+	&[data-variant="ghost"] {
+		padding: 0;
+
+		&:hover,
+		&:active {
+			background-color: transparent;
+			// border-color: currentColor;
+			// color: currentColor;
+		}
+	}
+
+	&[type="submit"] {
+		border-color: var(--color-ink);
+	}
 }

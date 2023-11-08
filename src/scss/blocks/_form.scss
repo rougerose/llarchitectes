@@ -1,0 +1,51 @@
+// ========================================
+// Form et éléments associés (hors .button)
+// ========================================
+
+input[type="checkbox"] {
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: var(--color-paper);
+	margin: 0;
+	font-family: inherit;
+	font-size: var(--step--1);
+	color: currentColor;
+	width: 1em;
+	height: 1em;
+	border: 2px solid currentColor;
+	border-radius: 0.15em;
+	transform: translateY(-0.075em);
+	display: grid;
+	place-content: center;
+
+	&::before {
+		content: "";
+		width: 0.65em;
+		height: 0.65em;
+		transform: scale(0);
+		transition: 0.3s transform ease-in-out;
+		box-shadow: inset 1em 1em var(--color-ink);
+		background-color: CanvasText;
+		transform-origin: bottom left;
+		clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+	}
+
+	&:checked {
+		color: var(--color-ink);
+
+		&::before {
+			transform: scale(1);
+		}
+	}
+}
+
+fieldset {
+	border: none;
+	padding: 0;
+}
+
+legend {
+	font-family: inherit;
+	font-size: var(--step-1);
+	margin-bottom: var(--space-s);
+}

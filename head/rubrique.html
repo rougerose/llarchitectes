@@ -1,0 +1,10 @@
+<BOUCLE_rubrique_head(RUBRIQUES){id_rubrique}>
+	<BOUCLE_projets(CONDITION){si #ID_RUBRIQUE|=={1}}{si #ENV{mots}}>
+		#SET{filtres, ' :'}
+		<BOUCLE_mot(MOTS){id_mot IN #ENV{mots}}>[(#SET{filtres, #GET{filtres}|concat{' '}|concat{#TITRE}|concat{', '}})] </BOUCLE_mot>
+	</BOUCLE_projets>
+	<//B_projets>
+	<title>[(#TITRE|textebrut)][ (#GET{filtres}|trim{', '})][ | (#NOM_SITE_SPIP|textebrut)]</title>
+	[<meta name="description" content="(#INTRODUCTION|couper{250}|textebrut)" />]
+	[<link rel="canonical" href="(#URL_RUBRIQUE|url_absolue)"/>]
+</BOUCLE_rubrique_head>

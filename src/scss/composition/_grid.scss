@@ -9,7 +9,7 @@
 	);
 
 	&[data-grid-layout="projets"] {
-		--grid-placement: auto-fit;
+		--grid-placement: auto-fill;
 		--grid-min-item-size: min(100%, 31ch);
 		gap: var(--space-l);
 	}

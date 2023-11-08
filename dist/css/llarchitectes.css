@@ -354,7 +354,7 @@ h6 {
   grid-template-columns: repeat(var(--grid-placement, auto-fill), minmax(var(--grid-min-item-size, 16rem), 1fr));
 }
 .grid[data-grid-layout=projets] {
-  --grid-placement: auto-fit;
+  --grid-placement: auto-fill;
   --grid-min-item-size: min(100%, 31ch);
   gap: var(--space-l);
 }
@@ -647,6 +647,15 @@ h6 {
   border-color: var(--color-primary);
   color: var(--color-primary);
 }
+.button[data-variant=ghost] {
+  padding: 0;
+}
+.button[data-variant=ghost]:hover, .button[data-variant=ghost]:active {
+  background-color: transparent;
+}
+.button[type=submit] {
+  border-color: var(--color-ink);
+}
 
 .card {
   --flow-space: var(--space-2xs);
@@ -855,9 +864,7 @@ h6 {
 }
 
 .filters_list {
-  --cluster-space: 0.5rem 0.5rem;
-  padding: 0;
-  margin: var(--space-m-l) 0 0;
+  --cluster-space: 0.75rem 1rem;
 }
 
 .filters_count {
@@ -865,7 +872,53 @@ h6 {
   color: var(--color-primary);
   font-size: var(--step--1);
   font-weight: 500;
-  text-transform: uppercase;
+}
+
+input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background-color: var(--color-paper);
+  margin: 0;
+  font-family: inherit;
+  font-size: var(--step--1);
+  color: currentColor;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+input[type=checkbox]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 0.3s transform ease-in-out;
+  box-shadow: inset 1em 1em var(--color-ink);
+  background-color: CanvasText;
+  transform-origin: bottom left;
+  -webkit-clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+          clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+input[type=checkbox]:checked {
+  color: var(--color-ink);
+}
+input[type=checkbox]:checked::before {
+  transform: scale(1);
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+legend {
+  font-family: inherit;
+  font-size: var(--step-1);
+  margin-bottom: var(--space-s);
 }
 
 .headline_title {
@@ -888,7 +941,6 @@ h6 {
 }
 
 .indicator {
-  margin-left: 0.25em;
   font-size: 0.7em;
   color: var(--color-primary);
 }
@@ -1420,7 +1472,7 @@ h6 {
 }
 
 .projets_header.region {
-  padding-bottom: var(--space-m);
+  padding-bottom: var(--space-2xl);
 }
 
 .projets_body.region {
@@ -1428,7 +1480,7 @@ h6 {
 }
 
 .projets_filters {
-  padding-bottom: var(--space-xl);
+  padding-bottom: var(--space-2xl);
 }
 
 .spip-admin-float {
@@ -1450,6 +1502,50 @@ h6 {
 }
 .spip-admin-float .spip-admin-boutons:hover {
   background-color: var(--color-ink);
+}
+
+.formulaire_spip {
+  font-family: var(--font-family-mono);
+}
+.formulaire_spip legend {
+  color: hsl(22, 7%, 32%);
+  font-size: var(--step-0);
+}
+.formulaire_spip .boutons {
+  margin-top: var(--flow-space);
+}
+
+.formulaire_filtrer_projets .choix {
+  display: grid;
+  gap: 0.5em;
+  align-items: center;
+  border: 2px solid hsl(24, 6%, 84%);
+  border-radius: 0.7em;
+  padding: 0.4em 0.75em 0.25em;
+  transition: border-color 0.3s, color 0.3s;
+  color: hsl(22, 7%, 32%);
+}
+.formulaire_filtrer_projets .choix.checkbox {
+  grid-template-columns: 1em auto;
+}
+.formulaire_filtrer_projets .choix.bouton {
+  padding: 0;
+  font-size: var(--step--2);
+  color: hsl(22, 7%, 32%);
+}
+.formulaire_filtrer_projets .choix.bouton .button {
+  padding: 0.4em 0.75em 0.25em;
+}
+.formulaire_filtrer_projets .choix label {
+  font-size: var(--step--2);
+  color: currentColor;
+}
+.formulaire_filtrer_projets .choix.is-checked, .formulaire_filtrer_projets .choix:hover {
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+.formulaire_filtrer_projets .choix.is-hide, .no-js .formulaire_filtrer_projets .choix.filters_reset {
+  display: none;
 }
 
 /*! PhotoSwipe main CSS by Dmytro Semenov | photoswipe.com */
