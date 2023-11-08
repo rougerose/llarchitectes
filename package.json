@@ -7,7 +7,7 @@
     "config": {
         "host": {
             "dev": "http://localhost:8888/llarchitectes.dev",
-            "prod": "http://domain.com"
+            "prod": "http://localhost:8888/llarchitectes.dev"
         }
     },
     "scripts": {

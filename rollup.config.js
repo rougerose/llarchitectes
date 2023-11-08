@@ -30,5 +30,6 @@ function build(src, dist, name) {
 export default [
 	build("index.js", "llarchitectes.js", ""),
 	build("photoswipe.js", "llarchitectes_photoswipe.js", ""),
+	build("filtrer_projets.js", "llarchitectes_filtrer_projets.js", ""),
 	//build("carousel.js", "llarchitectes_carousel.js", ""),
 ];
