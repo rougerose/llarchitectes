@@ -40,7 +40,8 @@ $inset-width: 2px;
 	margin-top: var(--space-l-xl);
 }
 
-.article_meta {
+.article_metas {
+	--pill-border-color: var(--color-mute-lighter);
 	margin-top: var(--space-l);
 
 	& dt {
@@ -49,9 +50,21 @@ $inset-width: 2px;
 		font-size: var(--step--3);
 	}
 
+	& dd {
+		font-size: var(--step--1);
+	}
+
 	& dd + dt {
 		margin-top: var(--space-xs-s);
 	}
+
+	& dd.box-inline + dd.box-inline {
+		margin-left: 0.3em;
+	}
+}
+
+.article_metas-types {
+	margin-bottom: 0.3em;
 }
 
 .article_tags {

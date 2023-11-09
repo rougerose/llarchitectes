@@ -1,4 +1,5 @@
 <BOUCLE_article_projet(ARTICLES){id_article}>
+	#SET{url_rubrique, #URL_RUBRIQUE}
 	<div class="region">
 		<div class="wrapper" data-wrapper-type="narrow">
 			<INCLURE{fond=breadcrumb/article, id_article}/>
@@ -17,27 +18,27 @@
 
 						[(#REM) Vérifier la présence de données pour afficher la liste des métas ]
 						#SET{metas, non}
-						<BOUCLE_meta(MOTS){id_article}{id_groupe_racine=4}{id_groupe!=1}{0,1}>
+						<BOUCLE_meta(MOTS){id_article}{id_groupe_racine=4}{0,1}>
 							#SET{metas, oui}
 						</BOUCLE_meta>
 						[(#DATE_PROJET|annee|>{0}|oui) #SET{metas, oui} ]
 						<BOUCLE_metas(CONDITION){si #GET{metas}|=={oui}}>
-							<dl class="article_meta">
+							<dl class="article_metas">
 								<BOUCLE_mots_meta(MOTS){id_article}{id_groupe_racine=4}{id_groupe!=1}{par type}>
 									[<dt>(#TYPE|unique)</dt>]
 									<dd>#TITRE</dd>
 								</BOUCLE_mots_meta>
 								[<dt><:llarchitectes:date_projet_label_public:></dt>
 								<dd>(#DATE_PROJET|annee)</dd>]
+								<B_mots_types>
+									<dt class="article_metas-types"><:llarchitectes:projet_metas_types_titre:></dt>
+									<BOUCLE_mots_types(MOTS){id_article}{id_groupe=1}{par num titre}>
+										[(#SET{title, #TITRE|attribut_html})]
+										<dd class="box-inline"><a class="button" data-variant="pill" href="[(#GET{url_rubrique}|parametre_url{mots\[\],#ID_MOT})]" title="<:llarchitectes:projet_metas_href_title{titre=#GET{title}}:>">#TITRE</a></dd>
+									</BOUCLE_mots_types>
+								</B_mots_types>
 							</dl>
 						</BOUCLE_metas>
-						<B_mots_categories>
-							<div class="cluster article_tags">
-								<BOUCLE_mots_categories(MOTS){id_article}{id_groupe=1}{par num titre}>
-									<a href="" class="button" data-variant="tag">#TITRE</a>
-								</BOUCLE_mots_categories>
-							</div>
-						</B_mots_categories>
 					</div>
 				</div>
 			</div>

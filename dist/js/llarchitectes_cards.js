@@ -1,10 +1,11 @@
 var llarchitectes_cards = (function () {
-	"use strict";
+	'use strict';
 
 	// Cards : lien sur l'ensemble de l'élément
 	// Source : https://inclusive-components.design/cards/#callstoaction
 	const init = () => {
 		let cards = document.querySelectorAll(".card");
+		console.log(cards);
 		if (cards.length > 0) {
 			cards.forEach((card) => {
 				card_add_link(card);
@@ -32,4 +33,5 @@ var llarchitectes_cards = (function () {
 	};
 
 	return cards;
+
 })();

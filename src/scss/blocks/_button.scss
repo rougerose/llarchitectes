@@ -82,6 +82,19 @@ $primary-800: map.get(abstract.$pomegranate, 800);
 		}
 	}
 
+	// Variante pill (mots-clés)
+	&[data-variant="pill"] {
+		background-color: transparent;
+		border-color: var(--pill-border-color);
+		border-radius: var(--pill-border-radius);
+		padding: 0.25em 0.5em 0.15em;
+
+		&:hover,
+		&:active {
+			border-color: var(--color-ink);
+		}
+	}
+
 	// Variantes "filtre" et "tag" transparente et bordure sur le hover
 	&[data-variant="filter"],
 	&[data-variant="tag"] {
@@ -144,8 +157,6 @@ $primary-800: map.get(abstract.$pomegranate, 800);
 		&:hover,
 		&:active {
 			background-color: transparent;
-			// border-color: currentColor;
-			// color: currentColor;
 		}
 	}
 

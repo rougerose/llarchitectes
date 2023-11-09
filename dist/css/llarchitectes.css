@@ -48,6 +48,8 @@
   --gutter: var(--grid-gutter);
   --flow-space: var(--space-s);
   --logo-max-width: 576px;
+  --pill-border-radius: 0.7em;
+  --pill-border-color: var(--color-mute-lighter);
 }
 
 /* Box sizing rules */
@@ -612,6 +614,15 @@ h6 {
 }
 .button[data-variant=framed]:hover, .button[data-variant=framed]:active {
   color: var(--color-paper);
+}
+.button[data-variant=pill] {
+  background-color: transparent;
+  border-color: var(--pill-border-color);
+  border-radius: var(--pill-border-radius);
+  padding: 0.25em 0.5em 0.15em;
+}
+.button[data-variant=pill]:hover, .button[data-variant=pill]:active {
+  border-color: var(--color-ink);
 }
 .button[data-variant=filter], .button[data-variant=tag] {
   border-color: rgba(107, 108, 128, 0.2);
@@ -1316,6 +1327,10 @@ legend {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+.box-inline {
+  display: inline-flex;
+}
+
 .gap-top-xl {
   margin-top: var(--space-xl);
 }
@@ -1396,16 +1411,27 @@ legend {
   margin-top: var(--space-l-xl);
 }
 
-.article_meta {
+.article_metas {
+  --pill-border-color: var(--color-mute-lighter);
   margin-top: var(--space-l);
 }
-.article_meta dt {
+.article_metas dt {
   text-transform: uppercase;
   font-family: var(--font-family-mono);
   font-size: var(--step--3);
 }
-.article_meta dd + dt {
+.article_metas dd {
+  font-size: var(--step--1);
+}
+.article_metas dd + dt {
   margin-top: var(--space-xs-s);
+}
+.article_metas dd.box-inline + dd.box-inline {
+  margin-left: 0.3em;
+}
+
+.article_metas-types {
+  margin-bottom: 0.3em;
 }
 
 .article_tags {
@@ -1518,9 +1544,9 @@ legend {
   display: grid;
   gap: 0.5em;
   align-items: center;
-  border: 2px solid var(--color-mute-lighter);
-  border-radius: 0.7em;
-  color: var(--color);
+  border: 2px solid var(--pill-border-color);
+  border-radius: var(--pill-border-radius);
+  color: var(--color-ink);
   padding: 0.4em 0.75em 0.25em;
   transition: border-color 0.3s, color 0.3s;
 }
@@ -1530,7 +1556,7 @@ legend {
 .formulaire_filtrer_projets .choix.bouton {
   padding: 0;
   font-size: var(--step--2);
-  color: var(--color-mute);
+  color: var(--color-ink);
 }
 .formulaire_filtrer_projets .choix.bouton .button {
   padding: 0.4em 0.75em 0.25em;

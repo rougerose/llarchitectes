@@ -20,9 +20,9 @@
 		display: grid;
 		gap: 0.5em;
 		align-items: center;
-		border: 2px solid var(--color-mute-lighter);
-		border-radius: 0.7em;
-		color: var(--color);
+		border: 2px solid var(--pill-border-color);
+		border-radius: var(--pill-border-radius);
+		color: var(--color-ink);
 		padding: 0.4em 0.75em 0.25em;
 		transition: border-color 0.3s, color 0.3s;
 
@@ -33,7 +33,7 @@
 		&.bouton {
 			padding: 0;
 			font-size: var(--step--2);
-			color: var(--color-mute);
+			color: var(--color-ink);
 			& .button {
 				padding: 0.4em 0.75em 0.25em;
 			}

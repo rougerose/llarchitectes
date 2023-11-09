@@ -16,6 +16,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 
 	// P
+	'projet_metas_types_titre' => 'Catégories',
+	'projet_metas_href_title' => 'Voir tous les projets classés avec « @titre@ »',
 	'projets_nb_singulier' => '1 projet affiché',
 	'projets_nb_pluriel' => '@nb@ projets affichés',
 	'projets_total' => ', sur un total de @nb@',
