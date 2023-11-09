@@ -1,5 +1,5 @@
 var llarchitectes_cards = (function () {
-	'use strict';
+	"use strict";
 
 	// Cards : lien sur l'ensemble de l'élément
 	// Source : https://inclusive-components.design/cards/#callstoaction
@@ -32,5 +32,4 @@ var llarchitectes_cards = (function () {
 	};
 
 	return cards;
-
 })();

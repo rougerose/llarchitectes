@@ -19,4 +19,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'projets_nb_singulier' => '1 projet affiché',
 	'projets_nb_pluriel' => '@nb@ projets affichés',
 	'projets_total' => ', sur un total de @nb@',
+	'prolonger_journal_titre' => 'Dernières actualités',
+	'prolonger_journal_bouton_tout_voir' => 'Tous nos actualités',
 );
