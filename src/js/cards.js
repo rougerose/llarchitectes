@@ -3,7 +3,6 @@
 const init = () => {
 	let cards = document.querySelectorAll(".card");
 	if (cards.length > 0) {
-		console.log(cards);
 		cards.forEach((card) => {
 			card_add_link(card);
 		});

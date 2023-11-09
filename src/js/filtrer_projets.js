@@ -10,7 +10,7 @@ $(function () {
 				// récupérer tous les checkbox...
 				$inputs = $form.find("input[type='checkbox']"),
 				// et parmi cette sélection, ceux qui sont sélectionnés
-				filtres = lla_inputsChecked($inputs),
+				filtres = inputsChecked($inputs),
 				// stocker les filtres dans un objet param
 				params = { mots: [] };
 
@@ -19,25 +19,20 @@ $(function () {
 
 			// Récupérer les id des filtres (mots) sélectionnés
 			// et les ajouter à l'url de la page en cours via ajaxReload
-			filtres.ids.forEach(function (id) {
+			filtres.forEach(function (id) {
 				params.mots.push(id);
 			});
 
-			// Récupérer les titres des filtres sélectionnés
-			// filtres.titles.forEach(function (title) {
-			// 	console.log(title);
-			// });
-
 			// Recharger la liste des projets et mettre à jour historique et url du navigateur
 			ajaxReload("projets_body", {
-				// history: true,
+				history: true,
 				args: params,
 			});
 
 			// Recharcher le fil d'Ariane
-			// ajaxReload("projets_breadcrumb", { args: params });
+			ajaxReload("projets_breadcrumb", { args: params });
 			// Recharger le titre de la page
-			// ajaxReload("projets_header", { args: params });
+			ajaxReload("projets_header", { args: params });
 		}
 	);
 
@@ -60,30 +55,19 @@ $(function () {
 	});
 
 	/**
-	 * Stocker dans un objet les filtres sélectionnés.
-	 * Les identifiants et les titres sont réunis dans des tableaux spécifiques
+	 * Stocker dans un tableau les identifiants des filtres sélectionnés.
 	 * @param {*} $inputs
 	 * @returns
 	 */
-	const lla_inputsChecked = ($inputs) => {
-		let checkedValues = { ids: [], titles: [] };
+	const inputsChecked = ($inputs) => {
+		let checkedValues = [];
 		if ($inputs.length > 0) {
 			$inputs.each(function () {
 				if ($(this).is(":checked")) {
-					checkedValues.ids.push($(this).val());
-					checkedValues.titles.push($(this).attr("data-title"));
+					checkedValues.push($(this).val());
 				}
 			});
 		}
 		return checkedValues;
 	};
-
-	function lla_cards_ajaxReload() {
-		let cards = document.querySelectorAll(".card");
-		console.log(cards);
-		cards.forEach((card) => {
-			console.log(card);
-			lla_card_add_link(card);
-		});
-	}
 });
