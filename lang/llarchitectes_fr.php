@@ -20,7 +20,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'projet_metas_href_title' => 'Voir tous les projets classés avec « @titre@ »',
 	'projets_nb_singulier' => '1 projet affiché',
 	'projets_nb_pluriel' => '@nb@ projets affichés',
-	'projets_total' => ', sur un total de @nb@',
+	'projets_total' => ', sur @nb@ projets disponibles',
 	'prolonger_journal_titre' => 'Dernières actualités',
 	'prolonger_journal_bouton_tout_voir' => 'Tous nos actualités',
 );
