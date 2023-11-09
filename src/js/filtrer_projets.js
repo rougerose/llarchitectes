@@ -24,16 +24,20 @@ $(function () {
 			});
 
 			// Récupérer les titres des filtres sélectionnés
-			filtres.titles.forEach(function (title) {
-				console.log(title);
-			});
+			// filtres.titles.forEach(function (title) {
+			// 	console.log(title);
+			// });
 
 			// Recharger la liste des projets et mettre à jour historique et url du navigateur
-			ajaxReload("projets_body", { history: true, args: params });
+			ajaxReload("projets_body", {
+				// history: true,
+				args: params,
+			});
+
 			// Recharcher le fil d'Ariane
-			ajaxReload("projets_breadcrumb", { args: params });
+			// ajaxReload("projets_breadcrumb", { args: params });
 			// Recharger le titre de la page
-			ajaxReload("projets_header", { args: params });
+			// ajaxReload("projets_header", { args: params });
 		}
 	);
 
@@ -73,4 +77,13 @@ $(function () {
 		}
 		return checkedValues;
 	};
+
+	function lla_cards_ajaxReload() {
+		let cards = document.querySelectorAll(".card");
+		console.log(cards);
+		cards.forEach((card) => {
+			console.log(card);
+			lla_card_add_link(card);
+		});
+	}
 });

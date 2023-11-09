@@ -14,22 +14,23 @@ const outputPlugins = () => [
 	process.env.NODE_ENV === "production" && terser(terserOptions),
 ];
 
-function build(src, dist, name) {
+function build(src, dist, name, format) {
 	return {
 		input: srcDir + src,
 		plugins: [resolve(), commonjs()],
 		output: {
 			file: destDir + dist,
-			format: "es",
-			// name,
+			format: format,
+			name: name,
 			plugins: outputPlugins(),
 		},
 	};
 }
 
 export default [
-	build("index.js", "llarchitectes.js", ""),
-	build("photoswipe.js", "llarchitectes_photoswipe.js", ""),
-	build("filtrer_projets.js", "llarchitectes_filtrer_projets.js", ""),
+	build("index.js", "llarchitectes.js", "", "es"),
+	build("photoswipe.js", "llarchitectes_photoswipe.js", "", "es"),
+	build("filtrer_projets.js", "llarchitectes_filtrer_projets.js", "", "es"),
+	build("cards.js", "llarchitectes_cards.js", "llarchitectes_cards", "iife"),
 	//build("carousel.js", "llarchitectes_carousel.js", ""),
 ];

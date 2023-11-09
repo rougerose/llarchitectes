@@ -19,7 +19,7 @@
 							</div>
 						</BOUCLE_filtres>
 						<div class="choix bouton filters_reset[(#ENV{mots}|is_array|non) is-hide]">
-							<button class="button" data-variant="ghost" data-self="[(#SELF|parametre_url{mots\[\],''})]">Effacer votre sélection</button>
+							<button id="t1" class="button" data-variant="ghost" data-self="[(#SELF|parametre_url{mots\[\],''})]">Effacer votre sélection</button>
 						</div>
 					</div>
 				</fieldset>
@@ -31,6 +31,13 @@
 				</p>
 			</noscript>
 		</form>
-		<script src="#CHEMIN{dist/js/llarchitectes_filtrer_projets.js}"></script>
+		<!-- <script>
+			$(function(){
+				$("#t1").on("click", function(){
+					ajaxReload("projets_body", {args: {'id_article':3}, history: true,});
+				});
+			});
+		</script> -->
+		[<script src="(#CHEMIN{dist/js/llarchitectes_filtrer_projets.js}|timestamp)" type="text/javascript"></script>]
 	</div>
 </B_filtres>
