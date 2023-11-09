@@ -6,7 +6,7 @@
 			#ACTION_FORMULAIRE
 			<div class="editer-groupe">
 				<fieldset>
-					<legend>Filtrer les projets par catégorie</legend>
+					<legend><:llarchitectes:formulaire_filtres_legend:></legend>
 					<div class="cluster filters_list">
 						<BOUCLE_filtres(MOTS mots_liens){mots.id_groupe=1}{mots_liens.id_objet IN #ENV{articles}}{mots_liens.objet=article}{par titre}>
 							<B_mot_occurrences>
@@ -19,25 +19,18 @@
 							</div>
 						</BOUCLE_filtres>
 						<div class="choix bouton filters_reset[(#ENV{mots}|is_array|non) is-hide]">
-							<button id="t1" class="button" data-variant="ghost" data-self="[(#SELF|parametre_url{mots\[\],''})]">Effacer votre sélection</button>
+							<button class="button" data-variant="ghost" data-self="[(#SELF|parametre_url{mots\[\],''})]"><:llarchitectes:formulaire_filtres_reset:></button>
 						</div>
 					</div>
 				</fieldset>
 			</div>
 			<noscript>
 				<p class="boutons cluster">
-					<input type="submit" class="submit button" value="<:llarchitectes:filtres_bouton_submit:>">
+					<input type="submit" class="submit button" value="<:llarchitectes:formulaire_filtres_submit:>">
 					<span class="image_loading">&nbsp;</span>
 				</p>
 			</noscript>
 		</form>
-		<!-- <script>
-			$(function(){
-				$("#t1").on("click", function(){
-					ajaxReload("projets_body", {args: {'id_article':3}, history: true,});
-				});
-			});
-		</script> -->
 		[<script src="(#CHEMIN{dist/js/llarchitectes_filtrer_projets.js}|timestamp)" type="text/javascript"></script>]
 	</div>
 </B_filtres>

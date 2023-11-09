@@ -10,7 +10,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'date_projet_label_public' => 'Année de réalisation',
 
 	// F
-	'filtres_bouton_submit' => 'Appliquer',
+	'formulaire_filtres_legend' => 'Filtrer les projets par catégorie',
+	'formulaire_filtres_reset' => 'Effacer votre sélection',
+	'formulaire_filtres_submit' => 'Appliquer',
+
 
 	// P
 	'projets_nb_singulier' => '1 projet affiché',
