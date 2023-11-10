@@ -12,7 +12,7 @@
 				</h1>
 				<div class="grid" data-grid-layout="related"[(#TOTAL_BOUCLE|>{1}|oui) style="--grid-placement:auto-fit;"]>
 					<BOUCLE_articles_projets_lies(ARTICLES){id_rubrique}{mots_selon_id 1 #GET{mots}}{!par date}{exclus}{0,3}>
-						<INCLURE{fond=inclure/resumes/card_projet, id_article}/>
+						<INCLURE{fond=inclure/resumes/card_projet, contexte=article_prolonger, id_article}/>
 					</BOUCLE_articles_projets_lies>
 				</div>
 			</B_articles_projets_lies>

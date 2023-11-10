@@ -1,9 +1,12 @@
 <BOUCLE_card_projet(ARTICLES){id_article}>
+	[(#REM) Variante du logo selon le contexte : rubrique Projets ou article Prolonger. Par défaut, contexte rubrique Projets. ]
+	[(#SET{contexte, #ENV{contexte, rubrique_projets}})]
+	[(#GET{contexte}|=={rubrique_projets}|?{
+		[(#SET{variante_logo, logo_article_projet_rubrique})],
+		[(#SET{variante_logo, logo_article_projet_prolonger})]
+	})]
 	<article class="card" data-type="projet">
-		<div class="card_media">
-			#LOGO_ARTICLE
-			<!-- <img class="card_img" src="" alt=""> -->
-		</div>
+		<INCLURE{fond=inclure/images/#GET{variante_logo}, id_article}/>
 		<div class="card_content with-sidebar" data-type="right-sidebar">
 			<div class="card_header">
 				<BOUCLE_localisation(MOTS){id_article}{id_groupe=2}{0,1}>
