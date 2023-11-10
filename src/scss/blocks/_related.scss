@@ -11,7 +11,7 @@
 
 .related_headline {
 	margin-bottom: var(--flow-space);
-	color: var(--color-secondary-contrast);
+	color: var(--color-primary-900);
 	font-size: var(--step-3);
 	text-transform: uppercase;
 	font-weight: 500;
@@ -21,9 +21,5 @@
 		display: flex;
 		gap: var(--space-2xs);
 		align-items: baseline;
-
-		@media (min-width: abstract.$wrapper-narrow-max-width) {
-			margin-left: calc((0.75em + var(--space-2xs)) * -1);
-		}
 	}
 }

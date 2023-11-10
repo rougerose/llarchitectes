@@ -162,9 +162,9 @@
 	}
 
 	// Variante dans conteneur "related"
-	// [data-layout="related"] & {
-	// 	--card-color: var(--color-ink);
-	// }
+	[data-grid-layout="related"] & {
+		--card-color: var(--color-primary-900);
+	}
 }
 
 // Variante Journal de bord
@@ -253,5 +253,10 @@
 
 	&:hover {
 		--card-inset-color: var(--color-primary);
+	}
+
+	// Variante dans conteneur "related"
+	[data-grid-layout="related"] & {
+		--card-inset-color: var(--color-primary-900);
 	}
 }

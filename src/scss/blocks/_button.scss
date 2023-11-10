@@ -118,8 +118,8 @@ $primary-800: map.get(abstract.$pomegranate, 800);
 
 	// Variante encadré "related" (contenus liés à un article)
 	&[data-variant="related"] {
-		border-color: var(--color-secondary-contrast);
-		color: var(--color-secondary-contrast);
+		border-color: var(--color-primary-900);
+		color: var(--color-primary-900);
 		text-transform: uppercase;
 
 		&:hover,
