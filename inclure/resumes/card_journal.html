@@ -2,8 +2,8 @@
 	[(#REM) Variante du logo selon le contexte : rubrique Journal ou article Prolonger. Par défaut, contexte rubrique Journal. ]
 	[(#SET{contexte, #ENV{contexte, rubrique_journal}})]
 	[(#GET{contexte}|=={rubrique_journal}|?{
-		[(#SET{variante_logo, logo_article_card_rubrique})],
-		[(#SET{variante_logo, logo_article_card_prolonger})]
+		[(#SET{variante_logo, logo_article_journal_rubrique})],
+		[(#SET{variante_logo, logo_article_journal_prolonger})]
 	})]
 	<article class="card #GET{contexte}" data-card-type="journal">
 		<INCLURE{fond=inclure/images/#GET{variante_logo}, id_article}/>
