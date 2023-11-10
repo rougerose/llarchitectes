@@ -1189,14 +1189,17 @@ legend {
 .portfolio_album[data-composition=projet] figure {
   aspect-ratio: 4/3;
 }
-.portfolio_album[data-composition=projet] figure > a {
+.portfolio_album[data-composition=projet] .portfolio_link {
   display: block;
-}
-.portfolio_album[data-composition=projet] figure > a, .portfolio_album[data-composition=projet] img {
   width: 100%;
   height: 100%;
+  transition: transform 0.3s ease-out;
+}
+.portfolio_album[data-composition=projet] .portfolio_link:hover {
+  transform: scale(1.05);
 }
 .portfolio_album[data-composition=projet] img {
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -1221,7 +1224,7 @@ legend {
   }
 }
 
-.portfolio_media img {
+.portfolio_figure img {
   width: 100%;
 }
 

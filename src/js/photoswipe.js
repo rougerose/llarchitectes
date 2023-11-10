@@ -11,7 +11,7 @@ const backEasing = {
 if ($portfolio) {
 	const lightbox = new PhotoSwipeLightbox({
 		gallery: $portfolio,
-		children: "a.portfolio_img-link",
+		children: "a.portfolio_link",
 		showHideAnimationType: "zoom",
 		showAnimationDuration: 500,
 		hideAnimationDuration: 500,

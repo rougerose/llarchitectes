@@ -11,8 +11,8 @@
 			[(#SET{1040, #FICHIER|image_reduire{1040,0}|extraire_attribut{src}})]
 			[(#SET{886, #GET{1040}|image_reduire{886,0}|extraire_attribut{src}})]
 			[(#SET{443, #GET{886}|image_reduire{443,0}|extraire_attribut{src}})]
-			<figure class="portfolio_media">
-				<a href="#URL_DOCUMENT" class="portfolio_img-link" type="#MIME_TYPE" data-pswp-width="[(#FICHIER|largeur)]" data-pswp-height="[(#FICHIER|hauteur)]">
+			<figure class="portfolio_figure">
+				<a href="#URL_DOCUMENT" class="portfolio_link" type="#MIME_TYPE" data-pswp-width="[(#FICHIER|largeur)]" data-pswp-height="[(#FICHIER|hauteur)]">
 					<img src="[(#GET{443})]" width="[(#GET{443}|largeur)]" height="[(#GET{443}|hauteur)]" srcset="[(#GET{443}) 443w,][(#GET{886}) 886w,][(#GET{1040}) 1040w]" sizes="(min-width:576px) 443px, 100vw" alt="[(#ALT|sinon{#DESCRIPTIF}|sinon{#TITRE}|attribut_html)][ (#CREDITS|attribut_html)]" loading="lazy">
 				</a>
 				<INCLURE{fond=modeles/document_legende, id_document, env}/>

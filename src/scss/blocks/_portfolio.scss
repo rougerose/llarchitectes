@@ -149,17 +149,19 @@
 		aspect-ratio: 4/3;
 	}
 
-	& figure > a {
+	& .portfolio_link {
 		display: block;
-	}
-
-	& figure > a,
-	& img {
 		width: 100%;
 		height: 100%;
+		transition: transform 0.3s ease-out;
+
+		&:hover {
+			transform: scale(1.05);
+		}
 	}
 
 	& img {
+		height: 100%;
 		object-fit: cover;
 	}
 
@@ -191,7 +193,7 @@
 	}
 }
 
-.portfolio_media {
+.portfolio_figure {
 	& img {
 		width: 100%;
 	}

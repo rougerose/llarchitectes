@@ -26,8 +26,8 @@
 					[(#SET{variante, 2})]
 				})]
 			})]
-			<figure class="portfolio_media #GET{variante}">
-				<a href="#URL_DOCUMENT" class="portfolio_img-link" type="#MIME_TYPE" data-pswp-width="[(#FICHIER|largeur)]" data-pswp-height="[(#FICHIER|hauteur)]">
+			<figure class="portfolio_figure">
+				<a href="#URL_DOCUMENT" class="portfolio_link" type="#MIME_TYPE" data-pswp-width="[(#FICHIER|largeur)]" data-pswp-height="[(#FICHIER|hauteur)]">
 					<INCLURE{fond=inclure/images/figure_article_projet_variante_#GET{variante}, id_document}/>
 				</a>
 				<INCLURE{fond=modeles/document_legende, id_document, env}/>
