@@ -23,4 +23,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'projets_total' => ', sur @nb@ projets disponibles',
 	'prolonger_journal_titre' => 'Dernières actualités',
 	'prolonger_journal_bouton_tout_voir' => 'Tous nos actualités',
+	'prolonger_projet_titre' => 'Projets liés',
+	'prolonger_projet_titre_alt' => 'Derniers projets',
 );
