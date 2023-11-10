@@ -8,4 +8,3 @@
 # Articles
 
 - [ ] article d'exemple des raccourcis Spip
-- [ ] Projets : réduire le nombre de variantes d'images à produire.

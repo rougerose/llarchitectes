@@ -1,7 +1,7 @@
 <BOUCLE_figure_projet_variante_2(DOCUMENTS){id_document}>
-	[(#SET{1, #FICHIER|image_reduire{922,0}|extraire_attribut{src}})]
+	[(#SET{1, #FICHIER|image_recadre{1:1,-,center}|image_reduire{922,0}|extraire_attribut{src}})]
 	[(#SET{2, #GET{1}|image_reduire{686,0}|extraire_attribut{src}})]
-	[(#SET{3, #FICHIER|image_recadre{1:1,-,center}|image_reduire{550,550}|extraire_attribut{src}})]
+	[(#SET{3, #FICHIER|image_reduire{550,550}|extraire_attribut{src}})]
 	[(#SET{4, #GET{3}|image_reduire{326,326}|extraire_attribut{src}})]
 	[(#SET{5, #GET{4}|image_reduire{275,275}|extraire_attribut{src}})]
 	<img src="#GET{3}"
