@@ -17,9 +17,10 @@
     <necessite nom="verifier" compatibilite="[3.1.0;[" />
     <necessite nom="pages" compatibilite="[2.0.0;[" />
     <necessite nom="menus" compatibilite="[2.0.7;[" />
+    <necessite nom="compositions" compatibilite="[3.9.3;["/>
     <necessite nom="contacts" />
     <necessite nom="critere_mots" />
-    <necessite nom="compositions" compatibilite="[3.9.3;["/>
+    <necessite nom="porte_plume_intertitres"/>
     <utilise nom="prism" />
     <utilise nom="medias" />
     <!-- <utilise nom="oembed" /> -->
