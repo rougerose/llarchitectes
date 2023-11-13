@@ -1,5 +1,5 @@
 <composition>
     <nom>Album 50%-50%</nom>
-    <description>Composition pour un album : 2 images, maximum 50% de la largeur disponible.</description>
+    <description>Composition pour un album avec 2 images qui occupent au maximum 50% de la largeur disponible.</description>
     <icon>img/objet-liste-contenus.png</icon>
 </composition>

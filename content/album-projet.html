@@ -1,13 +1,14 @@
 [(#REM)
 	Règles de formatage de l'image :
 	================================
-	-> Variante 1 : les images en position 1, 6, 11, 16, etc. sont affichées sur 2 colonnes.
+	-> Variante 1 : les images en position 1, 6, 11, 16, etc. sont affichées sur 2
+	colonnes.
 
-	min-width 1240px:	570 x 570 -> 570 x1		1140 x2		ratio 1/1
-	min-width 960px:	438 x 438 -> 438 x1		876 x2		ratio 1/1
-	min-width 760px:	344 x 344 -> 			688 x2		ratio 1/1
-	max-width 759px:	706 x 528 -> 			1412 x2		ratio 4/3
-						344 x 258 -> 			688 x2		ratio 4/3
+	min-width 1240px: 570 x 570 -> 570 x1 1140 x2 ratio 1/1
+	min-width 960px: 438 x 438 -> 438 x1 876 x2 ratio 1/1
+	min-width 760px: 344 x 344 -> 688 x2 ratio 1/1
+	<!-- max-width 759px:	706 x 528 -> 			1412 x2		ratio 4/3 -->
+	<!-- 344 x 258 -> 			688 x2		ratio 4/3 -->
 
 	-> Variante 2 : toutes les autres images.
 	min-width 1240px: 	275 x 275 -> 275 x1		550 x2	 	ratio 1/1
@@ -26,12 +27,35 @@
 					[(#SET{variante, 2})]
 				})]
 			})]
-			<figure class="portfolio_figure">
-				<a href="#URL_DOCUMENT" class="portfolio_link" type="#MIME_TYPE" data-pswp-width="[(#FICHIER|largeur)]" data-pswp-height="[(#FICHIER|hauteur)]">
-					<INCLURE{fond=inclure/images/figure_article_projet_variante_#GET{variante}, id_document}/>
-				</a>
-				<INCLURE{fond=modeles/document_legende, id_document, env}/>
-			</figure>
+			[(#GET{variante}|=={1}|oui)
+				[(#SET{1, #FICHIER|image_recadre{1:1,-,center}|image_reduire{1140,1140}|extraire_attribut{src}})][
+				(#SET{2, #GET{1}|image_reduire{876,876}|extraire_attribut{src}})][
+				(#SET{3, #GET{2}|image_reduire{688,688}|extraire_attribut{src}})][
+				(#SET{4, #GET{3}|image_reduire{570,570}|extraire_attribut{src}})][
+				(#SET{5, #GET{4}|image_reduire{438,438}|extraire_attribut{src}})][
+				(#SET{srcset, [(#GET{5}|concat{' 438w,'}
+						|concat{#GET{4}}|concat{' 570w,'}
+						|concat{#GET{3}}|concat{' 688w,'}
+						|concat{#GET{2}}|concat{' 876w,'}
+						|concat{#GET{1}}|concat{' 1140w'})]
+				})][
+				(#SET{src, #GET{4}})][
+				(#SET{sizes, #VAL{'(min-width:1240px) 570px, (min-width:760px) 50vw, 100vw'}})]
+			][(#GET{variante}|=={2}|oui)
+				[(#SET{1, #FICHIER|image_recadre{1:1,-,center}|image_reduire{922,0}|extraire_attribut{src}})][
+				(#SET{2, #GET{1}|image_reduire{686,0}|extraire_attribut{src}})][
+				(#SET{3, #FICHIER|image_reduire{550,550}|extraire_attribut{src}})][
+				(#SET{4, #GET{3}|image_reduire{326,326}|extraire_attribut{src}})][
+				(#SET{5, #GET{4}|image_reduire{275,275}|extraire_attribut{src}})][
+				(#SET{src, #GET{3}})][
+				(#SET{srcset, [(#GET{5}|concat{' 275w,'}
+					|concat{#GET{4}}|concat{' 326w,'}
+					|concat{#GET{3}}|concat{' 550w,'}
+					|concat{#GET{2}}|concat{' 686w,'}
+					|concat{#GET{1}}|concat{' 922w'})]
+				})][
+				(#SET{sizes, #VAL{'(min-width:1240px) 275px, (min-width:760px) 25vw, (min-width:500px) 50vw, 100vw'}})]
+			]<INCLURE{fond=inclure/images/figure, id_document, src=#GET{src}, srcset=#GET{srcset}, sizes=#GET{sizes}} />
 		</BOUCLE_album_projet>
 	</div>
 </B_album_projet>
