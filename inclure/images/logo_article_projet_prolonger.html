@@ -8,11 +8,11 @@
 	<=515:				458 x 343	458 x1	916 x2
 
 ]<BOUCLE_logo_article_card(ARTICLES){id_article}>
-	[(#SET{916, #LOGO_ARTICLE|image_reduire{916,0}|extraire_attribut{src}})]
-	[(#SET{680, #GET{916}|image_reduire{680,0}|extraire_attribut{src}})]
-	[(#SET{458, #GET{680}|image_reduire{458,0}|extraire_attribut{src}})]
-	[(#SET{340, #GET{668}|image_reduire{340,0}|extraire_attribut{src}})]
-	[(#SET{alt, ''})]
+	[(#SET{916, #LOGO_ARTICLE|image_reduire{916,0}|extraire_attribut{src}})][
+	(#SET{680, #GET{916}|image_reduire{680,0}|extraire_attribut{src}})][
+	(#SET{458, #GET{680}|image_reduire{458,0}|extraire_attribut{src}})][
+	(#SET{340, #GET{668}|image_reduire{340,0}|extraire_attribut{src}})][
+	(#SET{alt, ''})]
 	<BOUCLE_alt(DOCUMENTS){id_document=#ID_LOGO_ARTICLE}{tout}>
 		[(#SET{alt, [(#ALT|sinon{#DESCRIPTIF}|sinon{#TITRE}|attribut_html)][ (#CREDITS|attribut_html)]})]
 	</BOUCLE_alt>
