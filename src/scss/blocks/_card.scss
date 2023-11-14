@@ -80,7 +80,7 @@
 // Variante projets
 // ========================================
 
-.card[data-type="projet"] {
+.card[data-card-type="projet"] {
 	--card-offset: var(--space-s);
 	--card-color: var(--color-primary);
 	position: relative;
@@ -233,7 +233,7 @@
 			mix-blend-mode: multiply;
 		}
 
-		& > div {
+		&>div {
 			position: relative;
 		}
 	}
