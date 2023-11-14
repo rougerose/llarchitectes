@@ -1,5 +1,6 @@
 <BOUCLE_article(ARTICLES){id_article}>
 	<div class="wrapper region" data-wrapper-type="narrow">
+		<INCLURE{fond=breadcrumb/article, id_article} />
 		<article class="article">
 			<div class="article_content">
 				<header class="article_header">
@@ -17,9 +18,9 @@
 					</div>
 				</BOUCLE_logo_article>
 
-				<div class="article_texte prose flow">
-					[(#TEXTE)]
-				</div>
+				[<div class="article_texte prose flow">
+					(#TEXTE)
+				</div>]
 			</div>
 		</article>
 	</div>
