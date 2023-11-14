@@ -1,0 +1,58 @@
+<BOUCLE_article(ARTICLES){id_article}>
+	<article class="article contact region">
+		<div class="article_content">
+			<div class="wrapper">
+				<INCLURE{fond=breadcrumb/article, id_article} />
+				<header class="article_header">
+					<h1 class="article_titre">#TITRE</h1>
+				</header>
+				[<div class="article_desc prose flow">
+					(#CHAPO)
+				</div>]
+				<BOUCLE_logo_article(DOCUMENTS){id_article}{mode=logoon}>
+					<div class="article_logo portfolio">
+						<INCLURE{fond=inclure/images/figure, id_document, src=#FICHIER} />
+						<script src="#CHEMIN{dist/js/llarchitectes_photoswipe.js}"></script>
+					</div>
+				</BOUCLE_logo_article>
+				[<div class="article_texte prose flow">
+					(#TEXTE)
+				</div>]
+			</div>
+		</div>
+		<div class="article_extra contact_body">
+			<BOUCLE_auteur(AUTEURS){id_auteur=2}{id_article}{tout}>
+				<div class="wrapper">
+					<div class="with-sidebar" data-sidebar-type="right">
+						<div class="contact_formulaire">
+							#FORMULAIRE_ECRIRE_AUTEUR
+						</div>
+						<div class="contact_coordonnees">
+							<h2><:llarchitectes:contact_adresse_titre:></h2>
+							<address>
+								[<p class="adresse_nom">(#NOM)</p>]
+								<BOUCLE_adresse(ADRESSES){id_auteur}>
+									[<p class="adresse_ligne">(#VOIE)</p>]
+									[<p class="adresse_ligne">(#COMPLEMENT)</p>]
+									[<p class="adresse_ligne">(#LOCALITE_DEPENDANTE)</p>]
+									[(#CODE_POSTAL|ou{#VILLE}|oui)
+										<p class="adresse_ligne">[(#CODE_POSTAL) ][(#VILLE)]</p>]
+								</BOUCLE_adresse>
+								<BOUCLE_telephone(NUMEROS){id_auteur}>
+									[(#REM) Remplacer les ponctuations et les espaces, par rien ]
+									[<p class="adresse_telephone"><:llarchitectes:contact_adresse_telephone_label:> <a href="tel:+(#NUMERO|replace{(&#38;nbsp;|\p{P}|\h)+,'',S})">#NUMERO</a></p>]
+								</BOUCLE_telephone>
+							</address>
+						</div>
+					</div>
+				</div>
+				<BOUCLE_carte(AUTEURS){gis}{id_auteur}>
+					<div class="contact_carte">
+						[(#SET{zoom, #ZOOM|sinon{16}})]
+						[(#INCLURE{fond=modeles/carte_gis, objets=auteurs, id_auteur=#ID_AUTEUR, zoom=#GET{zoom}})]
+					</div>
+				</BOUCLE_carte>
+			</BOUCLE_auteur>
+		</div>
+	</article>
+</BOUCLE_article>

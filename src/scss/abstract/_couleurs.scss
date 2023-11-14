@@ -5,8 +5,9 @@
 @use "sass:map";
 
 $base: (
-	"black": hsl(0, 0%, 0%),
-	"white": hsl(0, 0%, 97%),
+	"ink": hsl(0, 0%, 0%),
+	"paper": hsl(0, 0%, 97%),
+	"white": hsl(0, 0%, 100%),
 );
 
 // couleur primaire
@@ -68,9 +69,23 @@ $cloud-burst: (
 	950: hsl(0, 0%, 0%),
 );
 
+$chilean-fire: (
+	50: hsl(29, 100%, 84%),
+	100: hsl(29, 100%, 80%),
+	200: hsl(29, 100%, 72%),
+	300: hsl(29, 100%, 64%),
+	400: hsl(29, 100%, 56%),
+	500: hsl(29, 100%, 48%),
+	600: hsl(29, 100%, 37%),
+	700: hsl(29, 100%, 26%),
+	800: hsl(29, 100%, 15%),
+	900: hsl(29, 100%, 4%),
+	950: hsl(0, 0%, 0%)
+);
+
 $colors: (
-	"ink": map.get($base, "black"),
-	"paper": map.get($base, "white"),
+	"ink": map.get($base, "ink"),
+	"paper": map.get($base, "paper"),
 	"primary": map.get($pomegranate, 500),
 	"primary-900": map.get($pomegranate, 900),
 	"secondary": map.get($cloud, 300),

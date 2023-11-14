@@ -5,6 +5,15 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 
 $GLOBALS[$GLOBALS['idx_lang']] = array(
+	// C
+	'contact_adresse_telephone_label' => 'Téléphone&nbsp;:',
+	'contact_adresse_titre' => 'Nos coordonnées',
+	'contact_formulaire_legende_envoyer_message' => 'Nous envoyer un message par email',
+	'contact_formulaire_bouton_envoyer' => 'Envoyer votre message',
+	'contact_formulaire_sujet' => 'Sujet de votre message',
+	'contact_formulaire_previsualisation' => 'Prévisualisation de votre message',
+	'contact_formulaire_confirmer_envoi' => "Confirmer l'envoi de votre message",
+
 	// D
 	'date_projet_label_prive' => 'Date de réalisation du projet',
 	'date_projet_label_public' => 'Année de réalisation',

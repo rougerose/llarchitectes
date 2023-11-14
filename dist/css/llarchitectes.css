@@ -383,12 +383,12 @@ h6 {
   flex-wrap: wrap;
   gap: var(--sidebar-gutter, var(--space-s));
 }
-.with-sidebar[data-type=right-sidebar] > :first-child {
+.with-sidebar[data-sidebar-type=right] > :first-child {
   flex-basis: 0;
   flex-grow: 999;
   min-width: var(--sidebar-content-width, 50%);
 }
-.with-sidebar[data-type=right-sidebar] > :last-child {
+.with-sidebar[data-sidebar-type=right] > :last-child {
   flex-basis: var(--sidebar-width, 20rem);
   flex-grow: 1;
 }
@@ -733,12 +733,12 @@ h6 {
   text-transform: uppercase;
 }
 
-.card[data-type=projet] {
+.card[data-card-type=projet] {
   --card-offset: var(--space-s);
   --card-color: var(--color-primary);
   position: relative;
 }
-.card[data-type=projet]::before, .card[data-type=projet]::after {
+.card[data-card-type=projet]::before, .card[data-card-type=projet]::after {
   position: absolute;
   left: 0;
   top: 0;
@@ -746,7 +746,7 @@ h6 {
   bottom: 0;
   pointer-events: none;
 }
-.card[data-type=projet]::before {
+.card[data-card-type=projet]::before {
   content: "";
   display: block;
   background-color: transparent;
@@ -756,7 +756,7 @@ h6 {
   z-index: 1;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
-.card[data-type=projet]::after {
+.card[data-card-type=projet]::after {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -767,15 +767,15 @@ h6 {
   text-transform: uppercase;
   transition: color 0.3s;
 }
-.card[data-type=projet] .card_media, .card[data-type=projet] .card_content {
+.card[data-card-type=projet] .card_media, .card[data-card-type=projet] .card_content {
   position: relative;
   z-index: 2;
 }
-.card[data-type=projet] .card_media {
+.card[data-card-type=projet] .card_media {
   margin-left: var(--card-offset);
   mix-blend-mode: multiply;
 }
-.card[data-type=projet] .card_content {
+.card[data-card-type=projet] .card_content {
   --sidebar-width: auto;
   margin-top: auto;
   margin-left: var(--card-offset);
@@ -787,20 +787,20 @@ h6 {
   align-items: last baseline;
   transition: color 0.3s ease;
 }
-.card[data-type=projet]:hover::before {
+.card[data-card-type=projet]:hover::before {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
 }
-.card[data-type=projet]:hover::after {
+.card[data-card-type=projet]:hover::after {
   color: var(--color-paper);
 }
-.card[data-type=projet]:hover a {
+.card[data-card-type=projet]:hover a {
   color: var(--color-paper);
 }
-.card[data-type=projet]:hover .card_content {
+.card[data-card-type=projet]:hover .card_content {
   color: var(--color-paper);
 }
-[data-grid-layout=related] .card[data-type=projet] {
+[data-grid-layout=related] .card[data-card-type=projet] {
   --card-color: var(--color-primary-900);
 }
 
@@ -888,6 +888,43 @@ h6 {
   color: var(--color-primary);
   font-size: var(--step--1);
   font-weight: 500;
+}
+
+input:not([type]),
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=search],
+input[type=submit],
+input[type=file],
+textarea {
+  display: block;
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid var(--color-secondary-200);
+  color: var(--color-ink);
+  font: inherit;
+  font-size: var(--step-1);
+  line-height: 1;
+  padding: 0.5em 0.5em 0.375em;
+  width: 100%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+input[type=submit] {
+  transition: background 0.3s, color 0.3s, border 0.3s;
+  background-color: hsl(226, 39%, 31%);
+  border-color: hsl(227, 39%, 39%);
+  color: var(--color-paper);
+  box-shadow: 0 2px 4px rgba(48, 63, 110, 0.2), 0 3px 6px rgba(48, 63, 110, 0.25);
+}
+input[type=submit]:hover, input[type=submit]:active {
+  background-color: hsl(227, 39%, 47%);
+  box-shadow: 0 2px 4px rgba(61, 77, 138, 0.4), 0 3px 6px rgba(61, 77, 138, 0.45);
+}
+input[type=submit]:active {
+  box-shadow: 0 0px 4px rgba(19, 23, 43, 0.2), 0 0px 6px rgba(19, 23, 43, 0.25);
 }
 
 input[type=checkbox] {
@@ -1479,6 +1516,52 @@ legend {
   padding-bottom: var(--space-2xs-s);
 }
 
+.contact {
+  --sidebar-gutter: var(--space-xl-2xl) var(--space-m-l);
+  --sidebar-content-width: 50%;
+}
+.contact.region {
+  padding-bottom: 0;
+}
+
+.contact_body {
+  margin-top: var(--space-m-l);
+}
+
+.contact_formulaire .formulaire_spip {
+  padding-right: var(--space-l);
+}
+.contact_formulaire .formulaire_spip legend {
+  font-family: var(--font-family-base);
+  font-size: var(--step-3);
+  font-weight: 500;
+  color: var(--color-primary);
+  margin-bottom: var(--space-s);
+}
+
+.contact_coordonnees h2 {
+  font-size: var(--step-3);
+  color: var(--color-primary);
+  margin-bottom: var(--space-s);
+}
+.contact_coordonnees p {
+  font-style: normal;
+}
+.contact_coordonnees .adresse_nom {
+  font-size: var(--step-1);
+  font-weight: 600;
+}
+.contact_coordonnees .adresse_nom + .adresse_ligne {
+  margin-top: var(--space-xs-s);
+}
+.contact_coordonnees .adresse_telephone {
+  margin-top: var(--space-xs-s);
+}
+
+.contact_carte {
+  padding-top: var(--space-xl-2xl);
+}
+
 .homepage {
   padding-bottom: var(--space-s-m);
 }
@@ -1546,8 +1629,31 @@ legend {
   color: var(--color-secondary-700);
   font-size: var(--step-0);
 }
+.formulaire_spip .editer {
+  margin-bottom: var(--space-s-m);
+}
+.formulaire_spip .editer label {
+  display: block;
+  padding-bottom: var(--space-2xs);
+}
+.formulaire_spip label .obligatoire {
+  font-style: italic;
+  font-size: smaller;
+}
 .formulaire_spip .boutons {
   margin-top: var(--flow-space);
+}
+.formulaire_spip .reponse_formulaire {
+  padding: 0.75rem 1rem;
+  margin-bottom: var(--space-m);
+  background-color: hsl(227, 39%, 75%);
+  border-left: 0.5rem solid hsl(227, 39%, 55%);
+  box-shadow: 0 2px 4px rgba(61, 77, 138, 0.4), 0 3px 6px rgba(61, 77, 138, 0.45);
+}
+.formulaire_spip .reponse_formulaire.reponse_formulaire_erreur {
+  background-color: hsl(29, 100%, 56%);
+  border-left: 0.5rem solid hsl(29, 100%, 37%);
+  box-shadow: 0 2px 4px rgba(189, 91, 0, 0.4), 0 3px 6px rgba(189, 91, 0, 0.45);
 }
 
 .formulaire_filtrer_projets .choix {
@@ -1581,6 +1687,13 @@ legend {
 }
 .formulaire_filtrer_projets .choix.is-hide, .no-js .formulaire_filtrer_projets .choix.filters_reset {
   display: none;
+}
+
+.formulaire_ecrire_auteur .previsu {
+  margin-bottom: var(--space-l-xl);
+}
+.formulaire_ecrire_auteur .previsu p {
+  margin-bottom: var(--space-xs);
 }
 
 /*! PhotoSwipe main CSS by Dmytro Semenov | photoswipe.com */
