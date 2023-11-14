@@ -1,7 +1,7 @@
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import PhotoSwipe from "photoswipe";
 
-let $portfolio = document.querySelector(".article_portfolio.portfolio");
+let $portfolio = document.querySelector(".portfolio");
 const backEasing = {
 	in: "cubic-bezier(0.6, -0.28, 0.7, 1)",
 	out: "cubic-bezier(0.3, 0, 0.32, 1.275)",
@@ -11,7 +11,7 @@ const backEasing = {
 if ($portfolio) {
 	const lightbox = new PhotoSwipeLightbox({
 		gallery: $portfolio,
-		children: "a.portfolio_link",
+		children: "a.photoswipe",
 		showHideAnimationType: "zoom",
 		showAnimationDuration: 500,
 		hideAnimationDuration: 500,
