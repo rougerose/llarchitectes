@@ -34,10 +34,23 @@ $inset-width: 2px;
 	& img {
 		width: 100%;
 	}
+
+	& :is(.article_desc + .article_logo),
+	& :is(.article_logo + *) {
+		margin-top: var(--space-2xl-3xl);
+	}
+}
+
+.article_desc {
+	margin-top: var(--space-l-xl);
 }
 
 .article_texte {
 	margin-top: var(--space-l-xl);
+}
+
+.article_logo {
+	position: relative;
 }
 
 .article_metas {
@@ -54,11 +67,11 @@ $inset-width: 2px;
 		font-size: var(--step--1);
 	}
 
-	& dd + dt {
+	& dd+dt {
 		margin-top: var(--space-xs-s);
 	}
 
-	& dd.box-inline + dd.box-inline {
+	& dd.box-inline+dd.box-inline {
 		margin-left: 0.3em;
 	}
 }
@@ -67,13 +80,10 @@ $inset-width: 2px;
 	margin-bottom: 0.3em;
 }
 
-.article_tags {
-	margin-top: var(--space-l);
-}
-
 // .article_portfolio {}
 
-// Variante inset (article Actualités)
+
+// Variante inset (articles Journal de bord)
 // ========================================
 
 .article[data-type="inset"] {
