@@ -1,4 +1,4 @@
-<BOUCLE_figure(DOCUMENTS){id_document=#ENV{id_document}}>
+<BOUCLE_figure(DOCUMENTS){id_document=#ENV{id_document}}{tout}>
 	[(#SET{alt, [(#ALT|sinon{#DESCRIPTIF}|sinon{#TITRE}|attribut_html)][
 	(#CREDITS|attribut_html)]})]
 	<figure class="portfolio_figure">
