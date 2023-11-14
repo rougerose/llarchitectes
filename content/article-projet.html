@@ -6,14 +6,14 @@
 		</div>
 		<article class="article">
 			<div class="wrapper" data-wrapper-type="narrow">
-				<div class="article_prose prose">
+				<div class="article_content">
 					<header class="article_header">
 						<BOUCLE_mot_localisation(MOTS){id_article}{id_groupe=2}{0,1}>
 							[<p class="article_surtitre">(#TITRE)</p>]
 						</BOUCLE_mot_localisation>
 						<h1 class="article_titre">#TITRE</h1>
 					</header>
-					<div class="article_texte flow">
+					<div class="article_texte prose flow">
 						[(#TEXTE)]
 
 						[(#REM) Vérifier la présence de données pour afficher la liste des métas ]

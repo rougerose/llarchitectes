@@ -1121,28 +1121,16 @@ legend {
   padding-bottom: var(--space-m);
 }
 
-.prose h2,
-.prose h3,
-.prose h4,
-.prose h5,
-.prose h6,
-.prose figure,
-.prose figure + * {
-  margin-top: var(--space-xl-2xl);
+.prose {
+  --flow-space: var(--space-s-m);
 }
-.prose h2 + *,
-.prose h3 + *,
-.prose h4 + *,
-.prose h5 + *,
-.prose h6 + * {
-  margin-top: var(--space-s);
+.prose :is(p, li) {
+  max-width: unset;
 }
-.prose h2 + h3,
-.prose h3 + h4,
-.prose h5 + h6 {
-  margin-top: var(--space-l-xl);
+.prose :is(h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote) {
+  max-width: 70ch;
 }
-.prose h2 {
+.prose :is(h2) {
   display: inline-block;
   color: var(--color-ink);
   border-bottom: 0.25em solid var(--color-primary);
@@ -1150,11 +1138,17 @@ legend {
   padding-right: 0.1em;
   margin-left: -0.5em;
 }
-.prose h3,
-.prose h4,
-.prose h5,
-.prose h6 {
+.prose :is(h3, h4, h5, h6) {
   color: var(--color-primary);
+}
+.prose :is(figure, figure + *) {
+  --flow-space: var(--space-2xl-3xl);
+}
+.prose :is(h2 + *, h3 + *, h4 + *, h5 + *, h6 + *):not(figure) {
+  --flow-space: var(--space-s-m);
+}
+.prose :is(h2, h3, h4, h5, h6, h2 + h3, h3 + h4, h4 + h5, h5 + h6) {
+  --flow-space: var(--space-xl-2xl);
 }
 
 .portfolio {
@@ -1166,14 +1160,6 @@ legend {
 }
 .portfolio_album figure {
   position: relative;
-}
-.portfolio_album figcaption {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  padding: 0.5em 0.75em 0 0.2em;
-  background-color: var(--color-paper);
-  font-size: var(--step--2);
 }
 
 .portfolio_album[data-composition=cent] {
@@ -1232,6 +1218,15 @@ legend {
 
 .portfolio_figure img {
   width: 100%;
+}
+
+.portfolio_album .portfolio_caption, .article_logo .portfolio_caption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 0.5em 0.75em 0 0.2em;
+  background-color: var(--color-paper);
+  font-size: var(--step--2);
 }
 
 .portfolio_caption-heading {
@@ -1410,9 +1405,20 @@ legend {
 .article_content img {
   width: 100%;
 }
+.article_content :is(.article_desc + .article_logo), .article_content :is(.article_logo + *) {
+  margin-top: var(--space-2xl-3xl);
+}
+
+.article_desc {
+  margin-top: var(--space-l-xl);
+}
 
 .article_texte {
   margin-top: var(--space-l-xl);
+}
+
+.article_logo {
+  position: relative;
 }
 
 .article_metas {
@@ -1436,10 +1442,6 @@ legend {
 
 .article_metas-types {
   margin-bottom: 0.3em;
-}
-
-.article_tags {
-  margin-top: var(--space-l);
 }
 
 .article[data-type=inset] {
@@ -1531,6 +1533,10 @@ legend {
 }
 .spip-admin-float .spip-admin-boutons:hover {
   background-color: var(--color-ink);
+}
+
+.spip_documents.article_logo .spip_doc_inner {
+  position: relative;
 }
 
 .formulaire_spip {

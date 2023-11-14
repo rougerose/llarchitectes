@@ -6,33 +6,17 @@
 // ========================================
 
 .prose {
-	// font-size: var(--step-1);
+	--flow-space: var(--space-s-m);
 
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
-	figure,
-	figure + * {
-		margin-top: var(--space-xl-2xl);
+	& :is(p, li) {
+		max-width: unset;
 	}
 
-	h2 + *,
-	h3 + *,
-	h4 + *,
-	h5 + *,
-	h6 + * {
-		margin-top: var(--space-s);
+	& :is(h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote) {
+		max-width: 70ch;
 	}
 
-	h2 + h3,
-	h3 + h4,
-	h5 + h6 {
-		margin-top: var(--space-l-xl);
-	}
-
-	h2 {
+	& :is(h2) {
 		display: inline-block;
 		color: var(--color-ink);
 		border-bottom: 0.25em solid var(--color-primary);
@@ -41,10 +25,19 @@
 		margin-left: -0.5em;
 	}
 
-	h3,
-	h4,
-	h5,
-	h6 {
+	& :is(h3, h4, h5, h6) {
 		color: var(--color-primary);
+	}
+
+	& :is(figure, figure + *) {
+		--flow-space: var(--space-2xl-3xl);
+	}
+
+	& :is(h2 + *, h3 + *, h4 + *, h5 + *, h6 + *):not(figure) {
+		--flow-space: var(--space-s-m);
+	}
+
+	& :is(h2, h3, h4, h5, h6, h2 + h3, h3 + h4, h4 + h5, h5 + h6) {
+		--flow-space: var(--space-xl-2xl);
 	}
 }

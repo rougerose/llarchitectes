@@ -2,7 +2,7 @@
 	<div class="wrapper region" data-wrapper-type="narrow">
 		<INCLURE{fond=breadcrumb/article, id_article}/>
 		<article class="article" data-type="inset">
-			<div class="article_content prose">
+			<div class="article_content">
 				<header class="article_header">
 					<BOUCLE_mot_localisation(MOTS){id_article}{id_groupe=2}{0,1}>
 						[<p class="article_surtitre">(#TITRE)</p>]
@@ -10,7 +10,7 @@
 					<h1 class="article_titre">#TITRE</h1>
 					[<p class="article_date"><time[ datetime="(#DATE|date_iso)"]>(#DATE|affdate)</time></p>]
 				</header>
-				[<div class="article_texte flow">
+				[<div class="article_texte prose flow">
 					(#TEXTE)
 				</div>]
 			</div>
