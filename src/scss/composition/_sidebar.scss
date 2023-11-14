@@ -27,13 +27,14 @@
 	// 	}
 	// }
 
-	&[data-type="right-sidebar"] {
-		& > :first-child {
+	&[data-sidebar-type="right"] {
+		&> :first-child {
 			flex-basis: 0;
 			flex-grow: 999;
 			min-width: var(--sidebar-content-width, 50%);
 		}
-		& > :last-child {
+
+		&> :last-child {
 			flex-basis: var(--sidebar-width, 20rem);
 			flex-grow: 1;
 		}
