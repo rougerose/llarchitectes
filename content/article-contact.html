@@ -46,10 +46,10 @@
 						</div>
 					</div>
 				</div>
-				<BOUCLE_carte(AUTEURS){gis}{id_auteur}>
+				<BOUCLE_carte(AUTEURS){gis}{id_auteur}{0,1}>
 					<div class="contact_carte">
 						[(#SET{zoom, #ZOOM|sinon{16}})]
-						[(#INCLURE{fond=modeles/carte_gis, objets=auteurs, id_auteur=#ID_AUTEUR, zoom=#GET{zoom}})]
+						[(#INCLURE{fond=modeles/carte_gis, objets=agence, id_auteur=#ID_AUTEUR, id_a_ouvrir=#ID_GIS, zoom=#GET{zoom}})]
 					</div>
 				</BOUCLE_carte>
 			</BOUCLE_auteur>

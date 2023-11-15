@@ -1,0 +1,18 @@
+		<BOUCLE_auteurs(AUTEURS){gis}{id_article ?}{id_auteur ?}{id_mot ?}{recherche ?}{0, #ENV{limit}}{","}>[(#SET{description,''})]
+		<BOUCLE_adresse(ADRESSES){id_auteur=#ID_AUTEUR}>[
+			(#SET{description,
+				[(#VOIE|oui) [(#VOIE|concat{<br/>})]]
+				[(#COMPLEMENT|oui)[(#COMPLEMENT|concat{<br/>})]]
+				[(#LOCALITE_DEPENDANTE|oui)[(#LOCALITE_DEPENDANTE|concat{<br />})]]
+				[(#CODE_POSTAL|oui)[(#CODE_POSTAL|concat{' '})]]
+				[(#VILLE|oui)#VILLE]
+		})]</BOUCLE_adresse>
+		{"type": "Feature",
+		["geometry": (#GEOMETRY|appliquer_filtre{wkt_to_json}|sinon{{"type": "Point", "coordinates": \[#LON, #LAT\]}}),]
+		"id":"#ID_GIS",
+		"properties": {
+			"title":[(#TITRE_GIS*|sinon{#NOM*}|json_encode)],
+			"description":[(#GET{description}|wrap{<p>}|json_encode)][
+			(#LOGO_GIS|gis_icon_properties)][,
+			"styles": (#GEOMETRY_STYLES|appliquer_filtre{geometry_styles_to_json})]
+		}}</BOUCLE_auteurs>
