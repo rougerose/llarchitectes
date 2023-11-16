@@ -9,11 +9,12 @@
 	<=744:				672 x 504			1344 x2
 
 ]<BOUCLE_logo_article_card(ARTICLES){id_article}>
-	[(#SET{1344, #LOGO_ARTICLE|image_reduire{1344,0}|extraire_attribut{src}})][
-	(#SET{1028, #GET{1344}|image_reduire{1028,0}|extraire_attribut{src}})][
-	(#SET{680, #GET{1028}|image_reduire{680,0}|extraire_attribut{src}})][
-	(#SET{514, #GET{680}|image_reduire{514,0}|extraire_attribut{src}})][
-	(#SET{340, #GET{514}|image_reduire{340,0}|extraire_attribut{src}})][
+	[(#SET{logo, #LOGO_ARTICLE|image_recadre{4:3,-,focus}|extraire_attribut{src}})]
+	[(#SET{1344, #GET{logo}|image_reduire{1344,0}|extraire_attribut{src}})][
+	(#SET{1028, #GET{logo}|image_reduire{1028,0}|extraire_attribut{src}})][
+	(#SET{680, #GET{logo}|image_reduire{680,0}|extraire_attribut{src}})][
+	(#SET{514, #GET{logo}|image_reduire{514,0}|extraire_attribut{src}})][
+	(#SET{340, #GET{logo}|image_reduire{340,0}|extraire_attribut{src}})][
 	(#SET{alt, ''})]
 	<BOUCLE_alt(DOCUMENTS){id_document=#ID_LOGO_ARTICLE}{tout}>
 		[(#SET{alt, [(#ALT|sinon{#DESCRIPTIF}|sinon{#TITRE}|attribut_html)][ (#CREDITS|attribut_html)]})]

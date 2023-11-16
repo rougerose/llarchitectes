@@ -10,9 +10,9 @@
 	<div class="portfolio_album" data-composition="cent">
 		<BOUCLE_album_full(DOCUMENTS){id_album}{media=image}{par rang_lien, num titre, date, id_document}>
 			[(#SET{1816, #FICHIER|image_reduire{1816,0}|extraire_attribut{src}})][
-			(#SET{1200, #GET{1816}|image_reduire{1200,0}|extraire_attribut{src}})][
-			(#SET{908, #GET{1816}|image_reduire{908,0}|extraire_attribut{src}})][
-			(#SET{666, #GET{908}|image_reduire{666,0}|extraire_attribut{src}})][
+			(#SET{1200, #FICHIER|image_reduire{1200,0}|extraire_attribut{src}})][
+			(#SET{908, #FICHIER|image_reduire{908,0}|extraire_attribut{src}})][
+			(#SET{666, #FICHIER|image_reduire{666,0}|extraire_attribut{src}})][
 			(#SET{srcset, [
 				(#GET{666}|concat{' 666w,'}
 					|concat{#GET{908}}|concat{' 908w,'}

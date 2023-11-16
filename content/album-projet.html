@@ -28,11 +28,12 @@
 				})]
 			})]
 			[(#GET{variante}|=={1}|oui)
-				[(#SET{1, #FICHIER|image_recadre{1:1,-,center}|image_reduire{1140,1140}|extraire_attribut{src}})][
-				(#SET{2, #GET{1}|image_reduire{876,876}|extraire_attribut{src}})][
-				(#SET{3, #GET{2}|image_reduire{688,688}|extraire_attribut{src}})][
-				(#SET{4, #GET{3}|image_reduire{570,570}|extraire_attribut{src}})][
-				(#SET{5, #GET{4}|image_reduire{438,438}|extraire_attribut{src}})][
+				[(#SET{fichier, #FICHIER|image_recadre{1:1,-,focus}|extraire_attribut{src}})]
+				[(#SET{1, #GET{fichier}|image_reduire{1140,0}|extraire_attribut{src}})][
+				(#SET{2, #GET{fichier}|image_reduire{876,0}|extraire_attribut{src}})][
+				(#SET{3, #GET{fichier}|image_reduire{688,0}|extraire_attribut{src}})][
+				(#SET{4, #GET{fichier}|image_reduire{570,0}|extraire_attribut{src}})][
+				(#SET{5, #GET{fichier}|image_reduire{438,0}|extraire_attribut{src}})][
 				(#SET{srcset, [(#GET{5}|concat{' 438w,'}
 						|concat{#GET{4}}|concat{' 570w,'}
 						|concat{#GET{3}}|concat{' 688w,'}
@@ -42,11 +43,12 @@
 				(#SET{src, #GET{4}})][
 				(#SET{sizes, #VAL{'(min-width:1240px) 570px, (min-width:760px) 50vw, 100vw'}})]
 			][(#GET{variante}|=={2}|oui)
-				[(#SET{1, #FICHIER|image_recadre{1:1,-,center}|image_reduire{922,0}|extraire_attribut{src}})][
-				(#SET{2, #GET{1}|image_reduire{686,0}|extraire_attribut{src}})][
-				(#SET{3, #FICHIER|image_reduire{550,550}|extraire_attribut{src}})][
-				(#SET{4, #GET{3}|image_reduire{326,326}|extraire_attribut{src}})][
-				(#SET{5, #GET{4}|image_reduire{275,275}|extraire_attribut{src}})][
+				[(#SET{fichier, #FICHIER|image_recadre{1:1,-,focus}|extraire_attribut{src}})]
+				[(#SET{1, #GET{fichier}|image_reduire{922,0}|extraire_attribut{src}})][
+				(#SET{2, #GET{fichier}|image_reduire{686,0}|extraire_attribut{src}})][
+				(#SET{3, #GET{fichier}|image_reduire{550,0}|extraire_attribut{src}})][
+				(#SET{4, #GET{fichier}|image_reduire{326,0}|extraire_attribut{src}})][
+				(#SET{5, #GET{fichier}|image_reduire{275,0}|extraire_attribut{src}})][
 				(#SET{src, #GET{3}})][
 				(#SET{srcset, [(#GET{5}|concat{' 275w,'}
 					|concat{#GET{4}}|concat{' 326w,'}

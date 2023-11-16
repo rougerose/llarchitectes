@@ -16,10 +16,10 @@
 ]<BOUCLE_logo_article_card(ARTICLES){id_article}>
 	[(#SET{logo, #LOGO_ARTICLE|image_recadre{3:4,-,focus}|extraire_attribut{src}})][
 	(#SET{924, #GET{logo}|image_reduire{924,0}|extraire_attribut{src}})][
-	(#SET{668, #GET{924}|image_reduire{668,0}|extraire_attribut{src}})][
-	(#SET{582, #GET{668}|image_reduire{582,0}|extraire_attribut{src}})][
-	(#SET{490, #GET{582}|image_reduire{490,0}|extraire_attribut{src}})][
-	(#SET{291, #GET{582}|image_reduire{291,0}|extraire_attribut{src}})][
+	(#SET{668, #GET{logo}|image_reduire{668,0}|extraire_attribut{src}})][
+	(#SET{582, #GET{logo}|image_reduire{582,0}|extraire_attribut{src}})][
+	(#SET{490, #GET{logo}|image_reduire{490,0}|extraire_attribut{src}})][
+	(#SET{291, #GET{logo}|image_reduire{291,0}|extraire_attribut{src}})][
 	(#SET{alt, ''})]
 	<BOUCLE_alt(DOCUMENTS){id_document=#ID_LOGO_ARTICLE}{tout}>
 		[(#SET{alt, [(#ALT|sinon{#DESCRIPTIF}|sinon{#TITRE}|attribut_html)][ (#CREDITS|attribut_html)]})]
