@@ -103,6 +103,7 @@
 		top: var(--card-offset);
 		right: var(--card-offset);
 		z-index: 1;
+		mix-blend-mode: multiply;
 		transition: background-color 0.3s ease, border-color 0.3s ease;
 	}
 
@@ -121,12 +122,12 @@
 	& .card_media,
 	& .card_content {
 		position: relative;
-		z-index: 2;
 	}
 
 	& .card_media {
 		margin-left: var(--card-offset);
-		mix-blend-mode: multiply;
+		z-index: 0;
+		// mix-blend-mode: multiply;
 	}
 
 	& .card_content {
@@ -140,6 +141,7 @@
 		align-items: flex-end;
 		align-items: last baseline;
 		transition: color 0.3s ease;
+		z-index: 2;
 	}
 
 	&:hover {
