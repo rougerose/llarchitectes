@@ -164,31 +164,31 @@
 		height: 100%;
 		object-fit: cover;
 	}
+}
 
-	@include mq.mq($from: 500px) {
-		&[data-composition="projet"] {
-			grid-template-columns: repeat(2, 1fr);
+@include mq.mq($from: 500px) {
+	.portfolio_album[data-composition="projet"] {
+		grid-template-columns: repeat(2, 1fr);
 
-			& figure:first-child,
-			& figure:nth-child(5n + 1) {
-				grid-column: span 2;
-			}
+		& figure:first-child,
+		& figure:nth-child(5n + 1) {
+			grid-column: span 2;
 		}
 	}
+}
 
-	@include mq.mq($from: 760px) {
-		&[data-composition="projet"] {
-			grid-template-columns: repeat(4, 1fr);
+@include mq.mq($from: 760px) {
+	.portfolio_album[data-composition="projet"] {
+		grid-template-columns: repeat(4, 1fr);
 
-			& figure {
-				aspect-ratio: 1/1;
-			}
+		& figure {
+			aspect-ratio: 1/1;
+		}
 
-			& figure:first-child,
-			& figure:nth-child(5n + 1) {
-				grid-column: span 2;
-				grid-row: span 2;
-			}
+		& figure:first-child,
+		& figure:nth-child(5n + 1) {
+			grid-column: span 2;
+			grid-row: span 2;
 		}
 	}
 }

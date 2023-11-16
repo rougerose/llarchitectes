@@ -3,25 +3,23 @@
 .grid {
 	display: grid;
 	gap: var(--gutter);
-	grid-template-columns: repeat(
-		var(--grid-placement, auto-fill),
-		minmax(var(--grid-min-item-size, 16rem), 1fr)
-	);
+	grid-template-columns: repeat(var(--grid-placement, auto-fill),
+			minmax(var(--grid-min-item-size, 16rem), 1fr));
 
-	&[data-grid-layout="projets"] {
+	&[data-layout="projets"] {
 		--grid-placement: auto-fill;
 		--grid-min-item-size: min(100%, 31ch);
 		gap: var(--space-l);
 	}
 
-	&[data-grid-layout="journal"],
-	&[data-grid-layout="related"] {
+	&[data-layout="journal"],
+	&[data-layout="related"] {
 		--grid-min-item-size: min(220px, 100%);
 		gap: var(--space-l);
 	}
 
 	// Variante .breakout (projets)
-	&.breakout[data-grid-layout="related"] {
+	&.breakout[data-layout="related"] {
 		--grid-min-item-size: min(100%, 31ch);
 	}
 }

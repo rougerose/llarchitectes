@@ -1,5 +1,5 @@
 <BOUCLE_projets(RUBRIQUES){id_rubrique}>
-	<div class="projets_filters filters wrapper" data-wrapper-type="narrow">
+	<div class="projets_filters filters wrapper" data-type="narrow">
 		#SET{articles, #ARRAY}
 		<BOUCLE_articles(ARTICLES){id_rubrique}{!par date_projet}>
 			[(#SET{articles, #GET{articles}|push{#ID_ARTICLE}})]

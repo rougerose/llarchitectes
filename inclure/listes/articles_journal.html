@@ -1,6 +1,6 @@
 <B_articles_journal>
 	#ANCRE_PAGINATION
-	<div class="grid" data-grid-layout="journal">
+	<div class="grid" data-layout="journal">
 		<BOUCLE_articles_journal(ARTICLES){id_rubrique}{!par date}{pagination #ENV{pagination, 12} _articles}>
 			<INCLURE{fond=inclure/resumes/card_journal, contexte=rubrique_journal, id_article}/>
 		</BOUCLE_articles_journal>

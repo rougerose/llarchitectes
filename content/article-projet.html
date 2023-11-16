@@ -1,11 +1,11 @@
 <BOUCLE_article_projet(ARTICLES){id_article}>
 	#SET{url_rubrique, #URL_RUBRIQUE}
 	<div class="region">
-		<div class="wrapper" data-wrapper-type="narrow">
+		<div class="wrapper" data-type="narrow">
 			<INCLURE{fond=breadcrumb/article, id_article}/>
 		</div>
 		<article class="article">
-			<div class="wrapper" data-wrapper-type="narrow">
+			<div class="wrapper" data-type="narrow">
 				<div class="article_content">
 					<header class="article_header">
 						<BOUCLE_mot_localisation(MOTS){id_article}{id_groupe=2}{0,1}>

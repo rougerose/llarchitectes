@@ -80,7 +80,7 @@
 // Variante projets
 // ========================================
 
-.card[data-card-type="projet"] {
+.card[data-type="projet"] {
 	--card-offset: var(--space-s);
 	--card-color: var(--color-primary);
 	position: relative;
@@ -162,7 +162,7 @@
 	}
 
 	// Variante dans conteneur "related"
-	[data-grid-layout="related"] & {
+	[data-layout="related"] & {
 		--card-color: var(--color-primary-900);
 	}
 }
@@ -170,7 +170,7 @@
 // Variante Journal de bord
 // ========================================
 
-.card[data-card-type="journal"] {
+.card[data-type="journal"] {
 	--card-inset-color: var(--color-ink);
 	--card-offset: var(--space-s);
 	--card-img-ratio: 3/4;
@@ -256,7 +256,7 @@
 	}
 
 	// Variante dans conteneur "related"
-	[data-grid-layout="related"] & {
+	[data-layout="related"] & {
 		--card-inset-color: var(--color-primary-900);
 	}
 }
