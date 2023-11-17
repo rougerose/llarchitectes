@@ -20,9 +20,9 @@
 					[<svg class="icon icon-offset" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true">
 						<use href="(#CHEMIN{images/icon-defs.svg}|ancre_url{#icon-arrow-se})"></use>
 					</svg>]
-					<span><:llarchitectes:prolonger_projet_titre_alt:></span>
+					<span><:llarchitectes:prolonger_projet_titre_alt:> 2 #TOTAL_BOUCLE</span>
 				</h1>
-				<div class="grid" data-layout="related">
+				<div class="grid" data-layout="related" style="--grid-placement:auto-fit;">
 					<BOUCLE_articles_projets_recents(ARTICLES){id_rubrique}{!par date}{exclus}{0,3}>
 						<INCLURE{fond=inclure/resumes/card_projet, id_article}/>
 					</BOUCLE_articles_projets_recents>

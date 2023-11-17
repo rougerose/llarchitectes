@@ -11,6 +11,7 @@ $secondary-500: map.get(abstract.$storm-gray, 500);
 $primary-800: map.get(abstract.$pomegranate, 800);
 
 .button {
+	// all: initial;
 	background-color: transparent;
 	border: 2px solid transparent;
 	color: currentColor;
@@ -21,7 +22,7 @@ $primary-800: map.get(abstract.$pomegranate, 800);
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	padding: 0.45em 0.25em 0.35em;
+	padding: 0.35em 0.25em;
 	min-width: 10ch;
 	transition: all 0.3s ease;
 
@@ -73,11 +74,13 @@ $primary-800: map.get(abstract.$pomegranate, 800);
 
 	// Variante "Framed" transparente et bordure
 	&[data-variant="framed"] {
-		border-color: var(--color-primary);
-		color: var(--color-primary);
+		border-color: var(--framed-border-color, var(--color-primary));
+		color: var(--framed-color, var(--color-primary));
 
 		&:hover,
 		&:active {
+			background-color: var(--color-primary);
+			border-color: var(--color-primary);
 			color: var(--color-paper);
 		}
 	}
@@ -96,46 +99,46 @@ $primary-800: map.get(abstract.$pomegranate, 800);
 	}
 
 	// Variantes "filtre" et "tag" transparente et bordure sur le hover
-	&[data-variant="filter"],
-	&[data-variant="tag"] {
-		border-color: color.scale($secondary-500, $alpha: -80%);
-		border-radius: 4px;
-		font-size: var(--step--1);
+	// &[data-variant="filter"],
+	// &[data-variant="tag"] {
+	// 	border-color: color.scale($secondary-500, $alpha: -80%);
+	// 	border-radius: 4px;
+	// 	font-size: var(--step--1);
 
-		&:hover,
-		&:active {
-			border-color: $secondary-500;
-			background-color: var(--color-paper);
-			box-shadow: 0 2px 4px color.scale($secondary-800, $alpha: -80%),
-				0 3px 6px color.scale($secondary-800, $alpha: -75%);
-		}
+	// 	&:hover,
+	// 	&:active {
+	// 		border-color: $secondary-500;
+	// 		background-color: var(--color-paper);
+	// 		box-shadow: 0 2px 4px color.scale($secondary-800, $alpha: -80%),
+	// 			0 3px 6px color.scale($secondary-800, $alpha: -75%);
+	// 	}
 
-		&:active {
-			box-shadow: 0 0px 4px color.scale($secondary-800, $alpha: -80%),
-				0 0px 6px color.scale($secondary-800, $alpha: -75%);
-		}
-	}
+	// 	&:active {
+	// 		box-shadow: 0 0px 4px color.scale($secondary-800, $alpha: -80%),
+	// 			0 0px 6px color.scale($secondary-800, $alpha: -75%);
+	// 	}
+	// }
 
 	// Variante encadré "related" (contenus liés à un article)
-	&[data-variant="related"] {
-		border-color: var(--color-primary-900);
-		color: var(--color-primary-900);
-		text-transform: uppercase;
+	// &[data-variant="related"] {
+	// 	border-color: var(--color-primary-900);
+	// 	color: var(--color-primary-900);
+	// 	text-transform: uppercase;
 
-		&:hover,
-		&:active {
-			background-color: var(--color-primary);
-			border-color: var(--color-primary);
-			color: var(--color-paper);
-			box-shadow: 0 2px 4px color.scale($primary-800, $alpha: -80%),
-				0 3px 6px color.scale($primary-800, $alpha: -75%);
-		}
+	// 	&:hover,
+	// 	&:active {
+	// 		background-color: var(--color-primary);
+	// 		border-color: var(--color-primary);
+	// 		color: var(--color-paper);
+	// 		box-shadow: 0 2px 4px color.scale($primary-800, $alpha: -80%),
+	// 			0 3px 6px color.scale($primary-800, $alpha: -75%);
+	// 	}
 
-		&:active {
-			box-shadow: 0 0px 4px color.scale($primary-800, $alpha: -80%),
-				0 0px 6px color.scale($primary-800, $alpha: -75%);
-		}
-	}
+	// 	&:active {
+	// 		box-shadow: 0 0px 4px color.scale($primary-800, $alpha: -80%),
+	// 			0 0px 6px color.scale($primary-800, $alpha: -75%);
+	// 	}
+	// }
 
 	// Variante pagination
 	&[data-variant="pagination"] {
@@ -160,6 +163,7 @@ $primary-800: map.get(abstract.$pomegranate, 800);
 		}
 	}
 
+	// Variante submit
 	&[type="submit"] {
 		border-color: var(--color-ink);
 	}

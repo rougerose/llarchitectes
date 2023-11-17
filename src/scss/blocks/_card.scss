@@ -82,7 +82,7 @@
 
 .card[data-type="projet"] {
 	--card-offset: var(--space-s);
-	--card-color: var(--color-primary);
+	// --card-color: var(--color-primary);
 	position: relative;
 
 	&::before,
@@ -99,7 +99,7 @@
 		content: "";
 		display: block;
 		background-color: transparent;
-		border: 2px solid var(--card-color);
+		border: 2px solid var(--card-color, var(--color-primary));
 		top: var(--card-offset);
 		right: var(--card-offset);
 		z-index: 1;
@@ -136,7 +136,7 @@
 		margin-left: var(--card-offset);
 		margin-right: var(--card-offset);
 		padding: var(--card-offset);
-		color: var(--card-color);
+		color: var(--card-color, var(--color-primary));
 		padding-left: 0;
 		align-items: flex-end;
 		align-items: last baseline;
@@ -161,11 +161,6 @@
 		& .card_content {
 			color: var(--color-paper);
 		}
-	}
-
-	// Variante dans conteneur "related"
-	[data-layout="related"] & {
-		--card-color: var(--color-primary-900);
 	}
 }
 
@@ -255,10 +250,5 @@
 
 	&:hover {
 		--card-inset-color: var(--color-primary);
-	}
-
-	// Variante dans conteneur "related"
-	[data-layout="related"] & {
-		--card-inset-color: var(--color-primary-900);
 	}
 }

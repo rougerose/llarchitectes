@@ -5,6 +5,9 @@
 @use "../abstract" as abstract;
 
 .related {
+	--card-color: var(--color-primary-900);
+	--framed-border-color: var(--color-primary-900);
+	--framed-color: var(--color-primary-900);
 	padding: var(--space-xl) 0;
 	background-color: var(--color-secondary);
 }
