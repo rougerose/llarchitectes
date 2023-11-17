@@ -23,6 +23,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'formulaire_filtres_reset' => 'Effacer votre sélection',
 	'formulaire_filtres_submit' => 'Appliquer',
 
+	// L
+	'lien_poursuivre' => 'En savoir plus',
+	'lien_poursuivre_projets' => 'Voir tous nos projets',
+	'lien_poursuivre_journal' => 'Consulter notre journal de bord',
+
 
 	// P
 	'projet_metas_types_titre' => 'Catégories',
@@ -31,7 +36,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'projets_nb_pluriel' => '@nb@ projets affichés',
 	'projets_total' => ', sur @nb@ projets disponibles',
 	'prolonger_journal_titre' => 'Dernières actualités',
-	'prolonger_journal_bouton_tout_voir' => 'Tous nos actualités',
+	'prolonger_journal_bouton_tout_voir' => 'Toutes nos actualités',
 	'prolonger_projet_titre' => 'Projets liés',
 	'prolonger_projet_titre_alt' => 'Derniers projets',
 );

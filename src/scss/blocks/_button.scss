@@ -11,7 +11,6 @@ $secondary-500: map.get(abstract.$storm-gray, 500);
 $primary-800: map.get(abstract.$pomegranate, 800);
 
 .button {
-	// all: initial;
 	background-color: transparent;
 	border: 2px solid transparent;
 	color: currentColor;
@@ -22,7 +21,7 @@ $primary-800: map.get(abstract.$pomegranate, 800);
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	padding: 0.35em 0.25em;
+	padding: 0.35em;
 	min-width: 10ch;
 	transition: all 0.3s ease;
 
