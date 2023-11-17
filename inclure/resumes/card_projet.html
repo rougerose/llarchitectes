@@ -3,7 +3,10 @@
 	[(#SET{contexte, #ENV{contexte, rubrique_projets}})]
 	[(#GET{contexte}|=={rubrique_projets}|?{
 		[(#SET{variante_logo, logo_article_projet_rubrique})],
-		[(#SET{variante_logo, logo_article_projet_prolonger})]
+		[(#ENV{total}|<={2}|?{
+			[(#SET{variante_logo, logo_article_projet_prolonger_large})],
+			[(#SET{variante_logo, logo_article_projet_prolonger_standard})]
+		})]
 	})]
 	<article class="card" data-type="projet">
 		<INCLURE{fond=inclure/images/#GET{variante_logo}, id_article}/>

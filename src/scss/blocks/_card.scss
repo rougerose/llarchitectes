@@ -82,7 +82,6 @@
 
 .card[data-type="projet"] {
 	--card-offset: var(--space-s);
-	// --card-color: var(--color-primary);
 	position: relative;
 
 	&::before,
@@ -127,7 +126,6 @@
 	& .card_media {
 		margin-left: var(--card-offset);
 		z-index: 0;
-		// mix-blend-mode: multiply;
 	}
 
 	& .card_content {

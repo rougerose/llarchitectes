@@ -1,0 +1,33 @@
+[(#REM)
+	Modèle utilisé par resume/card_projet.html
+
+	Règles de formatage de l'image :
+	================================
+	min-width 1240px : 540 x 405 540 x1 1080 x2
+	min-width 576px: 560w @1x ; 1152w @2x
+	<=575px: 1030w @2x;
+
+]<BOUCLE_logo_article_card(ARTICLES){id_article}>
+	[(#SET{logo, #LOGO_ARTICLE|image_recadre{4:3,-,focus}|extraire_attribut{src}})]
+	[(#SET{1152, #GET{logo}|image_reduire{1152,0}|extraire_attribut{src}})][
+	(#SET{1080, #GET{logo}|image_reduire{1080,0}|extraire_attribut{src}})][
+	(#SET{540, #GET{logo}|image_reduire{540,0}|extraire_attribut{src}})][
+	(#SET{alt, ''})]
+	<BOUCLE_alt(DOCUMENTS){id_document=#ID_LOGO_ARTICLE}{tout}>
+		[(#SET{alt, [(#ALT|sinon{#DESCRIPTIF}|sinon{#TITRE}|attribut_html)][ (#CREDITS|attribut_html)]})]
+	</BOUCLE_alt>
+	[<div class="card_media large">
+		<img
+			src="(#GET{540})"
+			width="[(#GET{540}|largeur)]"
+			height="[(#GET{540}|hauteur)]"
+			srcset="[(#GET{540}) 540w,][
+				(#GET{1080}) 458w,][
+				(#GET{1152}) 1152w]"
+			sizes="(min-width:576px) 50vw, (min-width:1240px) 540px, 100vw"
+			class="card_img"
+			alt="[(#GET{alt})]"
+			loading="lazy"
+		/>
+	</div>]
+</BOUCLE_logo_article_card>

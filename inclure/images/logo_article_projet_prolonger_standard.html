@@ -17,7 +17,7 @@
 	<BOUCLE_alt(DOCUMENTS){id_document=#ID_LOGO_ARTICLE}{tout}>
 		[(#SET{alt, [(#ALT|sinon{#DESCRIPTIF}|sinon{#TITRE}|attribut_html)][ (#CREDITS|attribut_html)]})]
 	</BOUCLE_alt>
-	[<div class="card_media">
+	[<div class="card_media std">
 		<img
 			src="(#GET{680})"
 			width="[(#GET{680}|largeur)]"
