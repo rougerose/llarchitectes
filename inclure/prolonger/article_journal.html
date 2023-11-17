@@ -8,7 +8,7 @@
 					</svg>]
 					<span><:llarchitectes:prolonger_journal_titre:></span>
 				</h1>
-				<div class="grid" data-layout="related">
+				<div class="grid grid-autofit" data-layout="related">
 					<BOUCLE_articles_actu(ARTICLES){id_rubrique}{!par date}{exclus}{0,3}{doublons}>
 						<INCLURE{fond=inclure/resumes/card_journal, contexte=article_prolonger, id_article}/>
 					</BOUCLE_articles_actu>
