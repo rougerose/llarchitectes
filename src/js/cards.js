@@ -2,7 +2,7 @@
 // Source : https://inclusive-components.design/cards/#callstoaction
 const init = () => {
 	let cards = document.querySelectorAll(".card");
-	console.log(cards);
+
 	if (cards.length > 0) {
 		cards.forEach((card) => {
 			card_add_link(card);
