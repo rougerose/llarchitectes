@@ -9,7 +9,7 @@
 		<BOUCLE_album_50(DOCUMENTS){id_album}{media=image}{par rang_lien, num titre, date, id_document}>
 			[(#SET{1816, #FICHIER|image_reduire{1816,0}|extraire_attribut{src}})][
 			(#SET{1040, #FICHIER|image_reduire{1040,0}|extraire_attribut{src}})][
-			(#SET{886, #FICHIER}|image_reduire{886,0}|extraire_attribut{src}})][
+			(#SET{886, #FICHIER|image_reduire{886,0}|extraire_attribut{src}})][
 			(#SET{443, #FICHIER|image_reduire{443,0}|extraire_attribut{src}})][
 			(#SET{srcset, [
 				(#GET{443}|concat{' 443w,'}
