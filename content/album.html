@@ -1,0 +1,14 @@
+<BOUCLE_album(ALBUMS){id_album}>
+	<div class="wrapper region">
+		<div class="portfolio flow">
+			#SET{composition, #COMPOSITION}
+			<BOUCLE_lien(SPIP_ALBUMS_LIENS){id_album}{si #COMPOSITION|non}>
+				[(#OBJET|=={article}|oui)
+					#SET{composition, #COMPOSITION{article, #ID_OBJET}}
+				]
+			</BOUCLE_lien>
+			[(#GET{composition}|=={journal}|oui) #SET{composition, cent} ]
+			<INCLURE{fond=content/album-#GET{composition}, id_album, env} />
+		</div>
+	</div>
+</BOUCLE_album>
