@@ -166,7 +166,7 @@
 // ========================================
 
 .card[data-type="journal"] {
-	--card-inset-color: var(--color-ink);
+	// --card-inset-color: var(--color-ink);
 	--card-offset: var(--space-s);
 	--card-img-ratio: 3/4;
 	display: grid;
@@ -194,7 +194,7 @@
 		&::before,
 		&::after {
 			content: "";
-			border: 2px solid var(--card-inset-color);
+			border: 2px solid var(--card-inset-color, var(--color-ink));
 			transition: border-color 0.3s ease;
 		}
 
