@@ -7,7 +7,7 @@
     "config": {
         "host": {
             "dev": "http://localhost:8888/llarchitectes.dev",
-            "prod": "http://rougerose.alwaysdata.net/lla/spip"
+            "prod": "http://wip.rouge-rose.net"
         }
     },
     "scripts": {
