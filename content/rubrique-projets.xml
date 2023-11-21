@@ -1,0 +1,6 @@
+<composition>
+  <nom>Projets</nom>
+  <description>Composition pour la rubrique Projets</description>
+  <icon>images/objet-liste-contenus.png</icon>
+  <branche type="article" composition="projet" />
+</composition>

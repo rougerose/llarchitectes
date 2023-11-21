@@ -1,0 +1,28 @@
+[(#REM)
+	Règles de formatage de l'image :
+	================================
+	min-width 1024px :	908w @1x ; 1816w @2x
+	min-width 375px : 	666w @2x
+
+	Note : ajout d'une taille intermédiaire à 1200px.
+]
+<B_album_full>
+	<div class="portfolio_album" data-composition="cent">
+		<BOUCLE_album_full(DOCUMENTS){id_album}{media=image}{par rang_lien, num titre, date, id_document}>
+			[(#SET{1816, #FICHIER|image_reduire{1816,0}|extraire_attribut{src}})][
+			(#SET{1200, #FICHIER|image_reduire{1200,0}|extraire_attribut{src}})][
+			(#SET{908, #FICHIER|image_reduire{908,0}|extraire_attribut{src}})][
+			(#SET{666, #FICHIER|image_reduire{666,0}|extraire_attribut{src}})][
+			(#SET{srcset, [
+				(#GET{666}|concat{' 666w,'}
+					|concat{#GET{908}}|concat{' 908w,'}
+					|concat{#GET{1200}}|concat{' 1200w,'}
+					|concat{#GET{1816}}|concat{' 1816w'})]
+			})][
+			(#SET{sizes,
+				#VAL{'(min-width:1024px) 908px, 100vw'}
+			})]
+			<INCLURE{fond=inclure/images/figure, id_document, src=#GET{908}, srcset=#GET{srcset}, sizes=#GET{sizes}}/>
+		</BOUCLE_album_full>
+	</div>
+</B_album_full>

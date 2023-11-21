@@ -1,0 +1,20 @@
+{
+    "files": [
+        {
+            "path": "./dist/js/llarchitectes.js",
+            "maxSize": "3 kB"
+        },
+        {
+            "path": "./dist/js/llarchitectes_photoswipe.js",
+            "maxSize": "21 kB"
+        },
+        {
+            "path": "./dist/js/llarchitectes_filtrer_projets.js",
+            "maxSize": "3 kB"
+        },
+        {
+            "path": "./dist/css/llarchitectes.css",
+            "maxSize": "10 kB"
+        }
+    ]
+}

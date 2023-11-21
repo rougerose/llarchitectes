@@ -1,0 +1,19 @@
+<BOUCLE_projets(RUBRIQUES){id_rubrique}>
+	<div class="projets_filters filters wrapper" data-type="narrow">
+		#SET{articles, #ARRAY}
+		<BOUCLE_articles(ARTICLES){id_rubrique}{!par date_projet}>
+			[(#SET{articles, #GET{articles}|push{#ID_ARTICLE}})]
+		</BOUCLE_articles>
+		[<div class="filters_form ajax">
+			(#FORMULAIRE_FILTRER_PROJETS{#ID_RUBRIQUE, #GET{articles}})
+		</div>]
+		[(#SET{articles_total, #GET{articles}|count})]
+		<B_compteur_articles>
+			<BOUCLE_compteur_articles(ARTICLES){id_rubrique}{mots_selon_id? 1 #ENV{mots}}> </BOUCLE_compteur_articles>
+			<p class="filters_count">[(#TOTAL_BOUCLE|singulier_ou_pluriel{llarchitectes:projets_nb_singulier, llarchitectes:projets_nb_pluriel})]<:llarchitectes:projets_total{nb=#GET{articles_total}}:>.</p>
+		</B_compteur_articles>
+	</div>
+	<div class="projets_cards wrapper">
+		<INCLURE{fond=inclure/listes/articles_projets, id_rubrique, pagination=#ENV{pagination, 10}, ajax, env}/>
+	</div>
+</BOUCLE_projets>

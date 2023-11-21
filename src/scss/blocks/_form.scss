@@ -1,0 +1,107 @@
+// ========================================
+// Form et éléments associés (hors .button)
+// ========================================
+
+
+@use "sass:color";
+@use "sass:map";
+@use "../abstract" as abstract;
+
+$tertiary-800: map.get(abstract.$cloud-burst, 800);
+$tertiary-500: map.get(abstract.$cloud-burst, 500);
+$tertiary-600: map.get(abstract.$cloud-burst, 600);
+$primary-800: map.get(abstract.$pomegranate, 800);
+$border-radius-base: 4px;
+$form-fields-input-padding: 0.5em 0.5em 0.375em;
+$form-fields-width: 100%;
+
+/// Input
+input:not([type]),
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="submit"],
+input[type="file"],
+textarea {
+	display: block;
+	background-color: map.get(abstract.$base, "white");
+	// border-radius: $border-radius-base;
+	border: 1px solid var(--color-secondary-200);
+	color: var(--color-ink);
+	font: inherit;
+	font-size: var(--step-1);
+	line-height: 1;
+	padding: $form-fields-input-padding;
+	width: $form-fields-width;
+	appearance: none;
+}
+
+input[type="submit"] {
+	transition: background 0.3s, color 0.3s, border 0.3s;
+	background-color: $tertiary-600;
+	border-color: $tertiary-500;
+	color: var(--color-paper);
+	box-shadow: 0 2px 4px color.scale($tertiary-600, $alpha: -80%),
+		0 3px 6px color.scale($tertiary-600, $alpha: -75%);
+
+	&:hover,
+	&:active {
+		background-color: map.get(abstract.$cloud-burst, 400);
+		box-shadow: 0 2px 4px color.scale($tertiary-500, $alpha: -60%),
+			0 3px 6px color.scale($tertiary-500, $alpha: -55%);
+	}
+
+	&:active {
+		box-shadow: 0 0px 4px color.scale($tertiary-800, $alpha: -80%),
+			0 0px 6px color.scale($tertiary-800, $alpha: -75%);
+	}
+}
+
+input[type="checkbox"] {
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: var(--color-paper);
+	margin: 0;
+	font-family: inherit;
+	font-size: var(--step--1);
+	color: currentColor;
+	width: 1em;
+	height: 1em;
+	border: 2px solid currentColor;
+	border-radius: 0.15em;
+	transform: translateY(-0.075em);
+	display: grid;
+	place-content: center;
+
+	&::before {
+		content: "";
+		width: 0.65em;
+		height: 0.65em;
+		transform: scale(0);
+		transition: 0.3s transform ease-in-out;
+		box-shadow: inset 1em 1em var(--color-ink);
+		background-color: CanvasText;
+		transform-origin: bottom left;
+		clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+	}
+
+	&:checked {
+		color: var(--color-ink);
+
+		&::before {
+			transform: scale(1);
+		}
+	}
+}
+
+fieldset {
+	border: none;
+	padding: 0;
+}
+
+legend {
+	font-family: inherit;
+	font-size: var(--step-1);
+	margin-bottom: var(--space-s);
+}

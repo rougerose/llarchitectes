@@ -1,22 +1,20 @@
 // @use "article";
+@use "breadcrumb";
 @use "burger-menu";
 @use "button";
 @use "card";
 // @use "content-block";
 @use "filters";
+@use "form";
 @use "headline";
 @use "icon";
 @use "indicator";
 @use "link-more";
 @use "navigation";
+@use "pagination";
 @use "partners";
 @use "prose";
 @use "portfolio";
 @use "related";
 @use "site-header";
 @use "site-footer";
-
-// .intro {
-// 	font-size: var(--step-2);
-// 	line-height: 1.1;
-// }

@@ -1,0 +1,36 @@
+<B_filtres>
+	<div class="formulaire_spip formulaire_#FORM">
+		[<p class="formulaire_ok">(#ENV*{message_ok})</p>]
+		[<p class="formulaire_erreur">(#ENV*{message_erreur})</p>]
+		<form action="#ENV{action}" method="post">
+			#ACTION_FORMULAIRE
+			<div class="editer-groupe">
+				<fieldset>
+					<legend><:llarchitectes:formulaire_filtres_legend:></legend>
+					<div class="cluster filters_list">
+						<BOUCLE_filtres(MOTS mots_liens){mots.id_groupe=1}{mots_liens.id_objet IN #ENV{articles}}{mots_liens.objet=article}{par titre}>
+							<B_mot_occurrences>
+								#SET{occurrences, #TOTAL_BOUCLE}
+								<BOUCLE_mot_occurrences(ARTICLES){id_mot}{id_rubrique=#ENV{id_rubrique}}> </BOUCLE_mot_occurrences>
+							</B_mot_occurrences>
+							<div class="choix checkbox [ (#ENV{mots}|find{#ID_MOT}|oui)is-checked]">
+								<input type="checkbox" name="mots\[\]" id="mot#ID_MOT" value="#ID_MOT"[ (#ENV{mots}|find{#ID_MOT}|oui) checked] data-title="[(#TITRE|attribut_html)]">
+								<label for="mot#ID_MOT">#TITRE <span class="indicator"><span>#GET{occurrences}</span></span></label>
+							</div>
+						</BOUCLE_filtres>
+						<div class="choix bouton filters_reset[(#ENV{mots}|is_array|non) is-hide]">
+							<button class="button" data-variant="ghost" data-self="[(#SELF|parametre_url{mots\[\],''})]"><:llarchitectes:formulaire_filtres_reset:></button>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+			<noscript>
+				<p class="boutons cluster">
+					<input type="submit" class="submit button" value="<:llarchitectes:formulaire_filtres_submit:>">
+					<span class="image_loading">&nbsp;</span>
+				</p>
+			</noscript>
+		</form>
+		[<script src="(#CHEMIN{dist/js/llarchitectes_filtrer_projets.js}|timestamp)" type="text/javascript"></script>]
+	</div>
+</B_filtres>

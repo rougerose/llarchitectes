@@ -1,0 +1,5 @@
+<composition>
+    <nom>Album pleine largeur</nom>
+    <description>Composition pour un album avec 1 image qui occupe toute la largeur disponible. Composition par défaut des albums du Journal de bord.</description>
+    <icon>img/objet-liste-contenus.png</icon>
+</composition>

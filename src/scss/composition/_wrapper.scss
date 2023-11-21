@@ -13,4 +13,8 @@
 	&[data-type="narrow"] {
 		max-width: var(--wrapper-narrow-max-width);
 	}
+
+	&[data-type="large"] {
+		max-width: 100rem;
+	}
 }

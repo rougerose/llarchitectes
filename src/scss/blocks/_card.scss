@@ -60,11 +60,14 @@
 	display: flex;
 	flex-direction: column;
 	margin-top: var(--flow-space);
-	margin-bottom: var(--flow-space);
 
 	& p {
 		font-size: var(--step--2);
 	}
+}
+
+.card_meta {
+	margin-top: var(--flow-space);
 }
 
 .card_date {
@@ -77,9 +80,8 @@
 // Variante projets
 // ========================================
 
-.card[data-type="project"] {
+.card[data-type="projet"] {
 	--card-offset: var(--space-s);
-	--card-color: var(--color-primary);
 	position: relative;
 
 	&::before,
@@ -89,16 +91,18 @@
 		top: 0;
 		right: 0;
 		bottom: 0;
+		pointer-events: none;
 	}
 
 	&::before {
 		content: "";
 		display: block;
 		background-color: transparent;
-		border: 2px solid var(--card-color);
+		border: 2px solid var(--card-color, var(--color-primary));
 		top: var(--card-offset);
 		right: var(--card-offset);
 		z-index: 1;
+		mix-blend-mode: multiply;
 		transition: background-color 0.3s ease, border-color 0.3s ease;
 	}
 
@@ -117,12 +121,11 @@
 	& .card_media,
 	& .card_content {
 		position: relative;
-		z-index: 2;
 	}
 
 	& .card_media {
 		margin-left: var(--card-offset);
-		mix-blend-mode: multiply;
+		z-index: 0;
 	}
 
 	& .card_content {
@@ -131,11 +134,12 @@
 		margin-left: var(--card-offset);
 		margin-right: var(--card-offset);
 		padding: var(--card-offset);
-		color: var(--card-color);
+		color: var(--card-color, var(--color-primary));
 		padding-left: 0;
 		align-items: flex-end;
 		align-items: last baseline;
 		transition: color 0.3s ease;
+		z-index: 2;
 	}
 
 	&:hover {
@@ -156,18 +160,13 @@
 			color: var(--color-paper);
 		}
 	}
-
-	// Variante dans conteneur "related"
-	[data-layout="related"] & {
-		--card-color: var(--color-tertiary);
-	}
 }
 
 // Variante Journal de bord
 // ========================================
 
-.card[data-type="post"] {
-	--card-inset-color: var(--color-tertiary);
+.card[data-type="journal"] {
+	// --card-inset-color: var(--color-ink);
 	--card-offset: var(--space-s);
 	--card-img-ratio: 3/4;
 	display: grid;
@@ -195,7 +194,7 @@
 		&::before,
 		&::after {
 			content: "";
-			border: 2px solid var(--card-inset-color);
+			border: 2px solid var(--card-inset-color, var(--color-ink));
 			transition: border-color 0.3s ease;
 		}
 
@@ -229,7 +228,7 @@
 			mix-blend-mode: multiply;
 		}
 
-		& > div {
+		&>div {
 			position: relative;
 		}
 	}

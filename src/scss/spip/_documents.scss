@@ -1,0 +1,13 @@
+// ========================================
+// Styles des .spip_documents
+// ========================================
+
+
+.spip_documents {
+
+	&.article_logo {
+		& .spip_doc_inner {
+			position: relative;
+		}
+	}
+}

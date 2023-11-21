@@ -1,0 +1,10 @@
+<B_articles_journal>
+	#ANCRE_PAGINATION
+	<div class="grid" data-layout="journal">
+		<BOUCLE_articles_journal(ARTICLES){id_rubrique}{!par date}{pagination #ENV{pagination, 12} _articles}>
+			<INCLURE{fond=inclure/resumes/card_journal, contexte=rubrique_journal, id_article}/>
+		</BOUCLE_articles_journal>
+	</div>
+	[<nav class="pagination" role="navigation">(#PAGINATION{llarchitectes,  afficher_lien_precedent=1, afficher_lien_suivant=1, nombre_liens_max=6})</nav>]
+	<script>$(function(){llarchitectes_cards.init();});</script>
+</B_articles_journal>

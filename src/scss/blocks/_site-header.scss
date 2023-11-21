@@ -5,10 +5,7 @@
 @use "../tools/mq" as mq;
 
 .site-header {
-	font-size: var(--step--3);
-	padding-left: var(--gutter);
-	padding-right: var(--gutter);
-	margin-top: var(--space-s);
+	padding: var(--space-s-m) var(--gutter) 0;
 }
 
 .site-header_container {
@@ -16,8 +13,6 @@
 	flex-wrap: wrap;
 	justify-content: space-between;
 	gap: 0 1rem;
-	// Si js
-	// position: relative;
 }
 
 .site-header_brand {

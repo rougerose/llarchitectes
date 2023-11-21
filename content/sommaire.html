@@ -1,0 +1,59 @@
+<div class="homepage">
+	<BOUCLE_intro(ARTICLES){composition=agence}{tout}>
+		<div class="homepage_intro region">
+			<div class="wrapper" data-type="narrow">
+				<div class="flow">
+					[(#DESCRIPTIF)]
+					<a href="#URL_ARTICLE" class="button with-icon with-icon-end with-hover text-uppercase" data-variant="framed"><:llarchitectes:lien_poursuivre:> [<svg class="icon" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true"><use href="(#CHEMIN{images/icon-defs.svg}|ancre_url{icon-arrow-se})"></use></svg>]</a>
+				</div>
+			</div>
+		</div>
+	</BOUCLE_intro>
+
+	<BOUCLE_projets(SELECTIONS){identifiant=projets}>
+		<B_selections_projets>
+			<section class="homepage_projets region flow">
+				<div class="wrapper" data-type="narrow">
+					<h2 class="headline_title">#TITRE</h2>
+				</div>
+				<div class="wrapper gap-top-l" data-type="large">
+					<div class="grid xbreakout" data-layout="projets">
+						<BOUCLE_selections_projets(SELECTIONS_CONTENUS){id_selection}{par rang}{objet=article}>
+							<INCLURE{fond=inclure/resumes/card_projet, contexte=rubrique_projets, id_article=#ID_OBJET} />
+						</BOUCLE_selections_projets>
+					</div>
+					<div class="repel justify-content-center gap-top-xl-2xl">
+						<a href="#URL_RUBRIQUE{1}" class="button with-icon with-icon-end with-hover text-uppercase" data-variant="framed"><:llarchitectes:lien_poursuivre_projets:> [<svg class="icon" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true"><use href="(#CHEMIN{images/icon-defs.svg}|ancre_url{icon-arrow-se})"></use></svg>]</a>
+					</div>
+				</div>
+			</section>
+		</B_selections_projets>
+	</BOUCLE_projets>
+
+	<BOUCLE_journal(SELECTIONS){identifiant=journal}>
+		<B_selections_journal>
+			<section class="homepage_journal region flow">
+				<div class="wrapper" data-type="narrow">
+					<h2 class="headline_title">#TITRE</h2>
+				</div>
+				<div class="wrapper gap-top-l">
+					<div class="grid" data-layout="journal">
+						<BOUCLE_selections_journal(SELECTIONS_CONTENUS){id_selection}{par rang}{objet=article}>
+							<INCLURE{fond=inclure/resumes/card_journal, contexte=rubrique_journal, id_article=#ID_OBJET} />
+						</BOUCLE_selections_journal>
+					</div>
+					<div class="repel justify-content-center gap-top-xl-2xl">
+						<a href="#URL_RUBRIQUE{2}"
+							class="button with-icon with-icon-end with-hover text-uppercase"
+							data-variant="framed">
+							<:llarchitectes:lien_poursuivre_journal:>
+							[<svg class="icon" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true">
+								<use href="(#CHEMIN{images/icon-defs.svg}|ancre_url{icon-arrow-se})"></use>
+							</svg>]
+						</a>
+					</div>
+				</div>
+			</section>
+		</B_selections_journal>
+	</BOUCLE_journal>
+</div>

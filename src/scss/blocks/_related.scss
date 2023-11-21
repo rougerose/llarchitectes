@@ -2,14 +2,19 @@
 // Related content
 // ========================================
 
+@use "../abstract" as abstract;
+
 .related {
+	--card-color: var(--color-primary-900);
+	--framed-border-color: var(--color-primary-900);
+	--framed-color: var(--color-primary-900);
 	padding: var(--space-xl) 0;
 	background-color: var(--color-secondary);
 }
 
 .related_headline {
 	margin-bottom: var(--flow-space);
-	color: var(--color-tertiary);
+	color: var(--color-primary-900);
 	font-size: var(--step-3);
 	text-transform: uppercase;
 	font-weight: 500;

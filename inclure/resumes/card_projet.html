@@ -1,0 +1,25 @@
+<BOUCLE_card_projet(ARTICLES){id_article}>
+	[(#REM) Variante du logo selon le contexte : rubrique Projets ou article Prolonger. Par défaut, contexte rubrique Projets. ]
+	[(#SET{contexte, #ENV{contexte, rubrique_projets}})]
+	[(#GET{contexte}|=={rubrique_projets}|?{
+		[(#SET{variante_logo, logo_article_projet_rubrique})],
+		[(#ENV{total}|<={2}|?{
+			[(#SET{variante_logo, logo_article_projet_prolonger_large})],
+			[(#SET{variante_logo, logo_article_projet_prolonger_standard})]
+		})]
+	})]
+	<article class="card" data-type="projet">
+		<INCLURE{fond=inclure/images/#GET{variante_logo}, id_article}/>
+		<div class="card_content with-sidebar" data-sidebar-type="right">
+			<div class="card_header">
+				<BOUCLE_localisation(MOTS){id_article}{id_groupe=2}{0,1}>
+					<p>#TITRE</p>
+				</BOUCLE_localisation>
+				<h3 class="card_title"><a href="#URL_ARTICLE">#TITRE</a></h3>
+			</div>
+			[<svg class="icon" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true">
+				<use href="(#CHEMIN{images/icon-defs.svg}|ancre_url{icon-arrow-se})"></use>
+			</svg>]
+		</div>
+	</article>
+</BOUCLE_card_projet>

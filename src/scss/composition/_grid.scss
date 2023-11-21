@@ -1,34 +1,38 @@
 // Grid
 
-// @use "../tools/mq" as mq;
+@use "../tools/mq" as mq;
 
 .grid {
 	display: grid;
 	gap: var(--gutter);
-	grid-template-columns: repeat(
-		var(--grid-placement, auto-fill),
-		minmax(var(--grid-min-item-size, 16rem), 1fr)
-	);
+	grid-template-columns: repeat(var(--grid-placement, auto-fill),
+			minmax(var(--grid-min-item-size, 16rem), 1fr));
 
-	// &[data-layout="third"] {
-	// 	--grid-placement: auto-fit;
-	// 	--grid-min-item-size: clamp(16rem, 33%, 20rem);
-	// }
-
-	&[data-layout="projects"] {
-		--grid-placement: auto-fit;
+	&[data-layout="projets"] {
+		--grid-placement: auto-fill;
 		--grid-min-item-size: min(100%, 31ch);
 		gap: var(--space-l);
 	}
 
-	&[data-layout="journal"],
-	&[data-layout="related"] {
+	&[data-layout="journal"] {
 		--grid-min-item-size: min(220px, 100%);
 		gap: var(--space-l);
+	}
+
+	&[data-layout="related"] {
+		gap: var(--space-l);
+
+		@include mq.mq($from: 576px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 
 	// Variante .breakout (projets)
 	&.breakout[data-layout="related"] {
 		--grid-min-item-size: min(100%, 31ch);
+	}
+
+	&.grid-autofit[data-layout="related"] {
+		grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
 	}
 }

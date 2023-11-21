@@ -1,0 +1,5 @@
+<composition>
+    <nom>Album pour un projet</nom>
+    <description>Composition par défaut pour un album associé à un projet</description>
+    <icon>img/objet-liste-contenus.png</icon>
+</composition>

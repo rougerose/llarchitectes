@@ -1,0 +1,30 @@
+<BOUCLE_prolonger_article_journal(ARTICLES){id_article}>
+	<B_articles_actu>
+		<aside class="related">
+			<div class="wrapper flow" data-type="narrow">
+				<h1 class="related_headline with-offset-icon">
+					[<svg class="icon icon-offset" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true">
+						<use href="(#CHEMIN{images/icon-defs.svg}|ancre_url{#icon-arrow-se})"></use>
+					</svg>]
+					<span><:llarchitectes:prolonger_journal_titre:></span>
+				</h1>
+				<div class="grid grid-autofit" data-layout="related">
+					<BOUCLE_articles_actu(ARTICLES){id_rubrique}{!par date}{exclus}{0,3}{doublons}>
+						<INCLURE{fond=inclure/resumes/card_journal, contexte=article_prolonger, id_article}/>
+					</BOUCLE_articles_actu>
+				</div>
+				<BOUCLE_articles_actu_suite(ARTICLES){id_rubrique}{!par date}{exclus}{0,1}{doublons}>
+					<div class="repel justify-content-end gap-top-l">
+						<a href="#URL_RUBRIQUE" class="button with-icon with-icon-end with-hover text-uppercase" data-variant="framed">
+							<:llarchitectes:prolonger_journal_bouton_tout_voir:>
+							[<svg class="icon icon-offset" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true">
+								<use href="(#CHEMIN{images/icon-defs.svg}|ancre_url{#icon-arrow-se})"></use>
+							</svg>]
+						</a>
+					</div>
+				</BOUCLE_articles_actu_suite>
+			</div>
+			<script>$(function(){llarchitectes_cards.init();});</script>
+		</aside>
+	</B_articles_actu>
+</BOUCLE_prolonger_article_journal>

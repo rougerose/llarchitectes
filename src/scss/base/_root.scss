@@ -1,0 +1,31 @@
+@use "../abstract" as abstract;
+
+:root {
+	// Typo
+	--font-family-base: "Pressura", Helvetica, Roboto, ui-sans-serif, system-ui,
+		-apple-system, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+		"Noto Color Emoji", sans-serif;
+	--font-family-mono: "PressuraMono", ui-monospace, SFMono-Regular, Menlo,
+		monospace;
+	// Couleurs
+	@each $key, $value in abstract.$colors {
+		--color-#{$key}: #{$value};
+	}
+	// Principes de mise en page
+	// -- Utopia
+	@each $key, $value in abstract.$utopia {
+		#{$key}: #{$value};
+	}
+	// -- Containers
+	--wrapper-max-width: var(--grid-max-width);
+	--wrapper-narrow-max-width: #{abstract.$wrapper-narrow-max-width};
+	// -- Gouttière
+	--gutter: var(--grid-gutter);
+	// -- Flow space
+	--flow-space: var(--space-s);
+	// -- Largeur max du logo principal
+	--logo-max-width: #{abstract.$logo-max-width};
+	// -- Bouton pill
+	--pill-border-radius: 0.7em;
+	--pill-border-color: var(--color-secondary-200);
+}

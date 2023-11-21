@@ -1,0 +1,24 @@
+// ========================================
+// PROJETS
+// styles de la rubrique Projets
+// ========================================
+
+// .projets {}
+
+.projets_header {
+	&.region {
+		padding-bottom: var(--space-2xl);
+	}
+}
+
+.projets_body {
+	&.region {
+		padding-top: 0;
+	}
+}
+
+.projets_filters {
+	padding-bottom: var(--space-2xl);
+}
+
+// .projets_cards {}

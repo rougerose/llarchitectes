@@ -1,0 +1,25 @@
+[(#REM)
+	Règles de formatage de l'image :
+	================================
+	min-width 576px:	560w @1x ; 1120w @2x
+	<=575px:			1060w @2x;
+]
+<B_album_50>
+	<div class="portfolio_album" data-composition="cinquante-cinquante">
+		<BOUCLE_album_50(DOCUMENTS){id_album}{media=image}{par rang_lien, num titre, date, id_document}>
+			[(#SET{1060, #FICHIER|image_reduire{1060,0}|extraire_attribut{src}})][
+			(#SET{1120, #FICHIER|image_reduire{1120,0}|extraire_attribut{src}})][
+			(#SET{560, #FICHIER|image_reduire{560,0}|extraire_attribut{src}})][
+			(#SET{360, #FICHIER|image_reduire{360,0}|extraire_attribut{src}})][
+			(#SET{srcset, [(#GET{360}|concat{' 360w,'}
+					|concat{#GET{560}}|concat{' 560w,'}
+					|concat{#GET{1060}}|concat{' 1060w,'}
+					|concat{#GET{1120}}|concat{' 1120w'})]
+			})][
+			(#SET{sizes,
+				#VAL{'(min-width:576px) 50vw, (min-width:1240px) 560px, 100vw'}
+			})]
+			<INCLURE{fond=inclure/images/figure, id_document, src=#GET{560}, srcset=#GET{srcset}, sizes=#GET{sizes}}/>
+		</BOUCLE_album_50>
+	</div>
+</B_album_50>

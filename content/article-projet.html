@@ -1,0 +1,60 @@
+<BOUCLE_article_projet(ARTICLES){id_article}>
+	#SET{url_rubrique, #URL_RUBRIQUE}
+	<div class="region">
+		<div class="wrapper" data-type="narrow">
+			<INCLURE{fond=breadcrumb/article, id_article}/>
+		</div>
+		<article class="article">
+			<div class="wrapper" data-type="narrow">
+				<div class="article_content">
+					<header class="article_header">
+						<BOUCLE_mot_localisation(MOTS){id_article}{id_groupe=2}{0,1}>
+							[<p class="article_surtitre">(#TITRE)</p>]
+						</BOUCLE_mot_localisation>
+						<h1 class="article_titre">#TITRE</h1>
+					</header>
+					<div class="article_texte prose flow">
+						[(#TEXTE)]
+
+						[(#REM) Vérifier la présence de données pour afficher la liste des métas ]
+						#SET{metas, non}
+						<BOUCLE_meta(MOTS){id_article}{id_groupe_racine=4}{0,1}>
+							#SET{metas, oui}
+						</BOUCLE_meta>
+						[(#DATE_PROJET|annee|>{0}|oui) #SET{metas, oui} ]
+						<BOUCLE_metas(CONDITION){si #GET{metas}|=={oui}}>
+							<dl class="article_metas">
+								<BOUCLE_mots_meta(MOTS){id_article}{id_groupe_racine=4}{id_groupe!=1}{par type}>
+									[<dt>(#TYPE|unique)</dt>]
+									<dd>#TITRE</dd>
+								</BOUCLE_mots_meta>
+								[<dt><:llarchitectes:date_projet_label_public:></dt>
+								<dd>(#DATE_PROJET|annee)</dd>]
+								<B_mots_types>
+									<dt class="article_metas-types"><:llarchitectes:projet_metas_types_titre:></dt>
+									<BOUCLE_mots_types(MOTS){id_article}{id_groupe=1}{par num titre}>
+										[(#SET{title, #TITRE|attribut_html})]
+										<dd class="box-inline"><a class="button" data-variant="pill" href="[(#GET{url_rubrique}|parametre_url{mots\[\],#ID_MOT})]" title="<:llarchitectes:projet_metas_href_title{titre=#GET{title}}:>">#TITRE</a></dd>
+									</BOUCLE_mots_types>
+								</B_mots_types>
+							</dl>
+						</BOUCLE_metas>
+					</div>
+				</div>
+			</div>
+			<div class="wrapper">
+				<div class="article_extra">
+					<B_albums_article>
+						<div class="article_portfolio portfolio flow">
+							<BOUCLE_albums_article(ALBUMS){id_article}{vu=non}>
+								<INCLURE{fond=#COMPOSITION|compositions_selectionner{album, projet}, id_album, id_article}/>
+							</BOUCLE_albums_article>
+						</div>
+						<script src="#CHEMIN{dist/js/llarchitectes_photoswipe.js}"></script>
+					</B_albums_article>
+				</div>
+			</div>
+		</article>
+	</div>
+	<INCLURE{fond=inclure/prolonger/article_projet, id_article}/>
+</BOUCLE_article_projet>

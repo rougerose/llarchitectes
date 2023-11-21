@@ -1,0 +1,125 @@
+// ========================================
+// formulaire_spip
+// ========================================
+
+@use "sass:color";
+@use "sass:map";
+@use "../abstract" as abstract;
+
+$tertiary-800: map.get(abstract.$cloud-burst, 800);
+$tertiary-500: map.get(abstract.$cloud-burst, 500);
+$tertiary-300: map.get(abstract.$cloud-burst, 300);
+$tertiary-50: map.get(abstract.$cloud-burst, 50);
+$error-400: map.get(abstract.$chilean-fire, 400);
+$error-600: map.get(abstract.$chilean-fire, 600);
+
+.formulaire_spip {
+	font-family: var(--font-family-mono);
+
+	& legend {
+		color: var(--color-secondary-700);
+		font-size: var(--step-0);
+	}
+
+	& .editer {
+		margin-bottom: var(--space-s-m);
+
+		& label {
+			display: block;
+			padding-bottom: var(--space-2xs);
+		}
+	}
+
+	& label {
+		& .obligatoire {
+			font-style: italic;
+			font-size: smaller;
+		}
+	}
+
+	& .boutons {
+		margin-top: var(--flow-space);
+	}
+
+	.reponse_formulaire {
+		padding: 0.75rem 1rem;
+		margin-bottom: var(--space-m);
+		background-color: $tertiary-50;
+		border-left: 0.5rem solid $tertiary-300;
+		box-shadow: 0 2px 4px color.scale($tertiary-500, $alpha: -60%),
+			0 3px 6px color.scale($tertiary-500, $alpha: -55%);
+
+		// &.reponse_formulaire_ok {
+		// 	--color-message-bg: var(--color-message-bg-success);
+		// 	--color-message-border: var(--color-message-border-success);
+		// }
+
+		&.reponse_formulaire_erreur {
+			background-color: $error-400;
+			border-left: 0.5rem solid $error-600;
+			box-shadow: 0 2px 4px color.scale($error-600, $alpha: -60%),
+				0 3px 6px color.scale($error-600, $alpha: -55%);
+		}
+	}
+}
+
+// formulaire filtrer_projets
+// ========================================
+
+.formulaire_filtrer_projets {
+	.choix {
+		display: grid;
+		gap: 0.5em;
+		align-items: center;
+		border: 2px solid var(--pill-border-color);
+		border-radius: var(--pill-border-radius);
+		color: var(--color-ink);
+		padding: 0.4em 0.75em 0.25em;
+		transition: border-color 0.3s, color 0.3s;
+
+		&.checkbox {
+			grid-template-columns: 1em auto;
+		}
+
+		&.bouton {
+			padding: 0;
+			font-size: var(--step--2);
+			color: var(--color-ink);
+
+			& .button {
+				padding: 0.4em 0.75em 0.25em;
+			}
+		}
+
+		& label {
+			font-size: var(--step--2);
+			color: currentColor;
+		}
+
+		&.is-checked,
+		&:hover {
+			border-color: var(--color-ink);
+			color: var(--color-ink);
+		}
+
+		&.is-hide,
+		.no-js &.filters_reset {
+			display: none;
+		}
+	}
+}
+
+// formulaire ecrire_auteur
+// ========================================
+
+// Des styles sont également définis dans /page/contact.scss
+.formulaire_ecrire_auteur {
+
+	& .previsu {
+		margin-bottom: var(--space-l-xl);
+
+		& p {
+			margin-bottom: var(--space-xs);
+		}
+	}
+}

@@ -1,0 +1,30 @@
+<BOUCLE_article_journal(ARTICLES){id_article}>
+	<div class="wrapper region" data-type="narrow">
+		<INCLURE{fond=breadcrumb/article, id_article}/>
+		<article class="article" data-type="inset">
+			<div class="article_content">
+				<header class="article_header">
+					<BOUCLE_mot_localisation(MOTS){id_article}{id_groupe=2}{0,1}>
+						[<p class="article_surtitre">(#TITRE)</p>]
+					</BOUCLE_mot_localisation>
+					<h1 class="article_titre">#TITRE</h1>
+					[<p class="article_date"><time[ datetime="(#DATE|date_iso)"]>(#DATE|affdate)</time></p>]
+				</header>
+				[<div class="article_texte prose flow">
+					(#TEXTE)
+				</div>]
+			</div>
+			<div class="article_extra">
+				<B_albums_article>
+					<div class="article_portfolio portfolio flow">
+						<BOUCLE_albums_article(ALBUMS){id_article}{vu=non}>
+							<INCLURE{fond=#COMPOSITION|compositions_selectionner{album, cent}, id_album, id_article}/>
+						</BOUCLE_albums_article>
+					</div>
+					<script src="#CHEMIN{dist/js/llarchitectes_photoswipe.js}"></script>
+				</B_albums_article>
+			</div>
+		</article>
+	</div>
+	<INCLURE{fond=inclure/prolonger/article_journal, id_article}/>
+</BOUCLE_article_journal>
