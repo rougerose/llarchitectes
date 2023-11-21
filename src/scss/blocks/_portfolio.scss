@@ -65,6 +65,102 @@
 	// 		margin-right: var(--space-s);
 	// 	}
 
+	// 	& .splide__slide {
+	// 		max-width: 100%;
+	// 		width: 100%;
+	// 		// Alignement sur la colonne de texte principale
+	// 		padding-left: calc((100vw - var(--wrapper-narrow-max-width)) / 2);
+
+	// 		& figure {
+	// 			height: 100%;
+	// 		}
+
+	// 		& img {
+	// 			width: 100%;
+	// 			height: 100%;
+	// 			object-fit: contain;
+	// 			object-position: left center;
+	// 			transition: opacity 0.25s ease-in;
+	// 		}
+	// 	}
+
+	// 	& .splide__number {
+	// 		position: absolute;
+	// 		bottom: 0;
+	// 		left: max(calc((100vw - var(--wrapper-narrow-max-width)) / 2), 0vw);
+	// 		display: flex;
+	// 		font-family: var(--font-family-mono);
+
+	// 		& .number__index {
+	// 			align-self: flex-start;
+	// 			color: var(--color-primary);
+	// 		}
+
+	// 		& .number__length {
+	// 			align-self: flex-end;
+	// 		}
+
+	// 		& .number__separator {
+	// 			font-size: var(--step-4);
+	// 			font-weight: 300;
+	// 		}
+	// 	}
+	// }
+}
+
+.portfolio_album {
+	display: grid;
+
+	& figure {
+		position: relative;
+	}
+
+	// & figcaption {
+	// 	position: absolute;
+	// 	left: 0;
+	// 	bottom: 0;
+	// 	padding: 0.5em 0.75em 0 0.2em;
+	// 	background-color: var(--color-paper);
+	// 	font-size: var(--step--2);
+	// }
+}
+
+// Variante Cent (100%, pleine largeur)
+// ========================================
+.portfolio_album[data-composition="cent"] {
+	gap: var(--space-m-l);
+}
+
+// Variante Cinquante-cinquante (50% / 50%)
+// ========================================
+.portfolio_album[data-composition="cinquante-cinquante"] {
+	gap: var(--space-m-l);
+
+	@include mq.mq($from: 576px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+// Variante Projet
+// ========================================
+.portfolio_album[data-composition="projet"] {
+	gap: var(--space-s);
+
+	& figure {
+		aspect-ratio: 4/3;
+	}
+
+	& .portfolio_link {
+		display: block;
+		width: 100%;
+		height: 100%;
+		transition: transform 0.3s ease-out;
+
+		&:hover {
+			transform: scale(1.05);
+		}
+	}
+
 	& img {
 		height: 100%;
 		object-fit: cover;
