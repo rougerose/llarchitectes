@@ -17,7 +17,7 @@
 					<h2 class="headline_title">#TITRE</h2>
 				</div>
 				<div class="wrapper gap-top-l" data-type="large">
-					<div class="grid xbreakout" data-layout="projets">
+					<div class="grid" data-layout="projets">
 						<BOUCLE_selections_projets(SELECTIONS_CONTENUS){id_selection}{par rang}{objet=article}>
 							<INCLURE{fond=inclure/resumes/card_projet, contexte=rubrique_projets, id_article=#ID_OBJET} />
 						</BOUCLE_selections_projets>
@@ -56,4 +56,5 @@
 			</section>
 		</B_selections_journal>
 	</BOUCLE_journal>
+	<script>$(function(){llarchitectes_cards.init();});</script>
 </div>
