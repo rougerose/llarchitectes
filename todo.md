@@ -1,7 +1,12 @@
 - [ ] css et animations des liens
-- [ ] Compositions des portfolios : débugger les variantes à l'étape de développement Spip en fonction du nombre d'images par groupe (2, 3 ou davantage)
 - [ ] retour haut de page
+- ajouter les squelettes d'article et de rubrique par défaut
 
 # Articles
 
 - [ ] article d'exemple des raccourcis Spip
+
+# Mentions légales
+
+- https://entreprendre.service-public.fr/vosdroits/F31228
+- https://www.economie.gouv.fr/entreprises/site-internet-mentions-obligatoires
