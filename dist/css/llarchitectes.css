@@ -1273,6 +1273,10 @@ legend {
   align-items: baseline;
 }
 
+.site-content {
+  flex: 1;
+}
+
 .site-header {
   padding: var(--space-s-m) var(--gutter) 0;
 }
