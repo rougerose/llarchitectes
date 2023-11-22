@@ -8,12 +8,12 @@
 	<//B_projets>
 	<nav class="breadcrumb" aria-label="Vous êtes dans :">
 		<ul class="breadcrumb_list" role="list">
-		<li>[<svg class="icon icon-star" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true"><use href="(#CHEMIN{images/icon-defs.svg}|ancre_url{icon-star})"></use></svg>] <a href="#URL_SITE_SPIP">#NOM_SITE_SPIP</a></li>
+		<li>[<svg class="icon icon-cross" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true"><use href="(#CHEMIN{images/icon-defs.svg}|ancre_url{icon-cross})"></use></svg>] <a href="#URL_SITE_SPIP">#NOM_SITE_SPIP</a></li>
 		<BOUCLE_breadcrumb(HIERARCHIE){id_rubrique}{tout}>
 			<li>
 				[<svg class="icon icon-arrow-right" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true"><use href="(#CHEMIN{images/icon-defs.svg}|ancre_url{icon-arrow-right})"></use></svg>][
 					(#ID_RUBRIQUE|=={#ENV{id_rubrique}}|non)<a href="#URL_RUBRIQUE">#TITRE</a>][
-					(#ID_RUBRIQUE|=={#ENV{id_rubrique}}|oui)<a href="#GET{url}" aria-current="page">#TITRE[ (#GET{filtres}|trim{', '})]</a> [<svg class="icon icon-star" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true"><use href="(#CHEMIN{images/icon-defs.svg}|ancre_url{icon-star})"></use></svg>]]
+					(#ID_RUBRIQUE|=={#ENV{id_rubrique}}|oui)<a href="#GET{url}" aria-current="page">#TITRE[ (#GET{filtres}|trim{', '})]</a> [<svg class="icon icon-cross" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true"><use href="(#CHEMIN{images/icon-defs.svg}|ancre_url{icon-cross})"></use></svg>]]
 			</li>
 		</BOUCLE_breadcrumb>
 		</ul>

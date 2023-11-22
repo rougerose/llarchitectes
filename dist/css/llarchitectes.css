@@ -460,9 +460,9 @@ h6 {
   height: 0.6em;
   color: var(--color-secondary-400);
 }
-.breadcrumb_list .icon-star {
-  width: 0.8em;
-  height: 0.8em;
+.breadcrumb_list .icon-cross {
+  width: 0.6em;
+  height: 0.6em;
   align-self: center;
   color: var(--color-secondary-400);
 }

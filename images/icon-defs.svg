@@ -12,5 +12,8 @@
 		<symbol id="icon-arrow-right" viewBox="0 0 64 64" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
 			<path d="m15.125 5 33.75 27-33.75 27" fill="none" stroke="currentColor" stroke-width="8"/>
 		</symbol>
+		<symbol id="icon-cross" viewBox="0 0 64 64" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+ 			<path d="M28 36H6.5c-2.208 0-4-1.792-4-4s1.792-4 4-4H28V6.5c0-2.208 1.792-4 4-4s4 1.792 4 4V28h21.5c2.208 0 4 1.792 4 4s-1.792 4-4 4H36v21.5c0 2.208-1.792 4-4 4s-4-1.792-4-4V36Z" fill="currentColor"/>
+		</symbol>
 	</defs>
 </svg>
