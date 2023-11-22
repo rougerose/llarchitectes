@@ -5,7 +5,6 @@
 	// position: absolute;
 	// right: 0;
 	font-family: var(--font-family-mono);
-	font-size: var(--step--3);
 	font-weight: 700;
 
 	& ul {
@@ -67,10 +66,11 @@
 
 	&[data-navigation-variant="header"] {
 		margin-top: var(--space-s);
+		font-size: var(--step--3);
 	}
 
 	&[data-navigation-variant="footer"] {
-		margin-top: 0;
+		// margin-top: 0;
 
 		& ul {
 			--navigation-flow: column wrap;

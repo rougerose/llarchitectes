@@ -1,10 +1,13 @@
 @use "../tools/mq" as mq;
+@use "../abstract" as abstract;
+@use "sass:map";
+@use "sass:color";
 
 .site-footer {
-	font-size: var(--step--3);
-	padding: var(--space-2xl) var(--gutter);
-	background-color: hsl(0, 0%, 100%);
-	border-top: 1px solid hsl(0, 0%, 90%);
+	font-size: var(--step--2);
+	padding: var(--space-l-xl) var(--gutter) var(--space-m);
+	background-color: map.get(abstract.$base, "white");
+	border-top: 1px solid color.adjust(map.get(abstract.$base, "white"), $lightness: -10%);
 }
 
 .site-footer_container {
@@ -16,7 +19,6 @@
 .site-footer_inner {
 	--gutter: var(--space-xl) var(--space-m);
 	grid-template-columns: repeat(1, 1fr);
-	// align-items: center;
 }
 
 .site-footer_brand {
@@ -24,9 +26,32 @@
 	max-width: var(--logo-max-width);
 }
 
+
+.site-footer_partners {
+	--cluster-space: 0.5rem var(--space-xs);
+
+	& h3 {
+		font-size: inherit;
+		font-weight: 700;
+		text-transform: uppercase;
+		display: inline-block;
+		margin-bottom: var(--space-xs);
+	}
+}
+
+.site-footer_legal {
+	font-size: var(--step--3);
+	font-weight: 300;
+
+	& a {
+		text-decoration: none;
+	}
+}
+
 .site-footer_content {
-	--grid-placement: auto-fit;
-	--gutter: var(--space-m);
+	display: grid;
+	gap: var(--space-m);
+	grid-template-columns: 1fr;
 }
 
 .site-footer_col {
@@ -36,17 +61,26 @@
 	position: relative;
 }
 
+@include mq.mq($from: 600px) {
+	.site-footer_content {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.site-footer_col:last-child {
+		grid-column: 2/-1;
+	}
+}
+
 @include mq.mq($from: 1024px) {
+	.site-footer {
+		padding-top: calc(2rem + var(--space-2xl));
+	}
+
 	.site-footer_inner {
 		grid-template-columns: repeat(2, 1fr);
 	}
 
 	.site-footer_brand {
-		//margin-bottom: var(--space-m);
-		margin-top: -2rem;
-	}
-
-	.site-footer_content {
-		grid-template-columns: repeat(2, 1fr);
+		margin-top: -3.5rem;
 	}
 }

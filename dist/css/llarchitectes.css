@@ -1001,7 +1001,6 @@ legend {
 
 .navigation {
   font-family: var(--font-family-mono);
-  font-size: var(--step--3);
   font-weight: 700;
 }
 .navigation ul {
@@ -1052,9 +1051,7 @@ legend {
 }
 .navigation[data-navigation-variant=header] {
   margin-top: var(--space-s);
-}
-.navigation[data-navigation-variant=footer] {
-  margin-top: 0;
+  font-size: var(--step--3);
 }
 .navigation[data-navigation-variant=footer] ul {
   --navigation-flow: column wrap;
@@ -1124,20 +1121,6 @@ legend {
   .pagination_prev-next span {
     display: inline;
   }
-}
-
-.partners {
-  --cluster-space: 0.5rem var(--space-xs);
-}
-.partners h3 {
-  font-size: inherit;
-  font-weight: 700;
-  text-transform: uppercase;
-  display: inline-block;
-  margin-bottom: var(--space-xs);
-}
-.partners .cluster {
-  padding-bottom: var(--space-m);
 }
 
 .prose {
@@ -1312,10 +1295,10 @@ legend {
 }
 
 .site-footer {
-  font-size: var(--step--3);
-  padding: var(--space-2xl) var(--gutter);
+  font-size: var(--step--2);
+  padding: var(--space-l-xl) var(--gutter) var(--space-m);
   background-color: hsl(0, 0%, 100%);
-  border-top: 1px solid hsl(0, 0%, 90%);
+  border-top: 1px solid #e6e6e6;
 }
 
 .site-footer_container {
@@ -1334,9 +1317,29 @@ legend {
   max-width: var(--logo-max-width);
 }
 
+.site-footer_partners {
+  --cluster-space: 0.5rem var(--space-xs);
+}
+.site-footer_partners h3 {
+  font-size: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: var(--space-xs);
+}
+
+.site-footer_legal {
+  font-size: var(--step--3);
+  font-weight: 300;
+}
+.site-footer_legal a {
+  text-decoration: none;
+}
+
 .site-footer_content {
-  --grid-placement: auto-fit;
-  --gutter: var(--space-m);
+  display: grid;
+  gap: var(--space-m);
+  grid-template-columns: 1fr;
 }
 
 .site-footer_col {
@@ -1346,15 +1349,23 @@ legend {
   position: relative;
 }
 
+@media (min-width: 37.5em) {
+  .site-footer_content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .site-footer_col:last-child {
+    grid-column: 2/-1;
+  }
+}
 @media (min-width: 64em) {
+  .site-footer {
+    padding-top: calc(2rem + var(--space-2xl));
+  }
   .site-footer_inner {
     grid-template-columns: repeat(2, 1fr);
   }
   .site-footer_brand {
-    margin-top: -2rem;
-  }
-  .site-footer_content {
-    grid-template-columns: repeat(2, 1fr);
+    margin-top: -3.5rem;
   }
 }
 .box-inline {
