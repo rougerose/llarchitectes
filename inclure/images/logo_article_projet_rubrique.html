@@ -1,35 +1,36 @@
 [(#REM)
-	Modèle utilisé par resume/card_projet.html
-
 	Règles de formatage de l'image :
 	================================
+	max-width 743px: max 673px x1	1346 x2		100vw
+	max-width 1187px: max 516px x1	1030 x2		50vw
+	max-width 1583px: max 454px x1	908 x2		33vw
+	min-width 1584px: max 330px x1 	660 x2		25vw
 
-	min-width 1240px :	340 x 255	340 x1	680 x2
-	min-width 968px :	514 x 386	514 x1	1028 x2
-	<=744:				672 x 504			1344 x2
-
+	330, 516, 673, 908, 1030, 1346
 ]<BOUCLE_logo_article_card(ARTICLES){id_article}>
 	[(#SET{logo, #LOGO_ARTICLE|image_recadre{4:3,-,focus}|extraire_attribut{src}})]
-	[(#SET{1344, #GET{logo}|image_reduire{1344,0}|extraire_attribut{src}})][
-	(#SET{1028, #GET{logo}|image_reduire{1028,0}|extraire_attribut{src}})][
-	(#SET{680, #GET{logo}|image_reduire{680,0}|extraire_attribut{src}})][
-	(#SET{514, #GET{logo}|image_reduire{514,0}|extraire_attribut{src}})][
-	(#SET{340, #GET{logo}|image_reduire{340,0}|extraire_attribut{src}})][
+	[(#SET{1346, #GET{logo}|image_reduire{1346,0}|extraire_attribut{src}})][
+	(#SET{1030, #GET{logo}|image_reduire{1030,0}|extraire_attribut{src}})][
+	(#SET{908, #GET{logo}|image_reduire{908,0}|extraire_attribut{src}})][
+	(#SET{673, #GET{logo}|image_reduire{673,0}|extraire_attribut{src}})][
+	(#SET{516, #GET{logo}|image_reduire{516,0}|extraire_attribut{src}})][
+	(#SET{330, #GET{logo}|image_reduire{330,0}|extraire_attribut{src}})][
 	(#SET{alt, ''})]
 	<BOUCLE_alt(DOCUMENTS){id_document=#ID_LOGO_ARTICLE}{tout}>
 		[(#SET{alt, [(#ALT|sinon{#DESCRIPTIF}|sinon{#TITRE}|attribut_html)][ (#CREDITS|attribut_html)]})]
 	</BOUCLE_alt>
 	[<div class="card_media">
 		<img
-			src="(#GET{680})"
-			width="[(#GET{680}|largeur)]"
-			height="[(#GET{680}|hauteur)]"
-			srcset="[(#GET{340}) 340w,][
-				(#GET{514}) 514w,][
-				(#GET{680}) 680w,][
-				(#GET{1028}) 1028w,][
-				(#GET{1344}) 1344w]"
-			sizes="(min-width:1240px) 340px, (min-width:1188px) 30vw, (min-width:745px) 50vw, 100vw"
+			src="(#GET{673})"
+			width="[(#GET{673}|largeur)]"
+			height="[(#GET{673}|hauteur)]"
+			srcset="[(#GET{330}) 330w,][
+				(#GET{516}) 516w,][
+				(#GET{673}) 673w,][
+				(#GET{908}) 908w,][
+				(#GET{1030}) 1030w,][
+				(#GET{1346}) 1346w]"
+			sizes="(min-width:1584px) 330px, (min-width:1188px) 33vw, (min-width:744px) 50vw, 100vw"
 			class="card_img"
 			alt="[(#GET{alt})]"
 			loading="lazy"
