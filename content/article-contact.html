@@ -32,11 +32,13 @@
 							<address>
 								[<p class="adresse_nom">(#NOM)</p>]
 								<BOUCLE_adresse(ADRESSES){id_auteur}>
+									#SET{pays, #PAYS}
+									<BOUCLE_pays(PAYS){code=#PAYS}>#SET{pays, #NOM}</BOUCLE_pays>
 									[<p class="adresse_ligne">(#VOIE)</p>]
 									[<p class="adresse_ligne">(#COMPLEMENT)</p>]
 									[<p class="adresse_ligne">(#LOCALITE_DEPENDANTE)</p>]
 									[(#CODE_POSTAL|ou{#VILLE}|oui)
-										<p class="adresse_ligne">[(#CODE_POSTAL) ][(#VILLE)]</p>]
+										<p class="adresse_ligne">[(#CODE_POSTAL) ][(#VILLE)][ - (#GET{pays})]</p>]
 								</BOUCLE_adresse>
 								<BOUCLE_telephone(NUMEROS){id_auteur}>
 									[(#REM) Remplacer les ponctuations et les espaces, par rien ]
