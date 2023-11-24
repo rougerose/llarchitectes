@@ -5,6 +5,8 @@
 //
 // ========================================
 
+@use "../tools/mq" as mq;
+
 p,
 li {
 	max-width: 70ch;
@@ -26,7 +28,11 @@ h6 {
 }
 
 h1 {
-	font-size: var(--step-7);
+	font-size: var(--step-5);
+
+	@include mq.mq($from: 560px) {
+		font-size: var(--step-7);
+	}
 }
 
 h2 {

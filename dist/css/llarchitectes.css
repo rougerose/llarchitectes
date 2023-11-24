@@ -312,6 +312,11 @@ h6 {
 h1 {
   font-size: var(--step-5);
 }
+@media (min-width: 35em) {
+  h1 {
+    font-size: var(--step-7);
+  }
+}
 
 h2 {
   font-size: var(--step-5);
