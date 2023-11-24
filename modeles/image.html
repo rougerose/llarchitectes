@@ -1,0 +1,57 @@
+[(#REM)
+	<!--
+		Modele pour les images
+		----------------------
+		Surcharges :
+		- Test si espace privé/espace publique
+		- Espace privé : le modèle d'origine est appliqué.
+		- Espace publique : le traitement est identique à celui appliqué dans inclure/images/logo_article.html
+	-->
+
+]<BOUCLE_image(DOCUMENTS){media=image}{id_document=#ENV{id,#ENV{id_document}}}{inclus=image}{mode?}{tout}>
+	[(#SET{autolien,#MEDIA|media_determine_autolien{#EXTENSION,#LARGEUR,#HAUTEUR,#ID_DOCUMENT}|oui})]
+	[(#SET{legende,#INCLURE{fond=modeles/document_legende, env}|trim})]
+	[(#REM|test_espace_prive|oui)
+		[(#SET{image,[(#ENV{largeur}|ou{#ENV{hauteur}}|?{
+			[(#FICHIER|image_reduire{#ENV{largeur,10000},#ENV{hauteur,10000}})],
+			[<img src='(#URL_DOCUMENT)' [ width="(#LARGEUR)" ][ height="(#HAUTEUR)"] />]})]})]
+		[(#SET{image,#GET{image}|inserer_attribut{alt,#ENV{alt,#ALT}|sinon{''}}})]
+		<div class="[(#ID_DOCUMENT|medias_modele_document_standard_classes{image}) ]spip_lien_ok"[ (#ID_DOCUMENT|medias_modele_document_standard_attributs{image}) ]>
+			<figure class="spip_doc_inner">
+				[<a href="(#ENV{lien})" [class="(#ENV{lien_class}|concat{' spip_doc_lien'}|trim)" ]>]
+				[(#ENV{lien}|non|et{#GET{autolien}})<a href="#URL_DOCUMENT" class="spip_doc_lien mediabox" type="#MIME_TYPE">]
+				#GET{image}
+				[(#ENV{lien}|ou{#GET{autolien}}|?{</a>})]
+				#GET{legende}
+			</figure>
+		</div>
+	][(#REM|test_espace_prive|non)
+		[(#SET{1864, #FICHIER|image_reduire{1864,0}|extraire_attribut{src}})][
+		(#SET{1440, #FICHIER|image_reduire{1440,0}|extraire_attribut{src}})][
+		(#SET{1120, #FICHIER|image_reduire{1120,0}|extraire_attribut{src}})][
+		(#SET{932, #FICHIER|image_reduire{932,0}|extraire_attribut{src}})][
+		(#SET{720, #FICHIER|image_reduire{720,0}|extraire_attribut{src}})][
+		(#SET{560, #FICHIER|image_reduire{560,0}|extraire_attribut{src}})][
+		(#SET{srcset, [(#GET{560}|concat{' 560w,'}
+			|concat{#GET{720}}|concat{' 720w,'}
+			|concat{#GET{932}}|concat{' 932w,'}
+			|concat{#GET{1120}}|concat{' 1120w,'}
+			|concat{#GET{1440}}|concat{' 1440w,'}
+			|concat{#GET{1864}}|concat{' 1864w'})]
+		})][(#SET{sizes, #VAL{'(min-width:1240px) 932px, 100vw'}})]
+		<div class="[(#ID_DOCUMENT|medias_modele_document_standard_classes{image}) ]spip_lien_ok"[ (#ID_DOCUMENT|medias_modele_document_standard_attributs{image}) ]>
+			<figure class="spip_doc_inner">
+				[<a href="(#ENV{lien})" [class="(#ENV{lien_class}|concat{' spip_doc_lien'}|trim)" ]>]
+				[(#ENV{lien}|non|et{#GET{autolien}})<a href="#URL_DOCUMENT" class="spip_doc_lien nobox photoswipe" data-pswp-width="#LARGEUR" data-pswp-height="#HAUTEUR" type="#MIME_TYPE">]
+				[<img src="(#GET{932})" width="[(#GET{932}|largeur)]" height="[(#GET{932}|hauteur)]"
+					[srcset="(#GET{srcset}|trim)" ][sizes="(#GET{sizes}|trim)" ]
+					alt="[(#ALT|sinon{#DESCRIPTIF}|sinon{#TITRE}|attribut_html)][ (#CREDITS|attribut_html)]"
+					loading="lazy">]
+				[(#ENV{lien}|ou{#GET{autolien}}|?{</a>})]
+				#GET{legende}
+			</figure>
+		</div>
+	]
+</BOUCLE_image>
+<INCLURE{fond=modeles/file,env} />
+<//B_image>
