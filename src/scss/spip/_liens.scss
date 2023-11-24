@@ -1,0 +1,27 @@
+@use "../abstract" as abstract;
+@use "sass:map";
+// @use "sass:color";
+
+// a[class*="spip"] {}
+
+a[class*="spip"]:visited {
+	color: map.get(abstract.$pomegranate, 700);
+	text-decoration-color: currentColor;
+}
+
+a[class*="spip"]:hover {
+	color: var(--color-primary);
+}
+
+a.spip_out {
+	&::after {
+		background-color: currentColor;
+		content: "";
+		display: inline-flex;
+		margin-left: 0.25em;
+		mask-image: url(../../images/icon-link-external.svg);
+		mask-size: cover;
+		width: 0.6em;
+		height: 0.6em;
+	}
+}

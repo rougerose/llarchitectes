@@ -2,12 +2,84 @@
 // Styles des .spip_documents
 // ========================================
 
+@use "../abstract" as abstract;
+@use "sass:map";
+@use "sass:color";
 
 .spip_documents {
 
-	&.article_logo {
-		& .spip_doc_inner {
-			position: relative;
-		}
+	// &.article_logo {
+	// 	& .spip_doc_inner {
+	// 		position: relative;
+	// 	}
+	// }
+}
+
+.spip_document_image,
+.spip_document_video {
+
+	& .spip_doc_inner {
+		position: relative;
 	}
+
+	& .spip_doc_legende {
+		font-size: var(--step--2);
+	}
+}
+
+.spip_document_file {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 1rem;
+	background-color: var(--color-paper);
+	box-shadow: 0 2px 4px color.scale(map.get(abstract.$cloud, 800), $alpha: -80%),
+		0 3px 6px color.scale(map.get(abstract.$cloud, 800), $alpha: -75%);
+	border-radius: 4px;
+	padding: 1rem;
+	max-width: 70ch;
+
+	& .spip_doc_inner {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+		flex-basis: 0;
+		flex-grow: 999;
+	}
+
+	& .spip_doc_action {
+		display: flex;
+		align-items: center;
+		flex-basis: 20rem;
+		flex-grow: 1;
+	}
+}
+
+.spip_doc_legende {
+
+	.portfolio_album &,
+	.article_logo &,
+	.spip_document_image & {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		padding: 0.5em 0.75em 0 0.2em;
+		background-color: var(--color-paper);
+		font-size: var(--step--2);
+	}
+
+	.spip_document_file & {
+		font-size: var(--step--1);
+	}
+}
+
+.spip_doc_titre {
+	font-weight: 500;
+	color: var(--color-primary);
+}
+
+.spip_doc_descriptif,
+.spip_doc_credits {
+	font-weight: 300;
+	font-size: 0.9em;
 }

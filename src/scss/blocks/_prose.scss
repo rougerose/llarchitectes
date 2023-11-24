@@ -5,6 +5,10 @@
 //
 // ========================================
 
+@use "../abstract" as abstract;
+@use "sass:map";
+// @use "sass:color";
+
 .prose {
 	--flow-space: var(--space-s-m);
 
@@ -16,21 +20,45 @@
 		max-width: 70ch;
 	}
 
-	& :is(h2) {
-		display: inline-block;
-		color: var(--color-ink);
-		border-bottom: 0.25em solid var(--color-primary);
-		padding-left: 0.5em;
-		padding-right: 0.1em;
-		margin-left: -0.5em;
-	}
-
-	& :is(h3, h4, h5, h6) {
+	& :is(.h2, .h3, .h4, .h5, .h6) {
 		color: var(--color-primary);
+
+		&::before {
+			content: "";
+			display: inline-block;
+			width: 0.75em;
+			height: 0.15em;
+			background-color: var(--color-ink);
+		}
 	}
 
-	& :is(figure, figure + *) {
+	& :is(.h2) {
+		color: var(--color-ink);
+
+		&::before {
+			background-color: var(--color-primary);
+			margin-left: -1em;
+			margin-right: 0.25em;
+		}
+	}
+
+	& :is(.h3, .h4, .h5, .h6) {
+		padding-left: 0.75em;
+
+		&::before {
+			width: 0.5em;
+			height: 0.15em;
+			margin-right: 0.25em;
+			margin-left: -0.75em;
+		}
+	}
+
+	& :is(figure, figure + *, .spip_document, .spip_document + *) {
 		--flow-space: var(--space-2xl-3xl);
+	}
+
+	& :is(.spip_document_file, .spip_document_file + *) {
+		--flow-space: var(--space-l-xl);
 	}
 
 	& :is(h2 + *, h3 + *, h4 + *, h5 + *, h6 + *):not(figure) {
@@ -39,5 +67,128 @@
 
 	& :is(h2, h3, h4, h5, h6, h2 + h3, h3 + h4, h4 + h5, h5 + h6) {
 		--flow-space: var(--space-xl-2xl);
+	}
+
+	& hr {
+		max-width: 70ch;
+	}
+
+	// Code
+	& pre,
+	& code {
+		background-color: map.get(abstract.$cloud, 200);
+		word-wrap: normal;
+		text-align: left;
+		word-break: normal;
+		word-spacing: normal
+	}
+
+	pre {
+		overflow: auto;
+		padding: 1em;
+		white-space: pre;
+		tab-size: 4;
+	}
+
+	& code {
+		font-family: var(--font-family-mono);
+		font-size: var(--step--1);
+		background-color: map.get(abstract.$cloud, 200);
+		color: map.get(abstract.$cloud, 800);
+		padding: 0.15em;
+	}
+
+	// Listes
+	& ol,
+	ul {
+		--flow-space: var(--space-2xs-xs);
+		margin-bottom: 0;
+	}
+
+	& ol {
+		padding-left: 2em;
+
+		& li {
+			&::marker {
+				font-family: var(--font-family-mono);
+			}
+		}
+	}
+
+	& ul {
+		padding-left: 1.5em;
+	}
+
+	// Tableaux
+	& table {
+		max-width: 100%;
+		min-width: 50%;
+		width: 100%;
+		border-spacing: 0;
+		margin-top: var(--space-xl-2xl);
+	}
+
+	& th,
+	& td {
+		padding: 0.8em 0.5em;
+		text-align: left;
+		border-collapse: collapse;
+	}
+
+	& th {
+		font-weight: 600;
+		border-top: 1px solid var(--color-secondary-200);
+	}
+
+	& tr {
+
+		& th,
+		& td {
+			border-bottom: 1px solid var(--color-secondary-200);
+		}
+	}
+
+	& caption {
+		caption-side: bottom;
+		padding: 0.8em 0.5em;
+		font-size: var(--step--1);
+		color: var(--color-primary);
+
+		& .summary {
+			color: var(--color-ink);
+		}
+	}
+
+	// Citations
+	blockquote {
+		border-left: 4px solid map.get(abstract.$cloud, 600);
+		padding-left: var(--flow-space, var(--space-m));
+
+		// extend flow-space
+		&>*+* {
+			margin-top: var(--flow-space, var(--space-m));
+		}
+	}
+
+	q {
+		&::before {
+			margin-right: 0.25em;
+		}
+
+		&::after {
+			margin-left: 0.25em;
+		}
+	}
+
+	// Notes
+	& .spip_note_ref {
+		color: var(--color-primary);
+		font-family: var(--font-family-mono);
+		font-size: 0.7em;
+		vertical-align: super;
+	}
+
+	& .spip_note {
+		color: var(--color-ink);
 	}
 }

@@ -19,6 +19,7 @@ $secondary-500: map.get(abstract.$storm-gray, 500);
 // Boutons
 .spip-admin-float {
 	& .spip-admin-boutons {
+		color: var(--color-paper) !important;
 		margin: 0 0.25rem 0 0;
 		font: normal var(--step--4) var(--font-family-mono);
 		border-radius: 4px;

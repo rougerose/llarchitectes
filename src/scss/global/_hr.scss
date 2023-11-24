@@ -1,0 +1,9 @@
+@use "../abstract" as abstract;
+@use "sass:map";
+// @use "sass:color";
+
+hr {
+	border: none;
+	border-top: 2px solid map.get(abstract.$pomegranate, 400);
+	margin: var(--space-l-xl) 0 !important;
+}

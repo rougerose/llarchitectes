@@ -15,5 +15,8 @@
 		<symbol id="icon-cross" viewBox="0 0 64 64" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
  			<path d="M28 36H6.5c-2.208 0-4-1.792-4-4s1.792-4 4-4H28V6.5c0-2.208 1.792-4 4-4s4 1.792 4 4V28h21.5c2.208 0 4 1.792 4 4s-1.792 4-4 4H36v21.5c0 2.208-1.792 4-4 4s-4-1.792-4-4V36Z" fill="currentColor"/>
 		</symbol>
+		<symbol id="icon-download" viewBox="0 0 100 100" fill="none" stroke-width="8" stroke-dashoffset="128" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor">
+			<polyline fill="none" points="10,75 10,90 90,90 90,75"/> <line x1="50" y1="15" x2="50" y2="65" /> <polyline fill="none" points="30,50 50,65 70,50" />
+		</symbol>
 	</defs>
 </svg>

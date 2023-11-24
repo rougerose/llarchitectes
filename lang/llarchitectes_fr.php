@@ -5,6 +5,9 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 
 $GLOBALS[$GLOBALS['idx_lang']] = array(
+	// B
+	'bouton_telecharger' => 'Télécharger',
+
 	// C
 	'contact_adresse_telephone_label' => 'Téléphone&nbsp;:',
 	'contact_adresse_titre' => 'Nos coordonnées',

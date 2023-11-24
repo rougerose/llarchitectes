@@ -19,13 +19,14 @@ h5,
 h6 {
 	font-family: inherit;
 	font-weight: 500;
-	line-height: 1.1;
+	line-height: 1.05;
 	text-wrap: balance;
 	max-width: 40ch;
+	// hyphens: auto;
 }
 
 h1 {
-	font-size: var(--step-6);
+	font-size: var(--step-7);
 }
 
 h2 {

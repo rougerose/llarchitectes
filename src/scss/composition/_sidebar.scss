@@ -27,6 +27,19 @@
 	// 	}
 	// }
 
+	// &[data-sidebar-type="left"] {
+	// 	&>:first-child {
+	// 		flex-basis: var(--sidebar-width, 20rem);
+	// 		flex-grow: 1;
+	// 	}
+
+	// 	& > :last-child {
+	// 		flex-basis: 0;
+	// 		flex-grow: 999;
+	// 		min-width: var(--sidebar-content-width, 50%);
+	// 	}
+	// }
+
 	&[data-sidebar-type="right"] {
 		&> :first-child {
 			flex-basis: 0;

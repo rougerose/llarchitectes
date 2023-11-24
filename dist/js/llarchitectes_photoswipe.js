@@ -9028,7 +9028,7 @@ class PhotoSwipe extends PhotoSwipeBase {
 
 }
 
-let $portfolio = document.querySelector(".portfolio");
+let $portfolio = document.querySelectorAll(".portfolio, .spip_document_image");
 const backEasing = {
 	in: "cubic-bezier(0.6, -0.28, 0.7, 1)",
 	out: "cubic-bezier(0.3, 0, 0.32, 1.275)",

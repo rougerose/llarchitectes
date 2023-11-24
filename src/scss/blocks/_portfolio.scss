@@ -210,27 +210,3 @@
 		width: 100%;
 	}
 }
-
-.portfolio_caption {
-
-	.portfolio_album &,
-	.article_logo & {
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		padding: 0.5em 0.75em 0 0.2em;
-		background-color: var(--color-paper);
-		font-size: var(--step--2);
-	}
-}
-
-.portfolio_caption-heading {
-	font-size: inherit;
-	font-weight: 500;
-	color: var(--color-primary);
-}
-
-.portfolio_caption-desc {
-	font-size: var(--step--3);
-	font-weight: 300;
-}

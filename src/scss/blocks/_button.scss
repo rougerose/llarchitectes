@@ -61,14 +61,14 @@ $primary-800: map.get(abstract.$pomegranate, 800);
 	&.with-icon-start {
 		& svg {
 			margin-right: 0.5em;
-			transform: rotate(90deg);
+			// transform: rotate(90deg);
 		}
 
-		&.with-hover:hover {
-			& svg {
-				transform: rotate(135deg);
-			}
-		}
+		// &.with-hover:hover {
+		// 	& svg {
+		// 		transform: rotate(135deg);
+		// 	}
+		// }
 	}
 
 	// Variante "Framed" transparente et bordure
@@ -165,5 +165,18 @@ $primary-800: map.get(abstract.$pomegranate, 800);
 	// Variante submit
 	&[type="submit"] {
 		border-color: var(--color-ink);
+	}
+}
+
+.button_label {
+	& span:last-child {
+		color: var(--color-secondary-400);
+		font-size: 0.7em;
+		margin-left: 0.5em;
+		transition: color 0.3s;
+
+		.button:hover & {
+			color: var(--color-paper);
+		}
 	}
 }
