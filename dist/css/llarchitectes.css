@@ -310,7 +310,7 @@ h6 {
 }
 
 h1 {
-  font-size: var(--step-7);
+  font-size: var(--step-5);
 }
 
 h2 {
@@ -514,11 +514,10 @@ h6 {
 
 .burger-menu[enabled=true] .burger-menu__panel {
   position: fixed;
-  top: var(--space-3xl);
+  top: var(--panel-top, 0);
   right: 0;
   bottom: 0;
   left: 0;
-  margin-top: var(--space-xl-2xl);
   padding: var(--space-xl-2xl) var(--gutter) 0;
   visibility: hidden;
   opacity: 0;

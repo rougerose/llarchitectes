@@ -263,6 +263,14 @@ class BurgerMenu extends HTMLElement {
 		const observer = new ResizeObserver((observedItems) => {
 			const { contentRect } = observedItems[0];
 			this.state.enabled = contentRect.width <= this.maxWidth;
+			// Récupérer la hauteur total du header,
+			// pour la convertir en variable qui sera utilisée
+			// par le menu version mobile et se décaler en hauteur
+			// pour laisser le logo apparent à l'écran.
+			this.root.style.setProperty(
+				"--panel-top",
+				Math.ceil(this.parentNode.parentNode.offsetHeight) + "px"
+			);
 		});
 
 		// We want to watch the parent like a hawk
