@@ -31,5 +31,5 @@
     <utilise nom="medias" />
     <utilise nom="facteur" />
     <utilise nom="nospam" />
-    <!-- <utilise nom="oembed" /> -->
+    <utilise nom="oembed" />
 </paquet>
