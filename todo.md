@@ -1,10 +1,7 @@
 - [ ] css et animations des liens
 - [ ] retour haut de page
 - ajouter les squelettes d'article et de rubrique par défaut
-
-# Articles
-
-- [ ] article d'exemple des raccourcis Spip
+- tester le formulaire de contact
 
 # Mentions légales
 
