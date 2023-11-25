@@ -40,10 +40,16 @@
 							</dl>
 						</BOUCLE_metas>
 					</div>
+					[<div class="article_notes prose grid">
+						(#NOTES)
+					</div>]
 				</div>
 			</div>
 			<div class="wrapper">
 				<div class="article_extra">
+					<BOUCLE_docs_article(DOCUMENTS){id_article}{vu=non}{media=file}{0,1}>
+						<INCLURE{fond=inclure/listes/documents_file_article, id_article} />
+					</BOUCLE_docs_article>
 					<B_albums_article>
 						<div class="article_portfolio portfolio flow">
 							<BOUCLE_albums_article(ALBUMS){id_article}{vu=non}>
