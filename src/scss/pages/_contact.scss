@@ -13,6 +13,12 @@
 
 .contact_body {
 	margin-top: var(--space-m-l);
+
+	&.article_extra {
+		& > div:first-child {
+			margin-top: 0;
+		}
+	}
 }
 
 .contact_formulaire {
@@ -45,7 +51,7 @@
 		font-size: var(--step-1);
 		font-weight: 600;
 
-		&+.adresse_ligne {
+		& + .adresse_ligne {
 			margin-top: var(--space-xs-s);
 		}
 	}
@@ -58,4 +64,8 @@
 
 .contact_carte {
 	padding-top: var(--space-xl-2xl);
+
+	& .carte_gis {
+		z-index: inherit;
+	}
 }

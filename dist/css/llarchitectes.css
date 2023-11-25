@@ -1678,6 +1678,9 @@ legend {
 .contact_body {
   margin-top: var(--space-m-l);
 }
+.contact_body.article_extra > div:first-child {
+  margin-top: 0;
+}
 
 .contact_formulaire .formulaire_spip {
   padding-right: var(--space-l);
@@ -1711,6 +1714,9 @@ legend {
 
 .contact_carte {
   padding-top: var(--space-xl-2xl);
+}
+.contact_carte .carte_gis {
+  z-index: inherit;
 }
 
 .homepage {
@@ -1762,6 +1768,7 @@ legend {
   right: auto !important;
   bottom: 4px;
   left: 4px;
+  z-index: 999 !important;
 }
 
 .spip-admin-float .spip-admin-boutons {

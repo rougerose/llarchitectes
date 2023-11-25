@@ -14,6 +14,7 @@ $secondary-500: map.get(abstract.$storm-gray, 500);
 	right: auto !important;
 	bottom: 4px;
 	left: 4px;
+	z-index: 999 !important;
 }
 
 // Boutons
