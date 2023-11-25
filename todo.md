@@ -2,6 +2,7 @@
 - [ ] retour haut de page
 - ajouter les squelettes d'article et de rubrique par défaut
 - tester le formulaire de contact
+- ajouter des liens d'évitement
 
 # Mentions légales
 
