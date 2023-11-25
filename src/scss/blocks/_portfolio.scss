@@ -5,8 +5,8 @@
 @use "../tools/mq" as mq;
 
 .portfolio {
-	--flow-space: var(--space-m-l);
-	margin-top: var(--space-l-xl);
+	--flow-space: var(--space-l-xl);
+	// margin-top: var(--space-l-xl);
 
 	// Variante .breakout (projet) //
 	// &.breakout {

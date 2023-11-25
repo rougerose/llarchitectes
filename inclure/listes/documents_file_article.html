@@ -1,0 +1,8 @@
+<B_docs_associes>
+	<div id="[(#VAL{<:llarchitectes:documents_associes:>}|identifiant_slug{id, #ARRAY{separateur,-,longueur_mini,5}})]"
+		class="article_files flow">
+		<BOUCLE_docs_associes(DOCUMENTS){id_article}{vu=non}{media=file}{par rang_lien, num titre, titre, id_document}>
+			<INCLURE{fond=modeles/file, id_document, env} />
+		</BOUCLE_docs_associes>
+	</div>
+</B_docs_associes>

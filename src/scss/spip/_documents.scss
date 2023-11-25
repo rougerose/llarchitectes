@@ -6,14 +6,7 @@
 @use "sass:map";
 @use "sass:color";
 
-.spip_documents {
-
-	// &.article_logo {
-	// 	& .spip_doc_inner {
-	// 		position: relative;
-	// 	}
-	// }
-}
+// .spip_documents {}
 
 .spip_document_image,
 .spip_document_video {
@@ -43,15 +36,26 @@
 		display: flex;
 		gap: 1rem;
 		align-items: center;
+		justify-content: flex-start;
 		flex-basis: 0;
 		flex-grow: 999;
+		min-width: 40%;
+	}
+
+	& .spip_doc_lien {
+		flex-shrink: 0;
+		flex-grow: 0;
 	}
 
 	& .spip_doc_action {
 		display: flex;
 		align-items: center;
-		flex-basis: 20rem;
+		flex-basis: 19rem;
 		flex-grow: 1;
+
+		& .button {
+			flex: 1;
+		}
 	}
 }
 

@@ -20,6 +20,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// D
 	'date_projet_label_prive' => 'Date de réalisation du projet',
 	'date_projet_label_public' => 'Année de réalisation',
+	'document_associe' => 'Document à télécharger',
+	'documents_associes' => 'Documents à télécharger',
 
 	// F
 	'formulaire_filtres_legend' => 'Filtrer les projets par catégorie',
