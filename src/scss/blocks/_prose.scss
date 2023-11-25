@@ -54,12 +54,12 @@
 	}
 
 	& :is(figure, figure + *, .spip_document, .spip_document + *) {
-		--flow-space: var(--space-2xl-3xl);
-	}
-
-	& :is(.spip_document_file, .spip_document_file + *) {
 		--flow-space: var(--space-l-xl);
 	}
+
+	// & :is(.spip_document_file, .spip_document_file + *) {
+	// 	--flow-space: var(--space-l-xl);
+	// }
 
 	& :is(h2 + *, h3 + *, h4 + *, h5 + *, h6 + *):not(figure) {
 		--flow-space: var(--space-s-m);

@@ -1177,9 +1177,6 @@ legend {
   margin-left: -0.75em;
 }
 .prose :is(figure, figure + *, .spip_document, .spip_document + *) {
-  --flow-space: var(--space-2xl-3xl);
-}
-.prose :is(.spip_document_file, .spip_document_file + *) {
   --flow-space: var(--space-l-xl);
 }
 .prose :is(h2 + *, h3 + *, h4 + *, h5 + *, h6 + *):not(figure) {
@@ -1573,11 +1570,11 @@ legend {
   width: 100%;
 }
 .article_content :is(.article_desc + .article_logo), .article_content :is(.article_logo + *) {
-  margin-top: var(--space-2xl-3xl);
+  margin-top: var(--space-l-xl);
 }
 
 .article_desc {
-  margin-top: var(--space-2xl-3xl);
+  margin-top: var(--space-l-xl);
   font-size: var(--step-2);
 }
 
