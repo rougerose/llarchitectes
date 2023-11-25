@@ -129,6 +129,14 @@ select {
     scroll-behavior: auto !important;
   }
 }
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+:target {
+  scroll-margin-block: 5ex;
+}
+
 @font-face {
   font-family: "PressuraMono";
   src: url("http://localhost:8888/llarchitectes.dev/squelettes/webfonts/GT-Pressura/GT-Pressura-Mono-Light.woff2") format("woff2"), url("http://localhost:8888/llarchitectes.dev/squelettes/webfonts/GT-Pressura/GT-Pressura-Mono-Light.woff") format("woff");
