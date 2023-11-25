@@ -1,0 +1,18 @@
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+	<div class="rubrique">
+		<div class="wrapper region" data-type="narrow">
+			<INCLURE{fond=breadcrumb/rubrique, id_rubrique} />
+			<header class="headline prose">
+				<h1 class="headline_title">#TITRE</h1>
+				[<div class="headline_desc flow">
+					(#TEXTE)
+				</div>]
+			</header>
+		</div>
+		<div class="journal region">
+			<div class="wrapper">
+				<INCLURE{fond=inclure/listes/articles_journal, id_rubrique, pagination=#ENV{pagination, 10}, ajax, env} />
+			</div>
+		</div>
+	</div>
+</BOUCLE_rubrique>
