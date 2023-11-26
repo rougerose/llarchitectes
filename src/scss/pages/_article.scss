@@ -103,7 +103,7 @@ $inset-width: 2px;
 
 .article_extra {
 	& > div:first-child {
-		margin-top: var(--space-2xl-3xl);
+		margin-top: var(--space-l-xl);
 	}
 }
 
@@ -162,6 +162,6 @@ $inset-width: 2px;
 		grid-column: 2 / -1;
 		grid-row: 2;
 		padding-bottom: #{$inset-space};
-		margin-top: #{$inset-space};
+		// margin-top: #{$inset-space};
 	}
 }
