@@ -431,6 +431,55 @@ h6 {
   max-width: 100rem;
 }
 
+.back-to-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  pointer-events: none;
+}
+.back-to-top.is-intersecting .button {
+  opacity: 0;
+  visibility: hidden;
+}
+.back-to-top .button {
+  pointer-events: auto;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  bottom: 1rem;
+  right: var(--gutter);
+  z-index: 998;
+  min-width: unset;
+  border-radius: 100%;
+  visibility: visible;
+  opacity: 1;
+}
+.back-to-top .button:hover {
+  color: var(--color-paper);
+  border-radius: 0;
+}
+.back-to-top .button:hover svg {
+  color: var(--color-paper);
+}
+.back-to-top svg {
+  --icon-size: 28px;
+  color: var(--color-primary);
+  transition: fill 0.3s ease;
+}
+.back-to-top svg + span {
+  margin-top: 0.25em;
+}
+.back-to-top span {
+  font-size: var(--step--3);
+  width: 8ch;
+  text-align: center;
+  line-height: 1;
+  color: currentColor;
+  transition: color 0.3s ease;
+}
+
 .breadcrumb {
   color: var(--color-secondary-700);
   font-family: var(--font-family-mono);

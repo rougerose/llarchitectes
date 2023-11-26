@@ -18,5 +18,8 @@
 		<symbol id="icon-download" viewBox="0 0 100 100" fill="none" stroke-width="8" stroke-dashoffset="128" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor">
 			<polyline fill="none" points="10,75 10,90 90,90 90,75"/> <line x1="50" y1="15" x2="50" y2="65" /> <polyline fill="none" points="30,50 50,65 70,50" />
 		</symbol>
+		<symbol id="icon-back-to-top" viewBox="0 0 64 64" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+  			<path d="M32 2c16.557 0 30 13.443 30 30 0 16.557-13.443 30-30 30C15.443 62 2 48.557 2 32 2 15.443 15.443 2 32 2ZM16.482 42.666 32 23.269l15.518 19.397a2.667 2.667 0 0 0 4.164-3.332l-17.6-22a2.668 2.668 0 0 0-4.164 0l-17.6 22a2.667 2.667 0 0 0 4.164 3.332Z" fill="currentColor"/>
+		</symbol>
 	</defs>
 </svg>

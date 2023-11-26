@@ -1,4 +1,4 @@
-<body>
+<body id="top">
 	<header class="site-header" role="banner">
 		<INCLURE{fond=header/#ENV{type-page}, env}/>
 	</header>
@@ -8,4 +8,10 @@
 	<footer class="site-footer">
 		<INCLURE{fond=footer/#ENV{type-page}, env}/>
 	</footer>
+	<div class="back-to-top is-intersecting">
+		<a href="#top" class="back-to-top_button button">
+			[<svg class="icon icon-back-to-top" height="1em" width="1em" viewBox="0 0 64 64" aria-hidden="true"><use href="(#CHEMIN{images/icon-defs.svg}|ancre_url{icon-back-to-top})"></use></svg>]
+			<span>Haut de page</span>
+		</a>
+	</div>
 </body>
