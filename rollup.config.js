@@ -12,6 +12,7 @@ const terserOptions = {
 };
 const outputPlugins = () => [
 	process.env.NODE_ENV === "production" && terser(terserOptions),
+	process.env.NODE_ENV === "test" && terser(terserOptions),
 ];
 
 function build(src, dist, name, format) {

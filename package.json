@@ -6,13 +6,14 @@
     "main": "rollup.config.js",
     "config": {
         "host": {
-            "dev": "http://localhost:8888/llarchitectes.dev",
+            "local": "http://localhost:8888/llarchitectes.dev",
+            "test": "http://wip.rouge-rose.net",
             "prod": "http://wip.rouge-rose.net"
         }
     },
     "scripts": {
         "build": "run-s clean && run-p build:* && run-s autoprefixer",
-        "build:env": "node host_to_scss",
+        "build:env": "node host_to_scss.config",
         "build:scss": "sass --no-source-map --load-path=node_modules src/scss/index.scss dist/css/llarchitectes.css",
         "build:js": "rollup -c --bundleConfigAsCjs",
         "autoprefixer": "postcss -r dist/css/llarchitectes.css",
@@ -21,8 +22,9 @@
         "watch": "run-p build server watch:*",
         "watch:css": "chokidar './src/scss/**/*.scss' -c 'npm run build:scss && npm run autoprefixer'",
         "watch:js": "chokidar './src/js/**/*.js' -c 'npm run build:js'",
-        "test": "bundlesize",
-        "validate": "NODE_ENV=production run-s build test",
+        "size": "bundlesize",
+        "validate": "NODE_ENV=production run-s build size",
+        "test": "NODE_ENV=test run-s build",
         "publish": "NODE_ENV=production run-s build"
     },
     "repository": {

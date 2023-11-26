@@ -8,11 +8,15 @@ const pkg = require("./package.json");
 async function add_host_variable() {
 	try {
 		let comment = `// La variable $host est utilisée lors de la compilation
-// des webfonts pour tenir compte du contexte (développement ou production)
+// des webfonts pour tenir compte du contexte (local, test ou production)
 // et de l'emplacement des fichiers dans la mesure où ils ne sont pas indexés
 // dans le dépôt du projet.
 `;
-		let content = "$host: " + JSON.stringify(pkg.config.host.dev) + ";";
+		let content = "$host: " + JSON.stringify(pkg.config.host.local) + ";";
+
+		if (process.env.NODE_ENV === "test") {
+			content = "$host: " + JSON.stringify(pkg.config.host.test) + ";";
+		}
 
 		if (process.env.NODE_ENV === "production") {
 			content = "$host: " + JSON.stringify(pkg.config.host.prod) + ";";
