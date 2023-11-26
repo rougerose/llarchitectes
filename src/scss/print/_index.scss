@@ -1,0 +1,60 @@
+@forward "gutenberg-variables" with ($base-font-family: #{var(--font-family-base)},
+	$headers-font-family: #{var(--font-family-base)},
+	$line-height: 1.3,
+);
+@use "../abstract/" as abstract;
+@use "gutenberg-print-reset" as g1;
+@use "gutenberg-pagination" as g2;
+@use "gutenberg-page" as g3;
+@use "gutenberg-reformat" as g4;
+@use "gutenberg-utilities" as g5;
+
+@media print {
+	:root {
+		@each $key, $value in abstract.$colors_print {
+			--color-#{$key}: #{$value};
+		}
+	}
+
+	@include g1.print-reset;
+	@include g2.pagination;
+	@include g3.page;
+	@include g4.reformat;
+	@include g5.utilities;
+
+	// Reset
+	.wrapper {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.site-content > div.region:first-child {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	.homepage_intro,
+	.projets_header,
+	.rubrique > div.region:first-child {
+		padding-top: 0;
+	}
+
+	.spip_document_file {
+		border: 1px solid var(--color-gray);
+	}
+
+	.prose code,
+	.prose pre {
+		background-color: transparent;
+	}
+
+
+	// no-print
+	.site-header,
+	.site-footer,
+	.back-to-top,
+	.related,
+	.breadcrumb {
+		display: none;
+	}
+}

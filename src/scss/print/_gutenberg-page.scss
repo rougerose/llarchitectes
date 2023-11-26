@@ -1,0 +1,10 @@
+@use "gutenberg-variables" as var;
+
+@mixin page {
+	body {
+		padding-bottom: var.$page-padding-bottom;
+		padding-left: var.$page-padding-left;
+		padding-right: var.$page-padding-right;
+		padding-top: var.$page-padding-top;
+	}
+}

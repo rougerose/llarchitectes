@@ -8,6 +8,7 @@ $base: (
 	"ink": hsl(0, 0%, 0%),
 	"paper": hsl(0, 0%, 97%),
 	"white": hsl(0, 0%, 100%),
+	"gray": hsl(0, 0%, 45%),
 );
 
 // couleur primaire
@@ -97,4 +98,12 @@ $colors: (
 	// "mute-light": map.get($cloud, 400),
 	// "mute-lighter": map.get($cloud, 200),
 	// "tertiary": map.get($cloud-burst, 700),,,,
+);
+
+$colors_print: (
+	"ink": map.get($base, "ink"),
+	"paper": map.get($base, "white"),
+	"primary": map.get($base, "ink"),
+	"primary-900": map.get($base, "ink"),
+	"gray": map.get($base, "gray"),
 );
