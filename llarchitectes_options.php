@@ -20,3 +20,8 @@ define('_NOTES_OUVRE_REF', '<span class="spip_note_ref">&nbsp;');
 define('_NOTES_FERME_REF', '</span>');
 define('_NOTES_OUVRE_NOTE', '<span class="spip_note_ref">');
 define('_NOTES_FERME_NOTE', '&nbsp;</span>');
+
+// Titrer les documents
+if (!defined('_TITRER_DOCUMENTS')) {
+	define('_TITRER_DOCUMENTS', true);
+}
