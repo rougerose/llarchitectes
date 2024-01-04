@@ -29,6 +29,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'formulaire_filtres_submit' => 'Appliquer',
 
 	// L
+	'lien_aller_au_contenu' => 'Aller au contenu principal',
 	'lien_poursuivre' => 'En savoir plus',
 	'lien_poursuivre_projets' => 'Voir tous nos projets',
 	'lien_poursuivre_journal' => 'Consulter notre journal de bord',
