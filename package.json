@@ -7,8 +7,8 @@
     "config": {
         "host": {
             "local": "http://localhost:8888/llarchitectes.dev",
-            "test": "https://wip.rouge-rose.net",
-            "prod": "https://wip.rouge-rose.net"
+            "test": "https://rougerose.alwaysdata.net/lla/",
+            "prod": "https://rougerose.alwaysdata.net/lla/"
         }
     },
     "scripts": {
