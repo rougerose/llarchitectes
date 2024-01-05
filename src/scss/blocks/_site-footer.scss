@@ -26,6 +26,10 @@
 	max-width: var(--logo-max-width);
 }
 
+.site-footer_partners,
+.site-footer_legal {
+	font-family: var(--font-family-mono);
+}
 
 .site-footer_partners {
 	--cluster-space: 0.5rem var(--space-xs);

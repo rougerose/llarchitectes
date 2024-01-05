@@ -1,7 +1,5 @@
 - favicon
-- metaplus
-- ajouter des liens d'évitement
-- pied de page : unifier la typo : mono uniquement (partenariat et mentions sont en Pressura std)
+- page 404.html
 
 # Mentions légales
 
