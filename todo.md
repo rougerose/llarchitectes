@@ -1,4 +1,3 @@
-- favicon
 - page 404.html
 
 # Mentions légales
