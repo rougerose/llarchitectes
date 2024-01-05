@@ -1,5 +1,3 @@
-- page 404.html
-
 # Mentions légales
 
 - https://entreprendre.service-public.fr/vosdroits/F31228

@@ -1,0 +1,16 @@
+<div class="wrapper region" data-type="narrow">
+	<INCLURE{fond=breadcrumb/article, id_article} />
+	<article class="article">
+		<div class="article_content">
+			<header class="article_header">
+				<h1 class="article_titre"><:pass_erreur:>[ (#ENV{status, 404}|intval)]</h1>
+			</header>
+			<div class="article_desc prose flow">
+				[(#ENV{erreur}|?{
+					<p>[(#ENV{erreur})]</p>,
+					<p>La page demandée n’existe pas.</p>
+				})]
+			</div>
+		</div>
+	</article>
+</div>
