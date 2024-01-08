@@ -359,14 +359,6 @@ h6 {
   margin-top: var(--flow-space, 1rem);
 }
 
-.full-bleed {
-  width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  padding-left: var(--gutter);
-  padding-right: var(--gutter);
-}
-
 .grid {
   display: grid;
   gap: var(--gutter);
@@ -1207,9 +1199,6 @@ legend {
   width: 0.75em;
   height: 0.15em;
   background-color: var(--color-ink);
-}
-.prose :is(.h2) {
-  color: var(--color-ink);
 }
 .prose :is(.h2)::before {
   background-color: var(--color-primary);
