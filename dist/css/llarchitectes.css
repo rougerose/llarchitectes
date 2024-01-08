@@ -1675,6 +1675,11 @@ legend {
 
 .article_files {
   --flow-space: var(--space-m-l);
+  max-width: var(--wrapper-narrow-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
 }
 .article_files .spip_document_file {
   max-width: unset;
