@@ -27,6 +27,7 @@
 					<div class="article_portfolio portfolio flow">
 						<BOUCLE_albums_article(ALBUMS){id_article}{vu=non}>
 							<INCLURE{fond=#COMPOSITION|compositions_selectionner{album, cent}, id_album, id_article}/>
+							[<div class="portfolio_credits">(#CREDITS)</div>]
 						</BOUCLE_albums_article>
 					</div>
 					<script src="#CHEMIN{dist/js/llarchitectes_photoswipe.js}" defer></script>

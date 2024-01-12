@@ -9,6 +9,7 @@
 			</BOUCLE_lien>
 			[(#GET{composition}|=={journal}|oui) #SET{composition, cent} ]
 			<INCLURE{fond=content/album-#GET{composition}, id_album, env} />
+			[<div class="portfolio_credits">(#CREDITS)</div>]
 		</div>
 	</div>
 </BOUCLE_album>

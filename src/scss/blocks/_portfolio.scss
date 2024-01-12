@@ -6,106 +6,6 @@
 
 .portfolio {
 	--flow-space: var(--space-l-xl);
-	// margin-top: var(--space-l-xl);
-
-	// Variante .breakout (projet) //
-	// &.breakout {
-	// 	--item-space: var(--space-2xl);
-	// 	margin-top: var(--space-2xl-3xl);
-	// }
-
-	// Variante slideshow (carousel)
-	// &[data-variant="slideshow"] {
-	// 	& .splide {
-	// 		max-width: 100%;
-	// 		height: calc(100vh - var(--gutter) * 2);
-
-	// 		&.is-initialized {
-	// 			& .splide__slide img {
-	// 				opacity: 0;
-	// 			}
-
-	// 			& .splide__slide.is-active img {
-	// 				opacity: 1;
-	// 			}
-	// 		}
-	// 	}
-
-	// 	& .splide__track {
-	// 		height: calc(100% - var(--space-2xl));
-	// 	}
-
-	// 	// Navigation
-	// 	& .splide__arrows {
-	// 		position: absolute;
-	// 		bottom: calc(var(--space-2xs) * -1);
-	// 		right: 0;
-	// 	}
-
-	// 	& .splide__arrow {
-	// 		background: none;
-	// 		position: initial;
-	// 		transform: none;
-	// 		display: inline-flex;
-	// 		opacity: 1;
-	// 		width: auto;
-	// 		height: auto;
-
-	// 		& svg {
-	// 			width: var(--space-l-xl);
-	// 			height: auto;
-	// 		}
-
-	// 		&:disabled svg {
-	// 			opacity: 0.3;
-	// 		}
-	// 	}
-
-	// 	& .splide__arrow--prev {
-	// 		margin-right: var(--space-s);
-	// 	}
-
-	// 	& .splide__slide {
-	// 		max-width: 100%;
-	// 		width: 100%;
-	// 		// Alignement sur la colonne de texte principale
-	// 		padding-left: calc((100vw - var(--wrapper-narrow-max-width)) / 2);
-
-	// 		& figure {
-	// 			height: 100%;
-	// 		}
-
-	// 		& img {
-	// 			width: 100%;
-	// 			height: 100%;
-	// 			object-fit: contain;
-	// 			object-position: left center;
-	// 			transition: opacity 0.25s ease-in;
-	// 		}
-	// 	}
-
-	// 	& .splide__number {
-	// 		position: absolute;
-	// 		bottom: 0;
-	// 		left: max(calc((100vw - var(--wrapper-narrow-max-width)) / 2), 0vw);
-	// 		display: flex;
-	// 		font-family: var(--font-family-mono);
-
-	// 		& .number__index {
-	// 			align-self: flex-start;
-	// 			color: var(--color-primary);
-	// 		}
-
-	// 		& .number__length {
-	// 			align-self: flex-end;
-	// 		}
-
-	// 		& .number__separator {
-	// 			font-size: var(--step-4);
-	// 			font-weight: 300;
-	// 		}
-	// 	}
-	// }
 }
 
 .portfolio_album {
@@ -114,15 +14,12 @@
 	& figure {
 		position: relative;
 	}
+}
 
-	// & figcaption {
-	// 	position: absolute;
-	// 	left: 0;
-	// 	bottom: 0;
-	// 	padding: 0.5em 0.75em 0 0.2em;
-	// 	background-color: var(--color-paper);
-	// 	font-size: var(--step--2);
-	// }
+.portfolio_credits {
+	margin-top: var(--space-s-m);
+	font-weight: 300;
+	font-size: var(--step--2);
 }
 
 // Variante Cent (100%, pleine largeur)
