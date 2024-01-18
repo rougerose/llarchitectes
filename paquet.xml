@@ -8,26 +8,26 @@
     schema="1.0.0"
 >
 	<nom>Laurent Lainé Architectes : squelettes et thème graphique</nom>
-	<auteur lien="http://rouge-rose.net">christophe le drean</auteur>
-	<licence>GNU/GPL</licence>
+	<auteur lien="https://rouge-rose.net">christophe le drean</auteur>
+	<licence>Tous droits réservés</licence>
     <pipeline nom="declarer_champs_extras" inclure="base/llarchitectes.php" />
-    <necessite nom="albums" compatibilite="[4.0.4;["/>
-    <necessite nom="centre_image" compatibilite="[3.1.2;["/>
-    <necessite nom="compositions" compatibilite="[3.9.5;["/>
-    <necessite nom="cextras" compatibilite="[4.1.2;["/>
-    <necessite nom="contacts" compatibilite="[5.2.0;["/>
-    <necessite nom="coordonnees" compatibilite="[4.2.3;["/>
-    <necessite nom="critere_mots" compatibilite="[4.3.7;[" />
-    <necessite nom="gis" compatibilite="[5.1.0;[" />
-    <necessite nom="gma" compatibilite="[1.3.2;[" />
+    <necessite nom="albums" />
+    <necessite nom="centre_image" />
+    <necessite nom="compositions" />
+    <necessite nom="cextras" />
+    <necessite nom="contacts" />
+    <necessite nom="coordonnees" />
+    <necessite nom="critere_mots" />
+    <necessite nom="gis" />
+    <necessite nom="gma" />
     <necessite nom="grappes" />
-    <necessite nom="porte_plume_intertitres" compatibilite="[2.0.7;["/>
-    <necessite nom="menus" compatibilite="[2.0.7;[" />
-    <necessite nom="motus" compatibilite="[2.0.1;["/>
-    <necessite nom="pages" compatibilite="[2.0.0;[" />
-    <necessite nom="saisies" compatibilite="[4.11.0;[" />
-    <necessite nom="verifier" compatibilite="[3.1.0;[" />
-    <necessite nom="zcore" compatibilite="[3.0.5;[" />
+    <necessite nom="porte_plume_intertitres" />
+    <necessite nom="menus" />
+    <necessite nom="motus" />
+    <necessite nom="pages" />
+    <necessite nom="saisies" />
+    <necessite nom="verifier" />
+    <necessite nom="zcore" />
     <utilise nom="prism" />
     <utilise nom="medias" />
     <utilise nom="facteur" />
