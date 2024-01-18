@@ -1,7 +1,7 @@
 <paquet
 	prefix="llarchitectes"
-	version="0.1.5"
-	etat="test"
+	version="1.0.0"
+	etat="stable"
 	compatibilite="[4.2.6;4.2.*]"
 	logo="prive/themes/spip/images/llarchitectes-64.png"
 	documentation=""
