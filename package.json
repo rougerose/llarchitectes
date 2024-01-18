@@ -7,8 +7,8 @@
     "config": {
         "host": {
             "local": "http://localhost:8888/llarchitectes.dev",
-            "test": "https://rougerose.alwaysdata.net/lla/",
-            "prod": "https://rougerose.alwaysdata.net/lla/"
+            "test": "https://llarchitectes.fr",
+            "prod": "https://llarchitectes.fr"
         }
     },
     "scripts": {
