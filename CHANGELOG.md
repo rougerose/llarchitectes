@@ -25,3 +25,9 @@
 ### Changed
 
 - mise à jour du fichier README.md
+
+## 1.0.1 - 2024-01-22
+
+### Fixed
+
+- rétablir le style par défaut des listes générées par Spip
