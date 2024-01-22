@@ -1252,6 +1252,7 @@ legend {
 .prose ul {
   --flow-space: var(--space-2xs-xs);
   margin-bottom: 0;
+  list-style: unset;
 }
 .prose ol {
   padding-left: 2em;
