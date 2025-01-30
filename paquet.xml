@@ -2,7 +2,7 @@
 	prefix="llarchitectes"
 	version="1.0.1"
 	etat="stable"
-	compatibilite="[4.2.6;4.2.*]"
+	compatibilite="[4.2.6;4.3.*]"
 	logo="prive/themes/spip/images/llarchitectes-64.png"
 	documentation=""
     schema="1.0.0"
