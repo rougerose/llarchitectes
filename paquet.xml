@@ -34,4 +34,5 @@
     <utilise nom="nospam" />
     <utilise nom="oembed" />
     <utilise nom="metasplus" />
+    <utilise nom="organiseur" />
 </paquet>
