@@ -6,7 +6,7 @@
     "main": "rollup.config.js",
     "config": {
         "host": {
-            "local": "http://localhost:8888/llarchitectes.dev",
+            "local": "https://llarchitectes.ddev.site",
             "test": "https://llarchitectes.fr",
             "prod": "https://llarchitectes.fr"
         }
@@ -22,8 +22,7 @@
         "watch": "run-p build server watch:*",
         "watch:css": "chokidar './src/scss/**/*.scss' -c 'npm run build:scss && npm run autoprefixer'",
         "watch:js": "chokidar './src/js/**/*.js' -c 'npm run build:js'",
-        "size": "bundlesize",
-        "validate": "NODE_ENV=production run-s build size",
+        "validate": "NODE_ENV=production run-s build",
         "test": "NODE_ENV=test run-s build",
         "publish": "NODE_ENV=production run-s build"
     },
@@ -38,24 +37,23 @@
     },
     "homepage": "https://github.com/rougerose/llarchitectes#readme",
     "devDependencies": {
-        "@rollup/plugin-commonjs": "^25.0.7",
-        "@rollup/plugin-node-resolve": "^15.2.3",
+        "@rollup/plugin-commonjs": "^28.0.2",
+        "@rollup/plugin-node-resolve": "^16.0.0",
         "@rollup/plugin-terser": "^0.4.4",
-        "autoprefixer": "^10.4.16",
-        "body-scroll-lock-upgrade": "^1.0.4",
-        "browser-sync": "^2.29.3",
-        "bundlesize": "^0.18.1",
+        "autoprefixer": "^10.4.20",
+        "body-scroll-lock-upgrade": "^1.1.0",
+        "browser-sync": "^3.0.3",
         "chokidar-cli": "^3.0.0",
         "gutenberg-css": "^0.7.0",
         "modern-css-reset": "^1.4.0",
-        "npm-run-all2": "^6.1.1",
+        "npm-run-all2": "^7.0.2",
         "photoswipe": "^5.4.2",
-        "postcss": "^8.4.31",
-        "postcss-cli": "^10.1.0",
+        "postcss": "^8.5.1",
+        "postcss-cli": "^11.0.0",
         "postcss-csso": "^6.0.1",
-        "rimraf": "^5.0.5",
-        "rollup": "^4.1.4",
-        "sass": "^1.69.4",
-        "sass-mq": "^6.0.0"
+        "rimraf": "^6.0.1",
+        "rollup": "^4.32.1",
+        "sass": "^1.83.4",
+        "sass-mq": "^7.0.0-beta.1"
     }
 }
