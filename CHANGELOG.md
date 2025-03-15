@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1 - 2025-03-15
+
+- Supprimer un signe + en trop sur le numéro de téléphone.
+
 ## 1.1.0 - 2025-03-03
 
 - Mise à jour pour Spip 4.4.X
