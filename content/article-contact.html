@@ -45,7 +45,7 @@
 								</BOUCLE_adresse>
 								<BOUCLE_telephone(NUMEROS){id_auteur}>
 									[(#REM) Remplacer les ponctuations et les espaces, par rien ]
-									[<p class="adresse_telephone"><:llarchitectes:contact_adresse_telephone_label:> <a href="tel:+(#NUMERO|replace{(&#38;nbsp;|\p{P}|\h)+,'',S})">#NUMERO</a></p>]
+									[<p class="adresse_telephone"><:llarchitectes:contact_adresse_telephone_label:> <a href="tel:(#NUMERO|replace{(&#38;nbsp;|\p{P}|\h)+,'',S})">#NUMERO</a></p>]
 								</BOUCLE_telephone>
 							</address>
 						</div>
